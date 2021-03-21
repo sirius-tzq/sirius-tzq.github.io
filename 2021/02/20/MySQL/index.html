@@ -1,0 +1,998 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Theo Tan">
+  <meta name="keywords" content="">
+  <title>MySQL - -琅然_</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然_" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/MySQL.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="MySQL">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-20 10:17" pubdate>
+        2021年2月20日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.9k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      37
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">MySQL</h1>
+            
+            <div class="markdown-body">
+              <p>下载文件<a href="/download/mysql57.rar">MySQL5.7和SQLyog</a>。安装教程如下：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BZ4y1H7LZ?p=2">MySQL安装</a>；<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1BZ4y1H7LZ?p=7">SQLyog安装</a></p>
+<h1 id="MySQL基本命令"><a href="#MySQL基本命令" class="headerlink" title="MySQL基本命令"></a>MySQL基本命令</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt;SHOW DATABASES;</span><br><span class="line">+--------------------+</span><br><span class="line">| Database           |</span><br><span class="line">+--------------------+</span><br><span class="line">| information_schema |</span><br><span class="line">| mysql              |</span><br><span class="line">| performance_schema |</span><br><span class="line">| sakila             |</span><br><span class="line">| sys                |</span><br><span class="line">| world              |</span><br><span class="line">+--------------------+</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>数据库名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>information_schema</td>
+<td>信息数据库，其中保存着关于所有数据库的信息，包括元数据（关于数据的数据，如数据库名或表名）</td>
+</tr>
+<tr>
+<td>mysql</td>
+<td>核心数据库，主要负责储存数据库的用户</td>
+</tr>
+<tr>
+<td>performance_schema</td>
+<td>性能优化的数据库</td>
+</tr>
+<tr>
+<td>sys</td>
+<td>系统数据库，可以快速了解元数据</td>
+</tr>
+<tr>
+<td>others</td>
+<td>用户创建的数据库，可删除</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>创建数据库</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; CREATE DATABASE myDB;</span><br><span class="line">mysql&gt; CREATE DATABASE myDB CHARACTER SET gbk; #创建数据库并设置编码格式</span><br><span class="line">mysql&gt; CREATE DATABASE IF NOT EXISTS myDB;#创建数据库myDB如果该数据库不存在</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>查看数据库创建时的信息</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; SHOW CREATE DATABASE myDB;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>修改数据库</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; ALTER DATABASE myDB CHARACTER SET utf8</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>删除数据库</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; DROP DATABASE myDB;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>使用数据库</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; USE myDB;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>查看当前操作的数据库</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql&gt; select database();</span><br></pre></td></tr></table></figure>
+<h1 id="SQLyog实践"><a href="#SQLyog实践" class="headerlink" title="SQLyog实践"></a>SQLyog实践</h1><p>建造新数据库<code>companydb</code>：<code>CREATE DATABASE companydb CHARACTER SET utf8;</code>然后在左侧栏向该数据库导入<code>.sql</code>文件，<a href="/download/companyDB.sql">companyDB.sql下载</a></p>
+<h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><ul>
+<li><strong>查询</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>命令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SELECT</td>
+<td>指定要查询的列</td>
+</tr>
+<tr>
+<td>FROM</td>
+<td>指定要查询的表</td>
+</tr>
+</tbody></table>
+<p>导入好<code>.sql</code>后，数据库如下：</p>
+<p><img src="https://ftp.bmp.ovh/imgs/2021/02/5639041401ae0666.jpg" srcset="/img/loading.gif" alt="companydb"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RMPLOYEE_ID,FIRST_NAME,EMAIL FROM t_employees;#查询员工ID,姓,邮箱三列</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t_employees;#查询所有列</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>列运算</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RMPLOYEE_ID,salary*12 FROM t_employees;</span><br></pre></td></tr></table></figure>
+<p>会列出员工ID和年薪(月薪*12)两列，月薪数据运算不会影响真实数据。</p>
+<p>列与列之间也可以做运算：<code>+</code>，<code>-</code>，<code>*</code>，<code>/</code>。</p>
+<ul>
+<li><strong>列重命名</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RMPLOYEE_ID,salary*12 AS &#39;年薪&#39; FROM t_employees;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>查询结果去重</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT DISTINCT manager_id FROM t_employees;</span><br></pre></td></tr></table></figure>
+<p>保证查询后的结果不会有重复项</p>
+<ul>
+<li><strong>排序查询</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ORDER BY 列名 ASC</td>
+<td>对对应列做升序排序</td>
+</tr>
+<tr>
+<td>ORDER BY 列名 DESC</td>
+<td>对对应列做降序排序</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RMPLOYEE_ID,salary FROM t_employees ORDER BY salary ASC;#单列排序</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT RMPLOYEE_ID,salary FROM t_employees ORDER BY salary ASC ORDER BY EEMPLOYEE_ID DESC;#多列排序</span><br></pre></td></tr></table></figure>
+<p>多列排序提出了多重排序规则，如上所示先以薪资由低到高排序，对于相同薪资的又以员工号从高到低排序。</p>
+<ul>
+<li><strong>条件查询</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>语法</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>WHERE 条件</td>
+<td>条件是布尔表达式，比如salary = 2000</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT EMPOLYEE_ID,salary FROM t_employees WHERE salary &gt;&#x3D; 11000;</span><br></pre></td></tr></table></figure>
+<p>查询薪资不小于11000的所有员工。</p>
+<table>
+<thead>
+<tr>
+<th>查询条件</th>
+<th>符号</th>
+<th>示例代码</th>
+<th>注意</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>等值查询</td>
+<td>=</td>
+<td>WHERE salary = 1100;</td>
+<td></td>
+</tr>
+<tr>
+<td>不等值判断</td>
+<td>&gt;、&lt;、&gt;=、&lt;=、!=</td>
+<td>WHERE salary &gt;= 11000;</td>
+<td><code>&lt;&gt;</code>也有<code>!=</code>的用法</td>
+</tr>
+<tr>
+<td>逻辑判断</td>
+<td>and、or、not</td>
+<td>WHERE salary = 1100 and manager_id = 100;</td>
+<td></td>
+</tr>
+<tr>
+<td>区间判断</td>
+<td>between … and … (&gt;= … and &lt;= …)</td>
+<td>WHERE salary BETWEEN 0 AND 11000;</td>
+<td></td>
+</tr>
+<tr>
+<td>NULL值判断</td>
+<td>is NULL、is not NULL</td>
+<td>WHERE manager_id is NULL;</td>
+<td>查询的值为空的话，查询方式比较特殊</td>
+</tr>
+<tr>
+<td>枚举查询</td>
+<td>in(value1,value2,value3…)</td>
+<td>WHERE salary in(6000,8000,10000);</td>
+<td></td>
+</tr>
+<tr>
+<td>模糊查询</td>
+<td>LIKE ‘_’ 、LIKE ‘%’</td>
+<td>WHERE frist_name LIKE ‘L_’ <br />WHERE first_name LIKE ‘L%’ #所有以L为首字母</td>
+<td>LIKE ‘_’ 如Li、Lu，是非贪婪匹配<br />LIKE ‘%’ 是所有以L为首字母，属于贪婪匹配</td>
+</tr>
+<tr>
+<td>分支结构查询</td>
+<td>CASE<br />    WHEN … THEN …<br />    WHEN … HTEN …<br />    ELSE …<br />END</td>
+<td>SELECT EMPLOYEE_ID,<br />CASE<br />    WHEN salary &gt;= 1000 THEN ‘A’<br />    ELSE ‘B’<br />END AS ‘薪资等级’<br />FROM t_employees;</td>
+<td>这个是用在筛选列处的,也就是说新建立一个列在<code>salary</code>旁边，薪资不少于1000则该列对应位置显示<code>A</code>，否则显示<code>B</code>。该列被命名为<code>薪资等级</code></td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>时间查询</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 时间函数([参数列表])</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>时间函数</th>
+<th>描述</th>
+<th>示例代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SYSDATE()</td>
+<td>获取当前时间(年月日时分秒)</td>
+<td></td>
+</tr>
+<tr>
+<td>CURDATE()</td>
+<td>获取当前日期</td>
+<td></td>
+</tr>
+<tr>
+<td>CURTIME</td>
+<td>获取当前时间</td>
+<td></td>
+</tr>
+<tr>
+<td>WEEK(DATE)</td>
+<td>获取指定日期为一年中的第几周</td>
+<td>SELECT WEEK(CURDATE());</td>
+</tr>
+<tr>
+<td>YEAR(DATE)</td>
+<td>获取指定日期的年份</td>
+<td>SELECT YEAR(‘2021-02-27’);</td>
+</tr>
+<tr>
+<td>HOUR(TIME)、MINUTE(TIME)</td>
+<td>获取指定时间的小时值、分钟值</td>
+<td>SELECT HOUR(CURTIME());<br />SELECT MINUTE(‘13:09:20’);</td>
+</tr>
+<tr>
+<td>DATEDIFF(DATE1,DATE2)</td>
+<td>获取两个时间的相隔天数(DATE1 - DATE2)</td>
+<td>SELECT DATEDIFF(CURDATE(),’2000-08-15’);</td>
+</tr>
+<tr>
+<td>ADDDATE(DATE,N)</td>
+<td>获取DATE加上N天后的日期</td>
+<td>SELECT ADDDATE(CURDATE(),60);</td>
+</tr>
+</tbody></table>
+<ul>
+<li><strong>字符串查询</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>字符串函数</th>
+<th>描述</th>
+<th>示例代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CONCAT(STR1,STR2 …)</td>
+<td>将多个字符串拼接形成新列</td>
+<td>SELECT CONCAT(‘name:’,FIRST_NAME,LAST_NAME);</td>
+</tr>
+<tr>
+<td>INSERT(STR,pos,len,NEW_STR)</td>
+<td>从STR的第pos个字符到第pos+len-1个字符替换成NEW_STR</td>
+<td>SELECT INSERT(‘XuRuyi’,1,2,Tan”);</td>
+</tr>
+<tr>
+<td>LOWER(STR)、UPPER(STR)</td>
+<td>字符串转大小写</td>
+<td></td>
+</tr>
+<tr>
+<td>SUBSTRING(STR,num,len)</td>
+<td>从STR的第num位置开始截取共len个字符</td>
+<td>SELECT SUBSTRING(‘XuRuyi’,3,4);</td>
+</tr>
+</tbody></table>
+<h2 id="聚合函数"><a href="#聚合函数" class="headerlink" title="聚合函数"></a>聚合函数</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>描述</th>
+<th>示例代码</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SUM()、AVG()</td>
+<td>求单列所有数据和、平均值</td>
+<td>SELECT SVG(salary) FROM t_employees</td>
+</tr>
+<tr>
+<td>MAX()、MIN()</td>
+<td>求单列中的最大值,最小值</td>
+<td>SELECT MAX(salary) FROM t_employees</td>
+</tr>
+<tr>
+<td>COUNT()</td>
+<td>求单列中的有效数据量(忽略NULL)</td>
+<td>SELECT COUNT(salary) FROM t_employees</td>
+</tr>
+</tbody></table>
+<h2 id="分组查询"><a href="#分组查询" class="headerlink" title="分组查询"></a>分组查询</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GOUP BY label</td>
+<td>按照label分组，每组的内容将由聚合函数来求。注意如果要混用WHERE查询的话，分组查询要在条件查询之后</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT department_id,COUNT(employee_id) FROM t_employees WHERE salary &gt; 5000 GROUP BY department_id;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ftp.bmp.ovh/imgs/2021/03/112f2153cd802fc6.jpg" srcset="/img/loading.gif" alt="统计月薪高于5000的各部门人员数"></p>
+<p>代码的运算流程大致如下：先列出了department_id和employee_id两列，筛选出salary＞5000的。在新表中将department_id相同的作为一组，对该组的employee_id作COUNT运算(也就是人员数目)。这样就达成了计算出每部门人员数的目的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT department_id,JOB_ID,AVG(SALARY) FROM t_employees GROUP BY department_id,JOB_ID;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ftp.bmp.ovh/imgs/2021/03/6238a5a23ba99834.jpg" srcset="/img/loading.gif" alt="每部门各分工的平均工资水平"></p>
+<p>需要注意的是，分组查询的SELECT列只能是GROUP BY查询列和聚合函数列。不能有其他列。</p>
+<ul>
+<li><strong>分组过滤查询</strong></li>
+</ul>
+<p>对于已经分组查询后的表，进一步筛选。注意不能使用WHERE筛选，因为那是在分组前筛选。而应改用HAVING筛选。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">SELECT department_id,JOB_ID,AVG(SALARY) FROM t_employees GROUP BY department_id,JOB_ID</span><br><span class="line">HAVING AVG(SALARY) &gt;&#x3D; 8000;</span><br></pre></td></tr></table></figure>
+<p>在上一步分组的条件下，进一步筛选出平均工资高于8000的部门和其下分工部门。</p>
+<h2 id="限定查询"><a href="#限定查询" class="headerlink" title="限定查询"></a>限定查询</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LIMIT start,step</td>
+<td>对所得表取step行，从第start+1行开始，即(start,start+step]</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t_employees LIMIT 0,5; #查询最开始的5行</span><br></pre></td></tr></table></figure>
+<h2 id="查询总结"><a href="#查询总结" class="headerlink" title="查询总结"></a>查询总结</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT 列名 FROM 数据源 WHERE 条件筛选 GROUP BY 分组 HAVING 二次筛选 ORDER BY 排序 LIMIT 选行起始行,总行数;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<ol>
+<li><code>FROM</code>：找到数据源列出所有数据</li>
+<li><code>WHERE</code>：按列的标准第一次筛选行，还没有开始筛选列</li>
+<li><code>GROUP BY</code>：按列的标准将相同行归为同一组</li>
+<li><code>HAVING</code>：按列的标准筛选出组。至此完成了行的筛选。</li>
+<li><code>SELECT</code>：在筛选完的表中抽出相应的列。</li>
+<li><code>ORDER BY</code>：按列的标准将组进行排序。</li>
+<li><code>LIMIT</code>：抽出部分行出来。</li>
+</ol>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">SELECT MANAGER_ID,DEPARTMENT_ID,AVG(SALARY),COUNT(EMPLOYEE_ID) </span><br><span class="line">FROM t_employees WHERE SALARY&gt;&#x3D;5000 </span><br><span class="line">GROUP BY MANAGER_ID,DEPARTMENT_ID</span><br><span class="line">HAVING COUNT(EMPLOYEE_ID)&gt;&#x3D;2 </span><br><span class="line">ORDER BY AVG(SALARY) DESC </span><br><span class="line">LIMIT 0,10;</span><br></pre></td></tr></table></figure>
+<p><img src="https://ftp.bmp.ovh/imgs/2021/03/0e858cff9cbfe687.jpg" srcset="/img/loading.gif" alt="看图说话"></p>
+<p>首先只考虑薪资大于5000的员工，这些员工先以管理者分组，再细分到各管理者下的各部门，统计出各部门的平均薪资和人数。筛选完毕后再筛选出部门人数不少于2人的部门。</p>
+<p>这些最后筛选出的部门竞选出平均薪资最高的前十部门和对应的管理员。</p>
+<h1 id="DML操作"><a href="#DML操作" class="headerlink" title="DML操作"></a>DML操作</h1><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>示例代码</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INSERT INTO 表名(列名1,列名2,…) VALUES(值1,值2,…)</td>
+<td>INSERT INTO t_employees(salary) VALUES(1000);</td>
+<td>代码没有涉及到当表中存在的列，新增时采用默认值</td>
+</tr>
+<tr>
+<td>UPDATE 表名 SET 列名1=值1,列名2=值2 WHERE 条件</td>
+<td>UPDATE t_employees SET salary=2000 WHERE first_name=’King’;</td>
+<td>SET是选列，WHERE是选行</td>
+</tr>
+<tr>
+<td>DELETE FROM 表名 WHERE 条件</td>
+<td>DELETE FROM t_employees WHERE first_name=’King’ AND last_name=’Ba’;</td>
+<td>一整行或一整列地删除</td>
+</tr>
+<tr>
+<td>TURNCATE 表名</td>
+<td>TURNCATE t_employees</td>
+<td>删除原表，再重新返回无数据但同格式的新表</td>
+</tr>
+</tbody></table>
+<h1 id="子查询"><a href="#子查询" class="headerlink" title="子查询"></a>子查询</h1><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SELECT 列名 FROM 表名 WHERE （子查询结果）</td>
+<td><strong>条件查询：</strong>将子查询的结果作为新的查询条件</td>
+</tr>
+<tr>
+<td>SELECT 列名 FROM 表名 WHERE  IN（子查询结果）</td>
+<td><strong>枚举查询：</strong>当子查询结果为多行时</td>
+</tr>
+<tr>
+<td>SELECT 列名 FROM 表名 WHERE ALL （子查询结果）</td>
+<td>当子查询为多列时，与所有的子结果比较</td>
+</tr>
+<tr>
+<td>SELECT 列名 FROM 表名 WHERE ANY （子查询结果）</td>
+<td>当子查询为多列时，与任何的子结果比较</td>
+</tr>
+<tr>
+<td>SELECT 列名 FROM （子查询结果）WHERE 条件</td>
+<td>当子查询结果为多行多列时，子结果作为新的数据源</td>
+</tr>
+</tbody></table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t_employees WHERE salary &gt; (SELECT salary FROM t_employees WHERE first_name &#x3D; &#39;Bruce&#39;)</span><br></pre></td></tr></table></figure>
+<p>查询所有工资大于<code>Bruce</code>的人员：子语句查询结果为单一结果6000，用6000代替子语句就又形成了一个新的条件查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t_employees WHERE department_id IN (SELECT department_id FROM t_employees WHERE LAST_NAME &#x3D; &#39;King&#39;);</span><br></pre></td></tr></table></figure>
+<p>查询与King同部门的所有员工：子语句结果有两行80，90，通过枚举查询。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t_employees WHERE salary &gt; ALL(SELECT salary FROM t_employees WHERE department_id &#x3D; 60);</span><br></pre></td></tr></table></figure>
+<p>查询比60号部门中所有员工工资都高的人员：比60号部门最高工资的人员的工资都要高。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">SELECT * FROM t_employees WHERE salary &gt; ANY(SELECT salary FROM t_employees WHERE department_id &#x3D; 60);</span><br></pre></td></tr></table></figure>
+<p>查询出只要比60号部门中任意员工工资高的人员：比60号部门最低工资的人员工资要高。</p>
+<h1 id="MySQL数据类型"><a href="#MySQL数据类型" class="headerlink" title="MySQL数据类型"></a>MySQL数据类型</h1><h2 id="数值类型"><a href="#数值类型" class="headerlink" title="数值类型"></a>数值类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>INT</td>
+<td>4字节</td>
+</tr>
+<tr>
+<td>DOUBLE</td>
+<td>4字节</td>
+</tr>
+<tr>
+<td>DOUBLE(M,D)</td>
+<td>8字节，M表示长度，D表示小数位数</td>
+</tr>
+</tbody></table>
+<h2 id="日期类型"><a href="#日期类型" class="headerlink" title="日期类型"></a>日期类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>格式</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>DATE</td>
+<td>YYYY-MM-DD</td>
+<td>日期值</td>
+</tr>
+<tr>
+<td>TIME</td>
+<td>HH:MM:SS</td>
+<td>时间值或时间段</td>
+</tr>
+<tr>
+<td>YEAR</td>
+<td>YYYY</td>
+<td>年份值</td>
+</tr>
+<tr>
+<td>DATETIME</td>
+<td>YYYY-MM-DD HH:MM:SS</td>
+<td>混合日期与时间</td>
+</tr>
+</tbody></table>
+<h2 id="字符串类型"><a href="#字符串类型" class="headerlink" title="字符串类型"></a>字符串类型</h2><table>
+<thead>
+<tr>
+<th>类型</th>
+<th>大小</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>CHAR</td>
+<td>0-225字符</td>
+<td>定长字符串CHAR(10)表示固定10个字符</td>
+</tr>
+<tr>
+<td>VARCAHR</td>
+<td>0-65536字节</td>
+<td>变长字符串VARCHAR(10)表示最多10字符</td>
+</tr>
+<tr>
+<td>BLOB</td>
+<td>0-65536字节</td>
+<td>二进制形式的长文本数据，可以储存图片或者视频之类</td>
+</tr>
+<tr>
+<td>TEXT</td>
+<td>0-65536字节</td>
+<td>长文本数据</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p>注意的是，CHAR(10)设置10字符的长度后,若字符串未达到10字符则会自动补齐。</p>
+<p>VARCHAR(10)则会自动压缩，常用于不确定字符长度的变量如姓名等。</p>
+</blockquote>
+<h1 id="MySQL数据表创建与修改"><a href="#MySQL数据表创建与修改" class="headerlink" title="MySQL数据表创建与修改"></a>MySQL数据表创建与修改</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;table&#96;(</span><br><span class="line">	Column_name INT,</span><br><span class="line">    Column_name CHAR(10),</span><br><span class="line">    Column_name DATE</span><br><span class="line">)charset&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<p><strong>如果起名与关键字冲突，使用`` `来取消歧义。</strong></p>
+<ul>
+<li><strong>添加列</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE &#96;table&#96; ADD 列名 数据类型;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>修改列类型</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE &#96;table&#96; MODIFY 列名 数据类型;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>删除列</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE &#96;table&#96; DROP 列名;	#一次只能删除一个列</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>修改列名</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE &#96;table&#96; CHANGE 列名 新列名 数据类型;</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>修改表名</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ALTER TABLE &#96;table&#96; RENAME &#96;TABLE&#96;;</span><br></pre></td></tr></table></figure>
+<h2 id="约束"><a href="#约束" class="headerlink" title="约束"></a>约束</h2><p>表中的一行数据代表一个实体，实体是唯一的。即不能存在两个完全一样的行。</p>
+<ul>
+<li><strong>主键约束  PRIMARY KEY</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;subject&#96;(</span><br><span class="line">	subjectid INT PRIMARY KEY,</span><br><span class="line">    subjectname CHAR(10),</span><br><span class="line">	subjectnum INT</span><br><span class="line">)CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO &#96;subject&#96;() VALUES(1,&#39;JAVA&#39;,20);</span><br><span class="line">INSERT INTO &#96;subject&#96;() VALUES(1,&#39;Python&#39;,20);	#失败，subjectid相同则系统认为这是两个相同的实体。</span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>唯一约束  UNIQUE</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;subject&#96;(</span><br><span class="line">	subjectid INT PRIMARY KEY,</span><br><span class="line">    subjectname CHAR(10) UNIQUE,</span><br><span class="line">	subjectnum INT</span><br><span class="line">)CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<p><code>UNIQUE</code>表示该列不允许出现重复项，可以为NULL。</p>
+<ul>
+<li><strong>自动增长列  AUTO_INCREMENT</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;subject&#96;(</span><br><span class="line">	subjectid INT PRIMARY KEY AUTO_INCREMENT,</span><br><span class="line">    subjectname CHAR(10),</span><br><span class="line">	subjectnum INT</span><br><span class="line">)CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<p><code>AUTO_INCREMENT</code>必须跟随着<code>PRIMARY KEY</code>，从第一个添加的实体开始<code>PRIMARY KEY</code>初设为1，每添加一项<code>PRIMARY KEY</code>自增。这也意味着使用<code>INSERT</code>添加时可以省略<code>PRIMARY KEY</code>项。</p>
+<ul>
+<li><strong>非空约束 NOT NULL</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;subject&#96;(</span><br><span class="line">	subjectid INT PRIMARY KEY,</span><br><span class="line">    subjectname CHAR(10) UNIQUE NOT NULL,</span><br><span class="line">	subjectnum INT</span><br><span class="line">)CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<p><code>NOT NULL</code>要求该列不能出现空值，常与<code>UNIQUE</code>连用。</p>
+<ul>
+<li><strong>默认值约束  default</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">CREATE TABLE &#96;subject&#96;(</span><br><span class="line">	subjectid INT PRIMARY KEY,</span><br><span class="line">    subjectname CHAR(10) UNIQUE,</span><br><span class="line">	subjectnum INT default 20</span><br><span class="line">)CHARSET&#x3D;utf8;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INSERT INTO &#96;subject&#96;() VALUES(1,&#39;JAVA&#39;,DEFAULT);	#当不知道赋何值时，用DEFAULT代替，不能空着！！！</span><br></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/20/Servlet/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Servlet</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
