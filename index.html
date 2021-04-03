@@ -192,6 +192,59 @@
     
     
       <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/03/31/SpringMVC/" target="_self">
+          <img src="/img/SpringMVC.jpg" srcset="/img/loading.gif" alt="SpringMVC">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/03/31/SpringMVC/">SpringMVC</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/03/31/SpringMVC/">
+          
+          
+            
+          
+          什么是SpringMVC什么是MVC
+MVC是模型(Model)、视图(View)、控制器(Controller)的简写，是一种软件设计规范。
+是将业务逻辑、数据、显示分离的方法来组织代码。
+MVC主要作用是降低了视图与业务逻辑间的双向偶合。
+MVC不是一种设计模式，MVC是一种架构模式。当然不同的MVC存在差异。
+
+Model（模型）：数据模型，提供要展示的数据，因此包含数据和行为，可以认为是领
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-03-31 09:45" pubdate>
+              2021-03-31
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/SSM%E6%A1%86%E6%9E%B6/">SSM框架</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
         <a href="/2021/03/22/Spring5/" target="_self">
           <img src="/img/Spring5.jpg" srcset="/img/loading.gif" alt="Spring5">
         </a>
@@ -644,55 +697,19 @@ Servlet能做这些任务：
     </article>
   </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-      <div class="col-12 col-md-4 m-auto index-img">
-        <a href="/2021/02/20/MySQL/" target="_self">
-          <img src="/img/MySQL.jpg" srcset="/img/loading.gif" alt="MySQL">
-        </a>
-      </div>
-    
-    <article class="col-12 col-md-8 mx-auto index-info">
-      <h1 class="index-header">
-        
-        <a href="/2021/02/20/MySQL/">MySQL</a>
-      </h1>
-
-      <p class="index-excerpt">
-        <a href="/2021/02/20/MySQL/">
-          
-          
-            
-          
-          下载文件MySQL5.7和SQLyog。安装教程如下：MySQL安装；SQLyog安装
-MySQL基本命令1234567891011mysql&gt;SHOW DATABASES;+--------------------+| Database           |+--------------------+| information_schema || mysql              |
-        </a>
-      </p>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2021-02-20 10:17" pubdate>
-              2021-02-20
-            </time>
-          </div>
-        
-        
-        
-          <div class="post-meta">
-            <i class="iconfont icon-tags"></i>
-            
-              <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-            
-          </div>
-        
-      </div>
-    </article>
-  </div>
 
 
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
 
 
 
