@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      4.9k 字
+      5.3k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      65
+      70
        分钟
     </span>
   
@@ -385,15 +385,34 @@
 <p><code>return “forward:/sum/1/1”</code>：以这种形式就能转发到另一个控制器，而不会被视图解析器拼接了。</p>
 <p><code>reuturn &quot;redirect:/Welcome.jsp&quot;</code>：这种形式就是重定向到一个页面，也不会通过视图解析器的拼接。</p>
 </blockquote>
-<h2 id="接收请求参数"><a href="#接收请求参数" class="headerlink" title="接收请求参数"></a>接收请求参数</h2><p>控制器方法可以设置参数，然后前端在请求中设置参数值，后端就能获取参数了。但是如果前端请求的属性名与控制器方法的属性名不一致，就会报500错误。这样的话，前后端光是在参数名这一方面就需要严格把控，前后端很难分离。</p>
+<h2 id="接收请求参数"><a href="#接收请求参数" class="headerlink" title="接收请求参数"></a>接收请求参数</h2><h4 id="RequestParam-请求参数"><a href="#RequestParam-请求参数" class="headerlink" title="@RequestParam(请求参数)"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=29">@RequestParam(请求参数)</a></h4><p>控制器方法可以设置参数，然后前端在请求中设置参数值，后端就能获取参数了。但是如果前端请求的属性名与控制器方法的属性名不一致，就会报500错误。这样的话，前后端光是在参数名这一方面就需要严格把控，前后端很难分离。</p>
 <p>我们可以在后端制定标准，严格限制前端请求的参数名必须一致，因为后端总与数据库连接，以数据库为准的参数名可以大量减少数据库方面的调试。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/UserName&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">username</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;username&quot;)</span> String name,Model model)</span> </span>&#123;<br>    model.addAttribute(<span class="hljs-string">&quot;message&quot;</span>, name);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Welcome&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>这样前端请求必须通过<code>.../UserName?username=TZQ</code>来传递参数，否则报400错误。</p>
 <p>如果我们的项目连接了数据库，有一个实体类User：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;<br>    <span class="hljs-keyword">int</span> id;<br>    String username;<br>    String password;<br>&#125;<br></code></pre></td></tr></table></figure>
-<p>前端通过表单提交的方式放松请求，我们当然可以在方法中设置三个接收参数并一一配置@RequestParam。但我们也可以只设置一个接收参数<code>User user</code></p>
+<p>前端通过表单提交的方式发送请求，我们当然可以在方法中设置三个接收参数并一一配置@RequestParam。但我们也可以只设置一个接收参数<code>User user</code></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/User&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">user</span><span class="hljs-params">(User user,Model model)</span> </span>&#123;<br>    model.addAttribute(<span class="hljs-string">&quot;message&quot;</span>, user);<br>    <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Welcome&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
 <p>这种方式要特别注意表单中设置的属性名也要和实体类的属性名相对应，否则无法自动装配成User对象。</p>
+<h4 id="PathVariable-路径变量"><a href="#PathVariable-路径变量" class="headerlink" title="@PathVariable(路径变量)"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=29">@PathVariable(路径变量)</a></h4><p>这种注解常搭配RestFul风格使用</p>
+<h4 id="RequestHeader-请求头"><a href="#RequestHeader-请求头" class="headerlink" title="@RequestHeader(请求头)"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=29">@RequestHeader(请求头)</a></h4><p>打开F12可以发现除了设置的参数，默认添加的请求头也可以获取。请求头也是一个个键值对形成的集合，我们想获取User-Agent或是Content-type就可以这么写：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/request&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">request</span><span class="hljs-params">(<span class="hljs-meta">@RequestHeader(&quot;User-Agent&quot;)</span> String agent)</span> </span>&#123;<br>    System.out.println(agent);<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/90.0.4430.93 Safari/537.36 Edg/90.0.818.51</p>
+</blockquote>
+<h4 id="CookieValue-Cookie值"><a href="#CookieValue-Cookie值" class="headerlink" title="@CookieValue(Cookie值)"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=29">@CookieValue(Cookie值)</a></h4><p>如果浏览器有我们预先给的Cookie，因为每次请求都会带上该Cookie，我们就可以接收该Cookie值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/cookie&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">cookie</span><span class="hljs-params">(<span class="hljs-meta">@CookieValue(&quot;Idea-5e3b9fc0&quot;)</span> String cookie)</span> </span>&#123;<br>    System.out.println(cookie);	<span class="hljs-comment">//IDEA默认会设置Cookie</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>4ca7a654-6a60-4884-a1eb-7004e64dc8be</p>
+</blockquote>
+<h4 id="RequestBody-请求体"><a href="#RequestBody-请求体" class="headerlink" title="@RequestBody(请求体)"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=29">@RequestBody(请求体)</a></h4><p>因为只有POST方式才有请求体，我们通过表单提交POST请求。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@PostMapping(value = &quot;/user_post&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">user_post</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> String body)</span> </span>&#123;<br>    System.out.println(body);<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>username=tzq&amp;password=123456789</p>
+</blockquote>
+<h4 id="RequestAttribute-请求域"><a href="#RequestAttribute-请求域" class="headerlink" title="@RequestAttribute(请求域)"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=30">@RequestAttribute(请求域)</a></h4><p>这种多用于跳转页面后获取请求域带来的值，比如@RequestMapping(“/before”)的控制器要转发到@RequestMapping(“/after”)的控制器，before控制器先设置HttpServletRequest request并放入键值对，随后通过return ”forword: /after“，after控制器便可以用@RequestAttribute(“key”) String key获取键值对。</p>
+<h4 id="MatrixVariable-矩阵变量"><a href="#MatrixVariable-矩阵变量" class="headerlink" title="@MatrixVariable(矩阵变量)"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=31">@MatrixVariable(矩阵变量)</a></h4><p>你可能会见到这样的请求：localhost:8080/user;age=20;name=tzq。分号隔离的就是矩阵变量。</p>
+<p>矩阵变量很少用，建议看视频。</p>
 <h2 id="数据回显三种方式"><a href="#数据回显三种方式" class="headerlink" title="数据回显三种方式"></a>数据回显三种方式</h2><h3 id="ModelAndView"><a href="#ModelAndView" class="headerlink" title="ModelAndView"></a>ModelAndView</h3><p>使用配置版SpringMVC写控制器时需要返回ModelAndView，可以返回去回顾下。</p>
 <h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><p>使用注解版SpringMVC写控制器是用Model来装返回结果的，这种方式比较常用。</p>
 <h3 id="ModelMap"><a href="#ModelMap" class="headerlink" title="ModelMap"></a>ModelMap</h3><p>继承了LinkMap。没屁用，有时间我再回来补充。</p>
