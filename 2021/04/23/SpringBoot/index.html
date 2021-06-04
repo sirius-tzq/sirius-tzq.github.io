@@ -197,7 +197,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      6k 字
+      6.4k 字
     </span>
   
 
@@ -207,7 +207,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      80
+      85
        分钟
     </span>
   
@@ -413,6 +413,22 @@
 <p>ctrl+左击访问版本仲裁，知道了SpringBoot托管的mysql驱动版本为8.0.23，查询本机Mysql版本为5.7.24。官方文档说明：Connector/J 8.0 provides compatibility with all the functionality of MySQL 5.5, 5.6, 5.7, and 8.0，也就是说8.0的驱动可以兼容所有版本的MySQL数据库。</p>
 <p>接下来需要在pom.xml中配置数据库信息</p>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>	<span class="hljs-attr">datasource:</span><br>        <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/matlab</span><br>        <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>        <span class="hljs-attr">password:</span> <span class="hljs-string">tzq1635886602</span><br>        <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span>		<span class="hljs-string">//8.0+的数据库驱动需要加上cj</span><br></code></pre></td></tr></table></figure>
+<h2 id="配置版Mybatis"><a href="#配置版Mybatis" class="headerlink" title="配置版Mybatis"></a>配置版Mybatis</h2><p>创建<code>com.theo.Mapper.AccountMapper.java</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Mapper</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">AccountMapper</span> </span>&#123;<br>    <span class="hljs-function">Account <span class="hljs-title">queryAccount</span><span class="hljs-params">(String username)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>@Mapper注解表示将该接口类+配置类注入到IOC容器中，也就是说服务层如果要取用Mapper将不需要利用事先的MybatisUtils.getsession()以及sqlsession.getMapper(Account.class)来获取接口类的实例了，因为SpringBoot自动做了这一步，然后我们只需要通过</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br>AccountMapper accountMapper;<br></code></pre></td></tr></table></figure>
+<p>即可直接从容器中获取，accountMapper就可直接调用所有接口方法。</p>
+<blockquote>
+<p>这种方式可能IDEA会报错：Could not autowire. No beans of ‘AccountMapper’ type found.</p>
+<p>这是编译器的问题，不用管。</p>
+</blockquote>
+<p>接下来创建<code>resources.Mybatis.Mapper.AccountMapper.xml</code>:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span></span><br><span class="hljs-meta">        <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.theo.Mapper.AccountMapper&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;queryAccount&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;Account&quot;</span>&gt;</span><br>        SELECT * FROM matlab.patient where username = #&#123;username&#125;;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>对应的映射AccountMapper中的接口方法。此后我们在application.yml中配置Mybatis的配置信息，以此代替mybatis-config.xml：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">mybatis:</span><br>  <span class="hljs-attr">mapper-locations:</span> <span class="hljs-string">classpath:Mybatis/Mapper/*.xml</span><br>  <span class="hljs-attr">typeAliasesPackage:</span> <span class="hljs-string">com.theo.pojo</span><br>  <span class="hljs-attr">configuration:</span><br>    <span class="hljs-attr">map-underscore-to-camel-case:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>当然你也可以存在mybatis-config.xml，其中填上别名，mapper映射地址等等，但同时要加上配置<code>config-location: classpath:Mybatis/mybatis-config.xml</code>，这样的话就一定要删除configuration这一配置！！！！两者不能共存！！！！！！！！</p>
+</blockquote>
 
             </div>
             <hr>
