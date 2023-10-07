@@ -1,0 +1,510 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>powershell beautify - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="powershell beautify">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-02 17:00" pubdate>
+        2023年9月2日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">powershell beautify</h1>
+            
+            <div class="markdown-body">
+              <h1 id="先从PowerShell说起"><a href="#先从PowerShell说起" class="headerlink" title="先从PowerShell说起"></a><strong>先从PowerShell说起</strong></h1><p>Windows自带的Windows PowerShell一般为PowerShell 5, 相比于最新的PowerShell 7有着<a target="_blank" rel="noopener" href="https://learn.microsoft.com/zh-cn/powershell/scripting/whats-new/differences-from-windows-powershell?view=powershell-7.3">比较多的差异</a>。</p>
+<p>本文后续的所有美化与功能加强都将基于PowerShell 7。建议在<a target="_blank" rel="noopener" href="https://github.com/PowerShell/PowerShell/releases">Github-PowerShell</a>下载PowerShell 7+版本，即<code>pwsh</code>。注意，pwsh与原生Windows PowerShell为两个独立终端，pwsh做的工作并不会生效在Windows PowerShell上。</p>
+<h1 id="Windows-Terminal"><a href="#Windows-Terminal" class="headerlink" title="Windows Terminal"></a><strong>Windows Terminal</strong></h1><p>新版pwsh的界面依然不是很耐看，其自带的风格定义十分有限。且pwsh只是一个独立终端，不能满足多终端协同工作。Windows Terminal能集成PowerShell、Git Bash、Azure、WSL等终端，并且能定义界面背景、字体颜色等等。其依然可以在<a target="_blank" rel="noopener" href="https://github.com/microsoft/terminal/releases">Github-terminal</a>中下载，微软商城也能下载，但速度很慢。</p>
+<h2 id="新增终端pwsh"><a href="#新增终端pwsh" class="headerlink" title="新增终端pwsh"></a><strong>新增终端pwsh</strong></h2><p><code>ctrl+，</code>打开Windos Terminal的设置，新增配置文件，填入pwsh的路径</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309021700840.png" srcset="/img/loading.gif" alt="image-20230902164057151"></p>
+<h1 id="Scoop"><a href="#Scoop" class="headerlink" title="Scoop"></a><strong>Scoop</strong></h1><p>Scoop是一款适用于WIndows平台的命令行软件包管理工具，满足用户对软件包的安装管理需求。其作用可类比于macOS的homebrew、Linux的apt-get、python的pip等工具。</p>
+<h2 id="为什么Scoop"><a href="#为什么Scoop" class="headerlink" title="为什么Scoop"></a><strong>为什么Scoop</strong></h2><p>本章的Scoop主要用于安装oh-my-posh（终端主题）和各种unix工具。针对oh-my-posh而言，主流教程都是通过<code>Install-Module oh-my-posh</code>来安装，但经过笔者试验会报错</p>
+<blockquote>
+<p>Install-Package: No match was found for the specified search criteria and module name ‘oh-my-posh’. Try Get-PSRepository to see all available registered module repositories.</p>
+</blockquote>
+<p>这是因为PSRepository没被注册，自然无法找到需要安装的模块。但如果尝试<code>Register-PSRepository -Default</code>,或指定安装PSGallery,或改变管理端口,<a target="_blank" rel="noopener" href="https://stackoverflow.com/questions/43323123/warning-unable-to-find-module-repositories">warning-unable-to-find-module-repositories</a>。发现都无法生效时，建议使用Scoop安装。</p>
+<h2 id="安装Scoop"><a href="#安装Scoop" class="headerlink" title="安装Scoop"></a><strong>安装Scoop</strong></h2><p>设置Powershell执行策略</p>
+<figure class="highlight coq"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs coq"><span class="hljs-keyword">Set</span>-ExecutionPolicy -ExecutionPolicy RemoteSigned -<span class="hljs-keyword">Scope</span> CurrentUser<br></code></pre></td></tr></table></figure>
+<p>安装Scoop</p>
+<figure class="highlight reasonml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs reasonml">Invoke-Expression (New-Object System.Net.WebClient).<span class="hljs-constructor">DownloadString(&#x27;<span class="hljs-params">https</span>:<span class="hljs-operator">/</span><span class="hljs-operator">/</span><span class="hljs-params">get</span>.<span class="hljs-params">scoop</span>.<span class="hljs-params">sh</span>&#x27;)</span><br></code></pre></td></tr></table></figure>
+<p>该命令默认安装至C盘，如需要更改目录，则在执行上述命令前添加环境变量定义：</p>
+<figure class="highlight elixir"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs elixir"><span class="hljs-variable">$env</span><span class="hljs-symbol">:SCOOP=<span class="hljs-string">&#x27;D:\Applications\Scoop&#x27;</span></span><br>[Environment]::SetEnvironmentVariable(<span class="hljs-string">&#x27;SCOOP&#x27;</span>, <span class="hljs-variable">$env</span><span class="hljs-symbol">:SCOOP</span>, <span class="hljs-string">&#x27;User&#x27;</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="安装oh-my-posh"><a href="#安装oh-my-posh" class="headerlink" title="安装oh-my-posh"></a><strong>安装oh-my-posh</strong></h2><figure class="highlight mipsasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mipsasm"><span class="hljs-keyword">scoop </span><span class="hljs-keyword">install </span>oh-my-posh<br></code></pre></td></tr></table></figure>
+<h1 id="Oh-my-posh"><a href="#Oh-my-posh" class="headerlink" title="Oh-my-posh"></a><strong>Oh-my-posh</strong></h1><p>Oh-my-posh作为一款终端Prompt个性化工具,衍生于Oh-my-zsh。如今除Windows外，Oh-my-posh还支持了WSL，macOS系统上的各式终端。Oh-my-posh预置了几十款主题，风格各异，通过<code>Get-PoshThemes</code>可以预览所有预置主题:</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309021700825.png" srcset="/img/loading.gif" alt="image-20230902164647627"></p>
+<p>在输出的尾部可以看到Themes的储存位置，用户还可以在<a target="_blank" rel="noopener" href="https://ohmyposh.dev/docs/themes">官网主题</a>下载主题并放置于此。</p>
+<h2 id="安装主题"><a href="#安装主题" class="headerlink" title="安装主题"></a><strong>安装主题</strong></h2><figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript">oh-my-posh prompt init pwsh --config C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\L</span>evi<span class="hljs-symbol">\s</span>coop<span class="hljs-symbol">\a</span>pps<span class="hljs-symbol">\o</span>h-my-posh<span class="hljs-symbol">\1</span>8.0.1<span class="hljs-symbol">\t</span>hemes<span class="hljs-symbol">\t</span>akuya.omp.json | Invoke-Expression<br></code></pre></td></tr></table></figure>
+<p>其中–config跟随的是目标主题的配置文件路径，如需要更换主题则修改路径即可</p>
+<h2 id="安装Nerd-Font字体"><a href="#安装Nerd-Font字体" class="headerlink" title="安装Nerd Font字体"></a><strong>安装Nerd Font字体</strong></h2><p>有些主题的完整显示需要一些特殊字符或图标，否则表现成一个个方框。这里推荐安装<a target="_blank" rel="noopener" href="https://www.nerdfonts.com/">Nerd Font</a>，同样的如果无法访问就前往<a target="_blank" rel="noopener" href="https://github.com/ryanoasis/nerd-fonts/releases">Github-NerdFonts</a>下载</p>
+<p>下载好的字体包，右键<code>为所有用户安装</code>即可安装字体，以<code>AurulentSansM Nerd Font</code>为例，在设置-个性化-字体 中可以找到安装的字体：</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309021700930.png" srcset="/img/loading.gif" alt="image-20230902164829377"></p>
+<p>打开Windoes Terminal的配置文件</p>
+<p>找profile.defaults并修改font内容，注意face内容不是字体的元数据里的全称：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;profiles&quot;</span>: &#123;<br>        <span class="hljs-string">&quot;defaults&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;font&quot;</span>: &#123;<br>                <span class="hljs-string">&quot;face&quot;</span>: <span class="hljs-string">&quot;AurulentSansM Nerd Font&quot;</span>,<br>                <span class="hljs-string">&quot;size&quot;</span>: <span class="hljs-number">12.0</span><br>            &#125;<br>        &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>至此，重启Windows Terminal就能看到完整的主题了。</p>
+<h2 id="集成git-bash"><a href="#集成git-bash" class="headerlink" title="集成git bash"></a><strong>集成git bash</strong></h2><p>如果想像git bash一样，支持显示当前分支名等功能，可以尝试<code>scoop install posh-git</code>安装。具体步骤笔者没有亲试，感兴趣者可以通过关键词posh-git自行搜索相关流程。</p>
+<h1 id="Unix工具链"><a href="#Unix工具链" class="headerlink" title="Unix工具链"></a><strong>Unix工具链</strong></h1><p>如果你是Linux用户，开始使用Windows时会十分不适应，主要因为Windows缺少很多实用工具如vim，cat，grep，甚至是ls的功能都不全！！！</p>
+<p>当然，在Windows里是有些命令能对应到Linux，比如Get-ChildItem，但相比下并不好用。</p>
+<h2 id="安装busybox"><a href="#安装busybox" class="headerlink" title="安装busybox"></a><strong>安装busybox</strong></h2><p>busybox中涵盖了大多常用的Linux命令，包括awk、clear、tail、sed等等。通过<code>scoop install busybox</code>安装。之后通过<code>busybox --list</code>可以查看其支持的命令。</p>
+<h2 id="定向查找"><a href="#定向查找" class="headerlink" title="定向查找"></a><strong>定向查找</strong></h2><p>对于busybox没有涵盖的命令或功能不全的命令，如zip。可以通过<code>scoop search unzip</code>查看提供该功能的工具包，选择一个即可安装。</p>
+<p>注意，新安装的工具包内如果有命令与其他工具包的命令重名，新工具包的命令会取代现有命令。</p>
+<h2 id="自动补全与历史显示"><a href="#自动补全与历史显示" class="headerlink" title="自动补全与历史显示"></a><strong>自动补全与历史显示</strong></h2><p>Linux除了常用的命令外，TAB键的自动补全功能也能有效提高工作效率，尤其是在进入层层目录的时候。</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309021700818.png" srcset="/img/loading.gif" alt="image-20230902165259514"></p>
+<p>通过命令<code>Set-PSReadlineKeyHandler -Key Tab -Function Complete</code>可以加上该功能，挑选目录时也可以通过方向键选择。</p>
+<p>此外，根据历史命令预测本次命令的功能也能极大改善使用体验。这里我只需要输入cd，终端就能根据最近的历史命令向我提供补全提示，按下右方向键即可补全完整命令了：</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309021700891.png" srcset="/img/loading.gif" alt="image-20230902165343779"></p>
+<p>通过命令<code>Set-PSReadLineOption -PredictionSource History -ShowToolTips</code>可以加上该功能。</p>
+<h2 id="其他选用工具"><a href="#其他选用工具" class="headerlink" title="其他选用工具"></a><strong>其他选用工具</strong></h2><figure class="highlight mathematica"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mathematica"><span class="hljs-built_in">Set</span><span class="hljs-operator">-</span><span class="hljs-variable">PSReadLineKeyHandler</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Key</span> <span class="hljs-built_in">Tab</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Function</span> <span class="hljs-variable">MenuComplete</span>  <span class="hljs-operator">//</span>自动补全的风格为<span class="hljs-variable">zsh</span>风格<br><span class="hljs-built_in">Set</span><span class="hljs-operator">-</span><span class="hljs-variable">PSReadLineKeyHandler</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Key</span> <span class="hljs-string">&quot;Ctrl+z&quot;</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Function</span> <span class="hljs-variable">Undo</span>   <span class="hljs-operator">//</span>撤销最近的输入<br><span class="hljs-built_in">Set</span><span class="hljs-operator">-</span><span class="hljs-variable">PSReadLineKeyHandler</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Key</span> <span class="hljs-built_in">UpArrow</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Function</span> <span class="hljs-variable">HistorySearchBackward</span>   <span class="hljs-operator">//</span>向上查阅命令历史<br><span class="hljs-built_in">Set</span><span class="hljs-operator">-</span><span class="hljs-variable">PSReadLineKeyHandler</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Key</span> <span class="hljs-built_in">DownArrow</span> <span class="hljs-operator">-</span><span class="hljs-built_in">Function</span> <span class="hljs-variable">HistorySearchForward</span>  <span class="hljs-operator">//</span>向下查阅命令历史<br></code></pre></td></tr></table></figure>
+<h2 id="配置自启动"><a href="#配置自启动" class="headerlink" title="配置自启动"></a><strong>配置自启动</strong></h2><p>以上功能包括oh-my-posh主题、自动补全等在新建pwsh窗口时都会失效，因为命令行方式启动只会作用于当前窗口。为了保证每一新建窗口都应用上配置的功能，我们需要改动pwsh的启动配置文件（.ps1文件）</p>
+<p>在pwsh上执行<code>$PROFILE</code>可以看到pwsh的启动文件位置。注意，该文件有可能不存在，这是正常的，我们只需要照着路径创建该文件即可：<code>touch $PROFILE</code>。打开该文件，将需要的预命令写入：</p>
+<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs taggerscript"># TAB菜单选项<br>Set-PSReadlineKeyHandler -Key Tab -Function MenuComplete<br>Set-PSReadLineOption -PredictionSource History -ShowToolTips<br># 推荐velvet，ys等主题<br>oh-my-posh prompt init pwsh --config C:<span class="hljs-symbol">\U</span>sers<span class="hljs-symbol">\L</span>evi<span class="hljs-symbol">\s</span>coop<span class="hljs-symbol">\a</span>pps<span class="hljs-symbol">\o</span>h-my-posh<span class="hljs-symbol">\1</span>8.0.1<span class="hljs-symbol">\t</span>hemes<span class="hljs-symbol">\t</span>akuya.omp.json | Invoke-Expression<br></code></pre></td></tr></table></figure>
+<p>至此，一套改装完的，崭新的Windows终端就完全配置好了。相信它能够满足你的日常使用。</p>
+<h1 id="集成VsCode"><a href="#集成VsCode" class="headerlink" title="集成VsCode"></a><strong>集成VsCode</strong></h1><p>笔者习惯使用VsCode作为日常的IDE，当然VsCode也需要同样集成pwsh。</p>
+<h2 id="更改默认终端"><a href="#更改默认终端" class="headerlink" title="更改默认终端"></a><strong>更改默认终端</strong></h2><p>打开VsCode的用户setting.json(ctrl+shift+P,再输入<code>user setting json</code>关键字)。在<code>terminal.integrated.profiles.windows</code>中新增pwsh的路径：</p>
+<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs swift"><span class="hljs-string">&quot;pwsh&quot;</span>: &#123;<br>            <span class="hljs-string">&quot;path&quot;</span>: <span class="hljs-string">&quot;D:<span class="hljs-subst">\\</span>PowerShell<span class="hljs-subst">\\</span>pwsh.exe&quot;</span>,<br>            <span class="hljs-string">&quot;icon&quot;</span>: <span class="hljs-string">&quot;terminal-powershell&quot;</span>,<br>            <span class="hljs-string">&quot;color&quot;</span>: <span class="hljs-string">&quot;terminal.ansiGreen&quot;</span><br>        &#125;<br></code></pre></td></tr></table></figure>
+<p>同时设置<code>&quot;terminal.integrated.defaultProfile.windows&quot;: &quot;pwsh&quot;</code></p>
+<h2 id="设置Nerd-Font字体"><a href="#设置Nerd-Font字体" class="headerlink" title="设置Nerd Font字体"></a><strong>设置Nerd Font字体</strong></h2><p>笔者实践时发现VsCode终端的字体与pwsh并不同步，需要单独设置。同样在用户setting.json中，添加以下两行：</p>
+<figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs 1c"><span class="hljs-string">&quot;terminal.integrated.fontFamily&quot;</span>: <span class="hljs-string">&quot;AurulentSansM Nerd Font&quot;</span>,<br><span class="hljs-string">&quot;terminal.integrated.fontSize&quot;</span>: <span class="hljs-number">12</span>,<br></code></pre></td></tr></table></figure>
+<h1 id="其他改善"><a href="#其他改善" class="headerlink" title="其他改善"></a><strong>其他改善</strong></h1><h2 id="自定义命令"><a href="#自定义命令" class="headerlink" title="自定义命令"></a><strong>自定义命令</strong></h2><p>pwsh的启动配置文件提供了function块，我们可以据此实现一些自定义的命令。比如busybox提供的ls命令功能十分有限，既不能高亮输出，也不能简略输出内容。在启动配置文件中添加：</p>
+<figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs vim"><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">ll</span>&#123;</span><br>    param(<br>        [switch]$<span class="hljs-keyword">al</span><br>    )<br>    <span class="hljs-keyword">if</span> ($<span class="hljs-keyword">al</span>)&#123;<br>        <span class="hljs-keyword">sh</span> -<span class="hljs-keyword">c</span> <span class="hljs-string">&#x27;ls -al&#x27;</span><br>    &#125;<span class="hljs-keyword">else</span>&#123;<br>        <span class="hljs-keyword">sh</span> -<span class="hljs-keyword">c</span> <span class="hljs-string">&#x27;ls&#x27;</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>可以通过ll来模拟bash中的ls命令，效果如下：</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309021700895.png" srcset="/img/loading.gif" alt="image-20230902165636782"></p>
+<h2 id="自定义高亮颜色"><a href="#自定义高亮颜色" class="headerlink" title="自定义高亮颜色"></a><strong>自定义高亮颜色</strong></h2><p><code>Set-PSReadLineOption -Colors</code>可以自定义命令行各个部分的颜色，色值既可以使用<a target="_blank" rel="noopener" href="https://en.wikipedia.org/wiki/ANSI_escape_code#3-bit_and_4-bit">ANSI escape code</a>也可以使用16色值。推荐网站<a target="_blank" rel="noopener" href="http://zhongguose.com/">中国色</a></p>
+<p>微软提供以下一些<a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/powershell/module/psreadline/set-psreadlineoption?view=powershell-7.2#-colors">可自定义颜色的选项</a>，主要关注Command、Selection、inlinePrediction即可。以下为笔者使用的，可供参考：</p>
+<figure class="highlight gams"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs gams"><span class="hljs-keyword">Set</span>-PSReadLineOption <span class="hljs-comment">-Colors @&#123;</span>`<br>    Command            <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;Yellow&#x27;</span><br>    Type               <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;Blue&#x27;</span><br>    <span class="hljs-keyword">Variable</span>           <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;DarkGreen&#x27;</span><br>    <span class="hljs-keyword">Parameter</span>          <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;DarkGreen&#x27;</span><br>    ContinuationPrompt <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;DarkGray&#x27;</span><br>    Default            <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;DarkGray&#x27;</span><br>    Selection <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;#F05E1C&#x27;</span><br>    inlinePrediction <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;#91AD70&#x27;</span><br>    Error <span class="hljs-comment">=</span> <span class="hljs-comment">&#x27;Red&#x27;</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/03/%E6%9C%89%E4%BA%86MAC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E9%9C%80%E8%A6%81IP/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">有了MAC为什么还需要IP</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/20/Kubernetes/">
+                        <span class="hidden-mobile">Kubernetes</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

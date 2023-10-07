@@ -1,0 +1,576 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>Druid-ThreadLocal-QueryRunner - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Druid-ThreadLocal-QueryRunner">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-13 17:23" pubdate>
+        2021年3月13日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      24
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Druid-ThreadLocal-QueryRunner</h1>
+            
+            <div class="markdown-body">
+              <h1 id="数据库连接池"><a href="#数据库连接池" class="headerlink" title="数据库连接池"></a>数据库连接池</h1><p>一般情况下我们链接数据库是需要则创建，利用完则销毁，也要遵循JDBC的四步骤：注册驱动，建立通道，配置小车，销毁。</p>
+<p>当然，这种一条一条地创建链接是十分耗费资源的，而且效率也不高。数据库连接池的概念应运而生。</p>
+<p>我们预先设置好一部分链接，放在一个池中，并且将这些连接标记为空闲状态。如果要使用连接就从池中获取一个连接使用，用完之后再次放回到池中。</p>
+<ul>
+<li>连接池自己应该有自动初始化的功能，自动增长，自动缩减</li>
+<li>自动增长：当池中的空闲连接使用完后，自动创建新的空闲连接到连接池中</li>
+<li>自动缩减：当池中的空闲连接剩余过多时，自动关闭部分链接</li>
+</ul>
+<h2 id="Druid"><a href="#Druid" class="headerlink" title="Druid"></a>Druid</h2><p>数据库连接池有很多种：C3P0，DBCP，Druid。其中Druid是目前最为流行的连接池。</p>
+<p>Druid连接池是阿里巴巴开源平台上一个数据库连接池实现，结合了C3P0，DBCP，PROXOOL等DB池的优点，同时加入了日志监控，能很好地监控DB池连接状况和SQL执行情况。下载Duird的jar包：<a href="/download/druid-1.1.5.jar">druid-1.1.5.jar</a></p>
+<h3 id="配置文件-IO流创建连接池"><a href="#配置文件-IO流创建连接池" class="headerlink" title="配置文件+IO流创建连接池"></a>配置文件+IO流创建连接池</h3><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">//database.properties</span></span><br><span class="line"><span class="attr">driver</span>=<span class="string">com.mysql.jdbc.Driver</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/companydb</span></span><br><span class="line"></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">*********</span></span><br><span class="line"></span><br><span class="line"><span class="attr">initialSize</span> = <span class="string">10</span></span><br><span class="line"><span class="attr">maxActive</span> = <span class="string">20</span></span><br><span class="line"><span class="attr">minIdle</span> = <span class="string">5</span></span><br><span class="line"><span class="attr">maxWait</span> = <span class="string">3000</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>使用IO流来加载该配置文件,其中注意<code>Dbutils.class</code>是当前类名。这个流是写在类<code>Dbutils</code>中的。</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">InputStream inputStream = Dbutils.class.getClassLoader().getResourceAsStream(<span class="string">&quot;/database.properties&quot;</span>);</span><br><span class="line">properties.load(inputStream);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>将已经加载了IO流的<code>properties</code>导入连接池</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> DruidDataSource ds;</span><br><span class="line">ds = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);</span><br></pre></td></tr></table></figure>
+<ul>
+<li>至此，一个Druid连接池创建好了。其中需要特别注意的是，使用流创建连接池时<strong>配置文件中的key必须要和官方配置参数完全相同。</strong></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>官方配置参数</th>
+<th>缺省值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>name</td>
+<td></td>
+<td>配置这个属性的意义在于，如果存在多个数据源，监控的时候 <br/>可以通过名字来区分开来。如果没有配置，将会生成一个名字， <br/>格式是：”DataSource-“ + System.identityHashCode(this)</td>
+</tr>
+<tr>
+<td>url</td>
+<td></td>
+<td>连接数据库的url，不同数据库不一样。例如MySQL数据库： <br/>url=jdbc:mysql://localhost:3306/数据库名称?useUnicode=true&amp;characterEncoding=utf8<br/>&amp;useSSL=false&amp;serverTimezone=Asia/Shanghai</td>
+</tr>
+<tr>
+<td>username</td>
+<td></td>
+<td>连接数据库的用户名</td>
+</tr>
+<tr>
+<td>password</td>
+<td></td>
+<td>连接数据库的密码。如果你不希望密码直接写在配置文件中可以使用ConfigFilter</td>
+</tr>
+<tr>
+<td>initialSize</td>
+<td>0</td>
+<td>初始化时建立物理连接的个数。初始化发生在显示调用init方法，或者第一次getConnection时</td>
+</tr>
+<tr>
+<td>maxActive</td>
+<td>8</td>
+<td>最大连接池数量</td>
+</tr>
+<tr>
+<td>minIdle</td>
+<td></td>
+<td>最小连接池数量</td>
+</tr>
+<tr>
+<td>maxWait</td>
+<td></td>
+<td>获取连接时最大等待时间，单位毫秒。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>处理完异常后，创建连接池的完整代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DbUtils</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> DruidDataSource ds;</span><br><span class="line">    <span class="keyword">static</span>&#123;</span><br><span class="line">        Properties properties = <span class="keyword">new</span> Properties();</span><br><span class="line">        InputStream inputStream = DbUtils.class.getResourceAsStream(<span class="string">&quot;/database.properties&quot;</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            properties.load(inputStream);</span><br><span class="line">            ds = (DruidDataSource) DruidDataSourceFactory.createDataSource(properties);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1 id="ThreadLocal-lt-gt-存储链接"><a href="#ThreadLocal-lt-gt-存储链接" class="headerlink" title="ThreadLocal&lt;&gt;存储链接"></a>ThreadLocal&lt;&gt;存储链接</h1></li>
+</ul>
+<h2 id="ThreadLocal用法"><a href="#ThreadLocal用法" class="headerlink" title="ThreadLocal用法"></a>ThreadLocal用法</h2><p>ThreadLocal用于保存某个线程共享变量：对于同一个static ThreadLocal，不同线程只能从中get，set，remove自己的变量，而不会影响其他线程的变量。</p>
+<p>1、<strong>ThreadLocal.get</strong>: 获取ThreadLocal中当前线程共享变量的值。</p>
+<p>2、<strong>ThreadLocal.set</strong>: 设置ThreadLocal中当前线程共享变量的值。</p>
+<p>3、<strong>ThreadLocal.remove</strong>: 移除ThreadLocal中当前线程共享变量的值。</p>
+<p>4、<strong>ThreadLocal.initialValue</strong>: ThreadLocal没有被当前线程赋值时或当前线程刚调用remove方法后调用get方法，返回此方法值。</p>
+<h2 id="ThreadLocal存储Connection"><a href="#ThreadLocal存储Connection" class="headerlink" title="ThreadLocal存储Connection"></a>ThreadLocal存储Connection</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> ThreadLocal&lt;Connection&gt; THREAD_LOCAL = <span class="keyword">new</span> ThreadLocal&lt;&gt;();</span><br></pre></td></tr></table></figure>
+<p>创建ThreadLocal&lt;&gt;时将其声明为<code>private static final</code>，可以有效防止ThreadLocal的弱引用问题。<strong>至此，每一个线程将会有一个属于自己的链接Connection，如果没有的话就去连接池中取一个然后绑定到当前线程中。线程使用完链接后就remove()解除绑定，同时连接池中close()关闭该链接。</strong></p>
+<h2 id="以getConnection-为例"><a href="#以getConnection-为例" class="headerlink" title="以getConnection()为例"></a>以getConnection()为例</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Connection <span class="title">getConection</span><span class="params">()</span></span>&#123;</span><br><span class="line">    Connection connection = THREAD_LOCAL.get();	<span class="comment">//试图获取与当前线程绑定的Connection</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        <span class="keyword">if</span>(connection == <span class="keyword">null</span>)&#123;	<span class="comment">//说明当前线程还没有绑定Connection,去连接池获取</span></span><br><span class="line">            connection = ds.getConnection();	<span class="comment">//连接池创建了一个Connection</span></span><br><span class="line">            THREAD_LOCAL.set(connection);		<span class="comment">//将该Connection与当前线程绑定</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">        throwables.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> connection;	<span class="comment">//当前线程绑定好了一个Connection,开始准备制作小车PreparedStatement。</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Connection connection = Dbutils.getConnection();</span><br></pre></td></tr></table></figure>
+<h1 id="相比于传统方法获取Connection"><a href="#相比于传统方法获取Connection" class="headerlink" title="相比于传统方法获取Connection"></a>相比于传统方法获取Connection</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> Connection connection = <span class="keyword">null</span>;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> PreparedStatement preparedStatement =<span class="keyword">null</span>;</span><br><span class="line"><span class="comment">//注册驱动</span></span><br><span class="line">ResourceBundle resourceBundle = ResourceBundle.getBundle(<span class="string">&quot;database&quot;</span>);</span><br><span class="line">String driver = resourceBundle.getString(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">String url = resourceBundle.getString(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">String username = resourceBundle.getString(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">String password = resourceBundle.getString(<span class="string">&quot;password&quot;</span>);</span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    Class.forName(driver);</span><br><span class="line">&#125; <span class="keyword">catch</span> (ClassNotFoundException e) &#123;</span><br><span class="line">    e.printStackTrace();</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//建立通道</span></span><br><span class="line"><span class="keyword">try</span> &#123;</span><br><span class="line">    connection = DriverManager.getConnection(url, username, password);</span><br><span class="line">&#125; <span class="keyword">catch</span> (SQLException throwables) &#123;</span><br><span class="line">    throwables.printStackTrace();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可以很明显的看出，连接池技术很好的代替了以上一整块代码，免去了注册驱动以及一条条建立通道的麻烦，最重要的是，可复用性和隐蔽性碾压了传统方法，所有的原始数据如username，password等都不会在代码中展现出来，全部都隐蔽在配置文件中。</p>
+<p>ThreadLocal&lt;&gt;的优越性体现在与连接池的高度契合上，它使得一次作业绑定唯一一个Connection，否则一次作业中可以通过<code>ds.getConnection()</code>一直获取Connection，这显得十分无意义且浪费连接池资源。</p>
+<h1 id="QueryRunner-ResultSetHandler"><a href="#QueryRunner-ResultSetHandler" class="headerlink" title="QueryRunner+ResultSetHandler"></a>QueryRunner+ResultSetHandler</h1><p>使用前需添加jar包：<a href="/download/QueryRunner-Handler.rar">commons-dbutils.jar+mysql-connector-java.jar</a></p>
+<p> QreryRunner类(org.apache.commons.dbutils.QueryRunner) 是Dbutils的核心类之一，它显著的简化了SQL查询，并与ResultSetHandler协同工作将使编码量大为减少。它包含以下几个方法：</p>
+<ol>
+<li><pre><code>  **query(Connection conn, String sql, ResultSetHandler rsh,Object[] params)**：执行选择查询，在查询中，对象阵列的值被用来作为查询的置换参数。
+</code></pre>
+</li>
+<li><pre><code>  **update(Connection conn, String sql, Object[] params)**：被用来执行插入、更新或删除（DML）操作。
+</code></pre>
+</li>
+</ol>
+<p>其中ResultSetHandler接口(org.apache.commons.dbutils.ResultSethandler)执行处理一个结果集对象，将数据转变并处理为任何一种形式，供其他应用使用。实现类如下：</p>
+<ul>
+<li><strong>ArrayHandler</strong>：把结果集中的第一行数据转成对象数组。</li>
+<li><strong>ArrayListHandler</strong>：把结果集中的每一行数据都转成一个对象数组，再存放到List中。</li>
+<li><strong>BeanHandler</strong>：将结果集中的第一行数据封装到一个对应的JavaBean实例中。</li>
+<li><strong>BeanListHandler</strong>：将结果集中的每一行数据都封装到一个对应的JavaBean实例中，存放到List里。//重点</li>
+<li><strong>MapHandler</strong>：将结果集中的第一行数据封装到一个Map里，key是列名，value就是对应的值。//重点</li>
+<li><strong>MapListHandler</strong>：将结果集中的每一行数据都封装到一个Map里，然后再存放到List</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> QueryRunner queryRunner = <span class="keyword">new</span> QueryRunner();</span><br><span class="line">Admin admin = queryRunner.query(DbUtils.getConection(),<span class="string">&quot;select * FROM admin WHERE username=?;&quot;</span>,<span class="keyword">new</span> BeanHandler&lt;Admin&gt;(Admin.class),<span class="string">&quot;theo&quot;</span>);</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><code>Connection conn</code>：线程绑定的通道，用来传输SQL语句，返回结果</p>
+<p><code>String sql</code>：如果是查询语句就使用<code>.query()</code>，如果是DML语句就使用<code>.update()</code>。</p>
+<p><code>ReslutSetHandler rsh</code>：因为JDBC中查询语句需要返回<code>ResultSet</code>，而<code>ResultSet</code>本质上是表格。虽然我们可以人为遍历表格然后一个个装入Admin生成一个对象实例，<code>ReslutSetHandler rsh</code>代替我们做了这件事。</p>
+<p><code>Object[] params</code>：可变数组 ，预加载的SQL语句中有多少<code>?</code>这里就对应了多少参数。相当于<code>preparedStatement.setString(1,username);</code>。</p>
+<p><strong>总之，QueryRunner技术代替了准备小车和执行语句[ps.executeUpdate()、ps.executeQuery()]的作用，进一步的，搭配ResultSetHandler还可以将返回结果进行处理，用过都说好！</strong></p>
+</blockquote>
+<ul>
+<li><strong>QueryRunner.query()</strong></li>
+</ul>
+<p>这条语句牵涉到了数据库，Admin类。如果要用到BeanHandler就必须要考虑数据库key值与Admin类属性的匹配。比如说数据库中表头有<code>username VARCHAR(20)</code>，Admin类的属性就得是<code>String username;</code>而不是<code>String UserName;</code>。如果返回的ResultSet是多行多列，也就是有多个实体信息，就需要用到BeanListHandler了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/16/MyBatis/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MyBatis</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/05/JDBC/">
+                        <span class="hidden-mobile">JDBC</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

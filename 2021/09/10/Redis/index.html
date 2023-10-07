@@ -1,0 +1,1306 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>-琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/Redis.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-09-10 11:20" pubdate>
+        2021年9月10日 上午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      11.2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      136
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none"></h1>
+            
+            <div class="markdown-body">
+              <h1 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h1><h2 id="Linux安装"><a href="#Linux安装" class="headerlink" title="Linux安装"></a>Linux安装</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S54y1R7SB?p=9">【狂神说Java】Redis最新超详细版教程通俗易懂_哔哩哔哩_bilibili</a></p>
+<h2 id="Keys"><a href="#Keys" class="headerlink" title="Keys"></a>Keys</h2><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-del.html">DEL key</a> 该命令用于在 key 存在时删除 key。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-dump.html">DUMP key</a> 序列化给定 key ，并返回被序列化的值。</td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-exists.html">EXISTS key</a> 检查给定 key 是否存在。</td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-expire.html">EXPIRE key seconds</a>  为给定 key 设置过期时间，以秒计。</td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-expireat.html">EXPIREAT key timestamp</a> EXPIREAT 的作用和 EXPIRE 类似，都用于为 key 设置过期时间。 不同在于 EXPIREAT 命令接受的时间参数是 UNIX 时间戳(unix timestamp)。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-pexpire.html">PEXPIRE key milliseconds</a> 设置 key 的过期时间以毫秒计。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-pexpireat.html">PEXPIREAT key milliseconds-timestamp</a> 设置 key 过期时间的时间戳(unix timestamp) 以毫秒计</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-keys.html">KEYS pattern</a> 查找所有符合给定模式( pattern)的 key 。</td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-move.html">MOVE key db</a> 将当前数据库的 key 移动到给定的数据库 db 当中。</td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-persist.html">PERSIST key</a> 移除 key 的过期时间，key 将持久保持。</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-pttl.html">PTTL key</a> 以毫秒为单位返回 key 的剩余的过期时间。</td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-ttl.html">TTL key</a> 以秒为单位，返回给定 key 的剩余生存时间(TTL, time to live)。</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-randomkey.html">RANDOMKEY</a> 从当前数据库中随机返回一个 key 。</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-rename.html">RENAME key newkey</a> 修改 key 的名称</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-renamenx.html">RENAMENX key newkey</a> 仅当 newkey 不存在时，将 key 改名为 newkey 。</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-scan.html">SCAN cursor [MATCH pattern …] [COUNT count]</a> 迭代数据库中的数据库键。</td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/keys-type.html">TYPE key</a> 返回 key 所储存的值的类型。</td>
+</tr>
+</tbody></table>
+<h2 id="String"><a href="#String" class="headerlink" title="String"></a>String</h2><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-set.html">SET key value</a> 设置指定 key 的值</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-get.html">GET key</a> 获取指定 key 的值。</td>
+</tr>
+<tr>
+<td align="left"><strong>3</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getrange.html">GETRANGE key start end</a> 返回 key 中字符串值的子字符</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>4</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-getset.html">GETSET key value</a> 将给定 key 的值设为 value ，并返回 key 的旧值(old value)。</strong></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-mget.html">MGET key1 [key2..]</a> 获取所有(一个或多个)给定 key 的值。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setbit.html">SETBIT key offset value</a> 对 key 所储存的字符串值，设置或清除指定偏移量上的位(bit)。</td>
+</tr>
+<tr>
+<td align="left"><strong>8</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setex.html">SETEX key seconds value</a> 将值 value 关联到 key ，并将 key 的过期时间设为 seconds (以秒为单位)。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>9</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setnx.html">SETNX key value</a> 只有在 key 不存在时设置 key 的值。</strong></td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-setrange.html">SETRANGE key offset value</a> 用 value 参数覆写给定 key 所储存的字符串值，从偏移量 offset 开始。</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-strlen.html">STRLEN key</a> 返回 key 所储存的字符串值的长度。</td>
+</tr>
+<tr>
+<td align="left"><strong>12</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-mset.html">MSET key value [key value …]</a> 同时设置一个或多个 key-value 对。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>13</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-msetnx.html">MSETNX key value [key value …]</a> 同时设置一个或多个 key-value 对，当且仅当所有给定 key 都不存在。</strong></td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-psetex.html">PSETEX key milliseconds value</a> 这个命令和 SETEX 命令相似，但它以毫秒为单位设置 key 的生存时间，而不是像 SETEX 命令那样，以秒为单位。</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incr.html">INCR key</a> 将 key 中储存的数字值增一。</td>
+</tr>
+<tr>
+<td align="left"><strong>16</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrby.html">INCRBY key increment</a> 将 key 所储存的值加上给定的增量值（increment） 。</strong></td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-incrbyfloat.html">INCRBYFLOAT key increment</a> 将 key 所储存的值加上给定的浮点增量值（increment） 。</td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decr.html">DECR key</a> 将 key 中储存的数字值减一。</td>
+</tr>
+<tr>
+<td align="left"><strong>19</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-decrby.html">DECRBY key decrement</a> key 所储存的值减去给定的减量值（decrement） 。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>20</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/strings-append.html">APPEND key value</a> 如果 key 已经存在并且是一个字符串， APPEND 命令将指定的 value 追加到该 key 原来值（value）的末尾。</strong></td>
+</tr>
+</tbody></table>
+<ul>
+<li><code>GETRANGE key start end</code>获取key[start,end]，<code>end/start</code>为负数时代表倒数第<code>|end|/|start|</code>个字符。当start值大于end时返回空字符串！！</li>
+</ul>
+<p><img src="https://pic.imgdb.cn/item/613ad33f44eaada7396ef65b.jpg" srcset="/img/loading.gif"></p>
+<h2 id="List"><a href="#List" class="headerlink" title="List"></a>List</h2><p>Redis的List与常规说的列表有所不同，一般来说列表是单口的，即.append()只能在列表尾添加元素。但是Redis的List是双口的，能在列表首尾添加元素。而且元素的取存是和堆栈一致的。</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-blpop.html">BLPOP key1 [key2 …] timeout</a> 移出并获取列表的第一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpop.html">BRPOP key1 [key2 …] timeout</a> 移出并获取列表的最后一个元素， 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</td>
+</tr>
+<tr>
+<td align="left"><strong>3</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-brpoplpush.html">BRPOPLPUSH source destination timeout</a> 从列表中弹出一个值，将弹出的元素插入到另外一个列表中并返回它； 如果列表没有元素会阻塞列表直到等待超时或发现可弹出元素为止。</strong></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lindex.html">LINDEX key index</a> 通过索引获取列表中的元素</td>
+</tr>
+<tr>
+<td align="left"><strong>5</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-linsert.html">LINSERT key BEFORE|AFTER pivot value</a> 在列表的元素前或者后插入元素</strong></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-llen.html">LLEN key</a> 获取列表长度</td>
+</tr>
+<tr>
+<td align="left"><strong>7</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpop.html">LPOP key</a> 移出并获取列表的第一个元素</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>8</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpush.html">LPUSH key value1 [value2 …]</a> 将一个或多个值插入到列表头部</strong></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lpushx.html">LPUSHX key value</a> 将一个值插入到已存在的列表头部</td>
+</tr>
+<tr>
+<td align="left"><strong>10</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrange.html">LRANGE key start stop</a> 获取列表指定范围内的元素</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>11</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lrem.html">LREM key count value</a> 移除列表count个相同元素</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>12</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-lset.html">LSET key index value</a> 通过索引设置列表元素的值</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>13</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-ltrim.html">LTRIM key start stop</a> 对一个列表进行修剪(trim)，就是说，让列表只保留指定区间内的元素，不在指定区间之内的元素都将被删除。</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>14</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpop.html">RPOP key</a> 移除列表的最后一个元素，返回值为移除的元素。</strong></td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpoplpush.html">RPOPLPUSH source destination</a> 移除列表的最后一个元素，并将该元素添加到另一个列表并返回</td>
+</tr>
+<tr>
+<td align="left">16</td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpush.html">RPUSH key value1 [value2 …]</a> 在列表中添加一个或多个值</strong></td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/lists-rpushx.html">RPUSHX key value</a> 为已存在的列表添加值</td>
+</tr>
+</tbody></table>
+<ul>
+<li><img src="https://pic.imgdb.cn/item/613b092f44eaada739bfd20f.jpg" srcset="/img/loading.gif"></li>
+</ul>
+<p>LPUSH相当于堆栈的FILO原则，RPUSH相当于队列的FIFO原则</p>
+<ul>
+<li><img src="https://pic.imgdb.cn/item/613b107544eaada739caddce.jpg" srcset="/img/loading.gif"></li>
+</ul>
+<p>AFTER是队列右端插入元素，BEFORE是往队列左端插入元素</p>
+<h2 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h2><p>和Java的Set一样，Set是一个<strong>无序不重复集合</strong>，因而Set不能通过下标指定获取元素，但可以用作随机数集合。</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sadd.html">SADD key member1 [member2 …]</a> 向集合添加一个或多个成员</td>
+</tr>
+<tr>
+<td align="left"><strong>2</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-scard.html">SCARD key</a> 获取集合的成员数</strong></td>
+</tr>
+<tr>
+<td align="left">3</td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiff.html">SDIFF key1 [key2 …]</a> 返回第一个集合与其他集合之间的差异。</strong></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sdiffstore.html">SDIFFSTORE destination key1 [key2 …]</a> 返回给定所有集合的差集并存储在 destination 中</td>
+</tr>
+<tr>
+<td align="left"><strong>5</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinter.html">SINTER key1 [key2  …]</a> 返回给定所有集合的交集</strong></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sinterstore.html">SINTERSTORE destination key1 [key2 …]</a> 返回给定所有集合的交集并存储在 destination 中</td>
+</tr>
+<tr>
+<td align="left"><strong>7</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sismember.html">SISMEMBER key member</a> 判断 member 元素是否是集合 key 的成员</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>8</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smembers.html">SMEMBERS key</a> 返回集合中的所有成员</strong></td>
+</tr>
+<tr>
+<td align="left">9</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-smove.html">SMOVE source destination member</a> 将 member 元素从 source 集合移动到 destination 集合</td>
+</tr>
+<tr>
+<td align="left"><strong>10</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-spop.html">SPOP key</a> 移除并返回集合中的一个随机元素</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>11</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srandmember.html">SRANDMEMBER key [count …]</a> 返回集合中一个或多个随机数</strong></td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-srem.html">SREM key member1 [member2 …]</a> 移除集合中一个或多个成员</td>
+</tr>
+<tr>
+<td align="left"><strong>13</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunion.html">SUNION key1 [key2 …]</a> 返回所有给定集合的并集</strong></td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sunionstore.html">SUNIONSTORE destination key1 [key2 …]</a> 所有给定集合的并集存储在 destination 集合中</td>
+</tr>
+<tr>
+<td align="left">15</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sets-sscan.html">SSCAN key cursor [MATCH pattern …] [COUNT count]</a> 迭代集合中的元素</td>
+</tr>
+</tbody></table>
+<h2 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h2><table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><strong>1</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hdel.html">HDEL key field1 [field2 …]</a> 删除一个或多个哈希表字段</strong></td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hexists.html">HEXISTS key field</a> 查看哈希表 key 中，指定的字段是否存在。</td>
+</tr>
+<tr>
+<td align="left"><strong>4</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hgetall.html">HGETALL key</a> 获取在哈希表中指定 key 的所有字段和值</strong></td>
+</tr>
+<tr>
+<td align="left">5</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrby.html">HINCRBY key field increment</a> 为哈希表 key 中的指定字段的整数值加上增量 increment 。</td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hincrbyfloat.html">HINCRBYFLOAT key field increment</a> 为哈希表 key 中的指定字段的浮点数值加上增量 increment 。</td>
+</tr>
+<tr>
+<td align="left">7</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hkeys.html">HKEYS key</a> 获取所有哈希表中的字段</td>
+</tr>
+<tr>
+<td align="left">8</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hlen.html">HLEN key</a> 获取哈希表中字段的数量</td>
+</tr>
+<tr>
+<td align="left"><strong>9</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmget.html">HGET key field1 [field2 …]</a> 获取所有给定字段的值</strong></td>
+</tr>
+<tr>
+<td align="left"><strong>10</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hmset.html">HSET key field1 value1 [field2 value2  …]</a> 同时将多个 field-value (域-值)对设置到哈希表 key 中。</strong></td>
+</tr>
+<tr>
+<td align="left">12</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hsetnx.html">HSETNX key field value</a> 只有在字段 field 不存在时，设置哈希表字段的值。</td>
+</tr>
+<tr>
+<td align="left">13</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hvals.html">HVALS key</a> 获取哈希表中所有值。</td>
+</tr>
+<tr>
+<td align="left">14</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/hashes-hscan.html">HSCAN key cursor [MATCH pattern …] [COUNT count]</a> 迭代哈希表中的键值对。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>HMGET和HMSET在Redis 4.0.0后被官方废弃，其功能和HSET，HGET一致。</p>
+</li>
+<li><p>HGETALL可以获取key-value，HKEYS只能获取key，HVALS只能获取value</p>
+</li>
+</ul>
+<h2 id="Zset"><a href="#Zset" class="headerlink" title="Zset"></a>Zset</h2><p>Zset相比于Set，是个有序的无重复集合，Zset的主要方法用来排列集合数据</p>
+<p>Zset存储的数据结构也与Set不一样，类似于value-key的结构，这样就可以通过key来定向获取分数了。</p>
+<table>
+<thead>
+<tr>
+<th align="left">序号</th>
+<th align="left">命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">1</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zadd.html">ZADD key score1 member1 [score2 member2]</a> 向有序集合添加一个或多个成员，或者更新已存在成员的分数</td>
+</tr>
+<tr>
+<td align="left">2</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcard.html">ZCARD key</a> 获取有序集合的成员数</td>
+</tr>
+<tr>
+<td align="left"><strong>3</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zcount.html">ZCOUNT key min max</a> 计算在有序集合中指定区间分数的成员数</strong></td>
+</tr>
+<tr>
+<td align="left">4</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zincrby.html">ZINCRBY key increment member</a> 有序集合中对指定成员的分数加上增量 increment</td>
+</tr>
+<tr>
+<td align="left"><strong>5</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zinterstore.html">ZINTERSTORE destination numkeys key [key …]</a> 计算给定的一个或多个有序集的交集并将结果集存储在新的有序集合 destination 中</strong></td>
+</tr>
+<tr>
+<td align="left">6</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zlexcount.html">ZLEXCOUNT key min max</a> 在有序集合中计算指定字典区间内成员数量</td>
+</tr>
+<tr>
+<td align="left"><strong>7</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://redis.io/commands/zrange">ZRANGE key min max [BYSCORE|BYLEX] [REV] [LIMIT offset count] [WITHSCORES]</a>通过索引区间返回有序集合指定区间内的成员</strong></td>
+</tr>
+<tr>
+<td align="left">10</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrank.html">ZRANK key member</a> 返回有序集合中指定成员的索引</td>
+</tr>
+<tr>
+<td align="left">11</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrem.html">ZREM key member [member …]</a> 移除有序集合中的一个或多个成员</td>
+</tr>
+<tr>
+<td align="left">17</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zrevrank.html">ZREVRANK key member</a> 返回有序集合中指定成员的排名，有序集成员按分数值递减(从大到小)排序</td>
+</tr>
+<tr>
+<td align="left">18</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscore.html">ZSCORE key member</a> 返回有序集中，成员的分数值</td>
+</tr>
+<tr>
+<td align="left"><strong>19</strong></td>
+<td align="left"><strong><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zunionstore.html">ZUNIONSTORE destination numkeys key [key …]</a> 计算给定的一个或多个有序集的并集，并存储在新的 key 中</strong></td>
+</tr>
+<tr>
+<td align="left">20</td>
+<td align="left"><a target="_blank" rel="noopener" href="https://www.runoob.com/redis/sorted-sets-zscan.html">ZSCAN key cursor [MATCH pattern] [COUNT count]</a> 迭代有序集合中的元素（包括元素成员和元素分值）</td>
+</tr>
+<tr>
+<td align="left"><strong>21</strong></td>
+<td align="left"><strong>ZRANDMEMBER key [count [WITHSCORES]] 随机获取集合中count个member</strong></td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>Zset会自动对内部的数据进行<strong>递增的排序</strong></p>
+</li>
+<li><p>ZRANGE是个功能齐全的方法，能够替代之前的<a target="_blank" rel="noopener" href="https://redis.io/commands/zrevrange">ZREVRANGE</a>, <a target="_blank" rel="noopener" href="https://redis.io/commands/zrangebyscore">ZRANGEBYSCORE</a>, <a target="_blank" rel="noopener" href="https://redis.io/commands/zrevrangebyscore">ZREVRANGEBYSCORE</a>, <a target="_blank" rel="noopener" href="https://redis.io/commands/zrangebylex">ZRANGEBYLEX</a> and <a target="_blank" rel="noopener" href="https://redis.io/commands/zrevrangebylex">ZREVRANGEBYLEX</a>.</p>
+</li>
+<li><p><code>ZRANGE key min max</code>是以下标为截取范围如<code>ZRANGE key 0 -1</code>截取第一个到倒数第一个。</p>
+</li>
+<li><p><code>ZRANGE key min max BYSCORE</code>是以分数为截取范围，如<code>ZRANGE key -inf +inf BYSCORE</code>截取负无穷到正无穷</p>
+</li>
+<li><p><code>ZRANGE key min max BYLEX</code>是以字典顺序为截取范围，且只以member在字典的顺序为排序（此模式下要求最好所有member的分数都要一致，否则返回的结果不可预测）</p>
+<p><img src="https://pic.imgdb.cn/item/613c72ef44eaada739deef13.jpg" srcset="/img/loading.gif" alt="Zset是以分数排序，因而a排在最后"></p>
+<blockquote>
+<p>因为BYLEX只看member在字典的顺序，而a排在最后面违反了Zset递增排序的规则，这样BYLEX查询就会出错。</p>
+</blockquote>
+<p>对于<code>ZADD myzset 0 a 0 b 0 c 0 d 0 e 0 f 0 g</code>而言，<code>ZRANGE myzset - + BYLEX</code>截取所有member。<code>ZRANGE myset (a [d BYLEX</code>返回b、c、d</p>
+</li>
+<li><p><code>ZRANGE key max min REV</code>会以降序返回，但注意范围是max min。</p>
+</li>
+<li><p><code>ZRANGE key min max WITHSCORES</code>会将member和score一起返回，默认只返回member。</p>
+</li>
+<li><p><code>ZCOUNT key min max</code>是基于分数为截取范围，<code>ZLEXCOUNT key min max</code>才是基于字典顺序为截取范围。</p>
+</li>
+</ul>
+<h2 id="Geospatial"><a href="#Geospatial" class="headerlink" title="Geospatial"></a>Geospatial</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>GEOADD key  longitude latitude member [longitude latitude member …] 添加地理位置</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GEOPOS key member [member …] 获取地点的经纬</td>
+</tr>
+<tr>
+<td>3</td>
+<td>ZREM key member [member …] Geo没有专门的删除方法，但Geo也是一个Zset。</td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td><strong>GEODIST key member1 member2 [m|km|ft|mi] 测量两地点之间的直线距离</strong></td>
+</tr>
+<tr>
+<td>5</td>
+<td>GEORADIUS key longitude latitude radius m|km|ft|mi [WITHCOORD] [WITHDIST] [WITHHASH] [COUNT count [ANY]] [ASC|DESC] [STORE key] [STOREDIST key] 获取离特定点radius距离内的所有地点，并按从近到远排列输出</td>
+</tr>
+<tr>
+<td>6</td>
+<td>[GEOSEARCH key [FROMMEMBER member] [FROMLONLAT longitude latitude] [BYRADIUS radius m|km|ft|mi] [BYBOX width height m|km|ft|mi] [ASC|DESC] <a target="_blank" rel="noopener" href="https://redis.io/commands/geosearch">COUNT count [ANY] ] [WITHCOORD] [WITHDIST]</a> 寻找count个以member或指定坐标为中心的圆形/方形范围内的地点。</td>
+</tr>
+</tbody></table>
+<ul>
+<li><p>GEOADD china:city 121.47 31.23 shanghai 116.40 39.90 beijing 106.50 29.53 chongqing 114.05 22.52 shenzhen 120.16 30.24 hangzhou</p>
+</li>
+<li><p><strong>有效经度为 -180 到 180 度。有效纬度是从 -85.05112878 到 85.05112878 度。</strong></p>
+</li>
+<li><p>GEORADIUS在Redis 6.2.0已经被弃用，代替的是 <a target="_blank" rel="noopener" href="https://redis.io/commands/geosearch">GEOSEARCH</a> 和<a target="_blank" rel="noopener" href="https://redis.io/commands/geosearchstore">GEOSEARCHSTORE</a></p>
+</li>
+<li><p>FROMMEMBER:使用给定的&lt;成员&gt;在已排序集合中的位置。<br>FROMLONLAT:使用给定的&lt;经度&gt;和&lt;纬度&gt;位置。<br>BYRADIUS:类似于GEORADIUS，根据给定的<code>&lt;radius&gt;</code>搜索圆形区域内。<br>BYBOX:在轴对齐的矩形内搜索，由<code>&lt;height&gt;</code>和<code>&lt;width&gt;</code>决定。<br>COUNT:在返回结果中截取前COUNT个元素,如果开启ANY选项，直到找到足够的匹配项就直接返回。否则会全部找完再进行排序。<br>WITHCOORD:将地点的经纬同时返回<br>WITHDIST：将地点与中心点的距离也返回，距离单位与搜寻范围的距离单位一致</p>
+</li>
+</ul>
+<h2 id="Hyperloglog"><a href="#Hyperloglog" class="headerlink" title="Hyperloglog"></a>Hyperloglog</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td><a target="_blank" rel="noopener" href="https://redis.io/commands/pfadd">PFADD key element [element …]</a> 添加一组元素</td>
+</tr>
+<tr>
+<td>2</td>
+<td><a target="_blank" rel="noopener" href="https://redis.io/commands/pfcount">PFCOUNT key [key …]</a> 返回所有key集合交集的基数</td>
+</tr>
+<tr>
+<td>3</td>
+<td>PFMERGE destkey sourcekey [sourcekey …] 合并sourcekey并存到destkey</td>
+</tr>
+</tbody></table>
+<ul>
+<li>PFADD如果添加了已有的元素，重复的元素将被阻止添加。</li>
+<li>PFCOUNT计算集合的基数<strong>（集合中不重复的元素个数）</strong>，当PFCOUNT用单个键调用时，因为PFCOUNT使用缓存来记住之前计算的基数，而基数很少改变，故而计算时间很短。当使用多个键调用PFCOUNT时，会执行HyperLogLogs的动态合并，而且无法缓存合并的基数，故而计算时间较长。</li>
+</ul>
+<h2 id="Bitmap"><a href="#Bitmap" class="headerlink" title="Bitmap"></a>Bitmap</h2><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>命令及描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>SETBIT key offset value 在offset偏移处设置0/1</td>
+</tr>
+<tr>
+<td>2</td>
+<td>GETBIT key offset 获取offset的bit位</td>
+</tr>
+<tr>
+<td>3</td>
+<td>BITFIELD key [GET type offset] [SET type offset value] [INCRBY type offset increment] [OVERFLOW WRAP|SAT|FAIL]</td>
+</tr>
+<tr>
+<td>4</td>
+<td>BITCOUNT key [start end] 统计bit位为1的位数</td>
+</tr>
+<tr>
+<td>5</td>
+<td>BITOP AND|OR|XOR destkey key [key …] 将所有key进行位运算并存储结果到destkey<br />BITOP NOT destkey srckey</td>
+</tr>
+</tbody></table>
+<ul>
+<li>Bitmap并不是一个特殊的数据结构，可以看作是字符串类型。因而bitmap也能使用GET、SET方法。</li>
+<li>SETBIT设置了一个高bit位的值后，Bitmap会自动增长以确保能在offset处保持位，未被设置的位则默认为0。offset参数要求大于或等于0，并且小于2^32^(这将Bitmap限制为512MB)</li>
+</ul>
+<h1 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h1><p>Redis事物本质是一组命令的集合，在事务的执行过程中会按照顺序执行。Redis事务是<strong>一次性、顺序性、排他性</strong>的。</p>
+<p><strong>但注意，Redis事务没有隔离级别的概念，而Redis命令是保持原子性的，但事务本身不保证原子性！</strong></p>
+<blockquote>
+<p>事务执行</p>
+</blockquote>
+<ol>
+<li><p>MULTI（开启事务）</p>
+</li>
+<li><p>SET、GET … （命令入队）</p>
+</li>
+<li><p>EXEC （执行事务）</p>
+</li>
+</ol>
+<blockquote>
+<p>事务出现编译异常</p>
+</blockquote>
+<p>Redis命令如果出现了语法错误，当其尝试入队时Redis会提示错误。最后运行时整个事务都会被阻止。</p>
+<blockquote>
+<p>运行时异常</p>
+</blockquote>
+<p>Redis命令如果操作了不得当数据，如自增字符串，用Hash命令操作List、String等，执行事务时正常命令可以照样执行，错误命令则抛出异常。</p>
+<h1 id="Jedis"><a href="#Jedis" class="headerlink" title="Jedis"></a>Jedis</h1><p>通过Jedis连接远程服务器的Redis：</p>
+<p>建立maven项目，导入依赖</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>redis.clients<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>jedis<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.7.0<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>创立代码文件：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.levi;<br><br><span class="hljs-keyword">import</span> redis.clients.jedis.Jedis;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TestJedis</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        Jedis jedis = <span class="hljs-keyword">new</span> Jedis(<span class="hljs-string">&quot;47.101.160.130&quot;</span>, <span class="hljs-number">6379</span>);<br>        System.out.println(jedis.ping());<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>改变Redis配置（备份在/usr/local/bin/leviconfig/redis.conf），允许远程连接：</p>
+<p>注释掉bind，protected-mode为no</p>
+<p><img src="https://img2020.cnblogs.com/blog/757087/202012/757087-20201225094304067-242192253.png" srcset="/img/loading.gif" alt="img"></p>
+<p>防火墙开启6379端口：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs shell">firewall-cmd --zone=public --add-port=6379/tcp --permanent<br><span class="hljs-meta">#</span><span class="bash">重新加载并查看开放的端口号</span><br>firewall-cmd --reload<br>firewall-cmd --permanent --zone=public --list-ports<br></code></pre></td></tr></table></figure>
+<p>阿里云开放安全组6379端口</p>
+<p>以上完成后执行Java代码即可看到PONG的输出。</p>
+<h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><p>Redis数据库是存在于内存中的，具有<strong>断电即失</strong>的特点，因而Redis持久化数据很重要</p>
+<h2 id="RDB（Redis-DataBase）"><a href="#RDB（Redis-DataBase）" class="headerlink" title="RDB（Redis DataBase）"></a>RDB（Redis DataBase）</h2><p>通过拍摄快照的方式实现持久化，将某个时间的内存数据存储在一个rdb文件中，在redis服务重新启动的时候加载文件中的数据</p>
+<p><img src="https://pic.imgdb.cn/item/6141b0192ab3f51d91da2f23.png" srcset="/img/loading.gif"></p>
+<p>Redis会单独创建一个子进程来进行持久化，会先将数据写入到一个临时文件中，带持久化过程结束了，再用该临时文件替换上次持久化好的文件。整个持久化的过程中，主进程不进行任何IO操作，创建子进程后主进程仍然可以响应Client请求。</p>
+<p>如果需要进行<strong>大规模数据的恢复，且对于数据恢复的完整性不是很敏感</strong>的话，RDB比AOF方式更为有效。</p>
+<p>RDB的缺点就是<strong>最后一次持久化后的数据可能会丢失</strong>。</p>
+<h3 id="Redis-conf"><a href="#Redis-conf" class="headerlink" title="Redis.conf"></a>Redis.conf</h3><p>以下是Redis配置文件关于RDB的默认配置值。</p>
+<p><img src="https://pic.imgdb.cn/item/6141b2542ab3f51d91dc2b2f.jpg" srcset="/img/loading.gif"></p>
+<blockquote>
+<p>RDB触发条件</p>
+</blockquote>
+<p>1、 满足save 900 1 的条件</p>
+<p>2、 执行了bgasve/save命令，bgsave不会阻塞主进程，而save会</p>
+<p>3、 shutdown退出Redis/flush清除数据</p>
+<p>注：FLUSHALL生成的rdb/aof文件是能储存flush之前的数据的：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/lizexiong/p/14730747.html">Redis的flushall/flushdb误操作 - 小家电维修 - 博客园 (cnblogs.com)</a></p>
+<blockquote>
+<p>RDB恢复快照</p>
+</blockquote>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs shell">127.0.0.1:6379&gt; CONFIG GET dir<br>1) &quot;dir&quot;<br>2) &quot;/usr/local/bin&quot;<br></code></pre></td></tr></table></figure>
+<p>只要dump.rdb保留在/usr/local/bin（默认在redis-server同级目录），重新启动redis就能重载备份数据。</p>
+<blockquote>
+<p>FLUSHALL后恢复RDB数据</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/dalianpai/p/12539396.html">Redis使用rdb文件恢复数据 - 天宇轩-王 - 博客园 (cnblogs.com)</a></p>
+<h2 id="AOF（Append-Only-File）"><a href="#AOF（Append-Only-File）" class="headerlink" title="AOF（Append Only File）"></a>AOF（Append Only File）</h2><p>AOF文件能够将我们的操作记录下来，在redis启动的时候会顺序执行记录的写命令。这种方式明显就不适合大量数据的存储了，但能很好地防止Flush的误操作恢复备份。</p>
+<p><img src="https://pic.imgdb.cn/item/6141bf9d2ab3f51d91f946ab.jpg" srcset="/img/loading.gif"></p>
+<h3 id="Redis-conf-1"><a href="#Redis-conf-1" class="headerlink" title="Redis.conf"></a>Redis.conf</h3><p><img src="https://pic.imgdb.cn/item/6141bfd22ab3f51d91f9e84e.jpg" srcset="/img/loading.gif"></p>
+<blockquote>
+<p>AOF触发条件</p>
+</blockquote>
+<p>appendfsync默认是每秒触发，即每秒记录一次写操作。</p>
+<blockquote>
+<p>AOF修复</p>
+</blockquote>
+<p>AOF可能因为电脑宕机导致文件破损，使用<code>redis-check-aof --fix</code>就可以修复AOF文件，修复方式就是删去出错的写操作。<strong>如果AOF没有被修复，那么Redis是无法开启的</strong>。</p>
+<blockquote>
+<p>FLUSH后恢复AOF数据</p>
+</blockquote>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_34556414/article/details/107427209">Redis AOF之执行flushdb或flushall之后的后悔药_小楼一夜听春雨，深巷明朝卖杏花-CSDN博客</a></p>
+<h1 id="Redis集群"><a href="#Redis集群" class="headerlink" title="Redis集群"></a>Redis集群</h1><h2 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h2><p>在同一台服务器上搭建一主二从的拟集群环境，建立三分Redis配置文件，分别为redis79.conf,redis80.conf,redis81.conf</p>
+<p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1S54y1R7SB?p=31">【狂神说Java】Redis集群环境搭建</a></p>
+<p>搭建好后进入redis，会发现每一台redis都是主节点。因为<strong>默认情况下每个节点都是主节点</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs shell">127.0.0.1:6379&gt; info replication<br><span class="hljs-meta">#</span><span class="bash"> Replication</span><br>role:master<br>connected_slaves:0<br>master_failover_state:no-failover<br>master_replid:a3d4f6b6132911f4933991b2f6b3b69cc5aeb40a<br>master_replid2:0000000000000000000000000000000000000000<br>master_repl_offset:0<br>second_repl_offset:-1<br>repl_backlog_active:0<br>repl_backlog_size:1048576<br>repl_backlog_first_byte_offset:0<br>repl_backlog_histlen:0<br></code></pre></td></tr></table></figure>
+<p>选择一个作为从机通过<code>SLAVEOF 127.0.0.1 6379</code>就能指定主机。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs shell">127.0.0.1:6380&gt; SLAVEOF 127.0.0.1 6379<br>OK<br>127.0.0.1:6380&gt; info replication<br><span class="hljs-meta">#</span><span class="bash"> Replication</span><br>role:slave<br>master_host:127.0.0.1<br>master_port:6379<br>master_link_status:up<br>master_last_io_seconds_ago:7<br>master_sync_in_progress:0<br>slave_repl_offset:28<br>slave_priority:100<br>slave_read_only:1<br>replica_announced:1<br>connected_slaves:0<br>master_failover_state:no-failover<br>master_replid:32cde58052534f54c17c79fe0728a522c19e1377<br>master_replid2:0000000000000000000000000000000000000000<br>master_repl_offset:28<br>second_repl_offset:-1<br>repl_backlog_active:1<br>repl_backlog_size:1048576<br>repl_backlog_first_byte_offset:1<br>repl_backlog_histlen:28<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>实际情况下要通过配置文件设置主从关系，更改从机配置文件的<code>relicaof &lt;masterip&gt; &lt;masterport&gt;</code>与<code>masterauth &lt;master-password&gt;</code></p>
+</blockquote>
+<h2 id="主从复制"><a href="#主从复制" class="headerlink" title="主从复制"></a>主从复制</h2><h3 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h3><ul>
+<li><p>整个集群中只有主机有读写功能，而从机没有写功能。从机共享主机资源，可以备份数据。</p>
+</li>
+<li><p>主机宕机且不配置哨兵模式时，如果主机宕机退出，从机依然依附原主机。但此时整个集群都不能做写操作！！</p>
+</li>
+<li><p>从机宕机后重连。除非配置文件中设置了主从关系，否则该机器脱离集群！！当然也可通过SLAVEOF进入集群。</p>
+</li>
+</ul>
+<h3 id="复制原理"><a href="#复制原理" class="headerlink" title="复制原理"></a>复制原理</h3><p>从机连接到集群后会像主机发送sync同步请求，主机接收后启动后台存盘进程，同时从机所有接收到的用于修改数据集的命令，在后台进程执行完毕后，主机同步所有数据文件到从机。</p>
+<p>==全量复制==：从机接收到数据文件后，将其存盘并加载至内存</p>
+<p>==增量复制==：后续主机会将新的数据依次传递给从机</p>
+<p>只要从机连接到集群，就会自动完成一次<strong>全量复制</strong></p>
+<h3 id="哨兵"><a href="#哨兵" class="headerlink" title="哨兵"></a>哨兵</h3><p>哨兵模式是一种特殊的模式，首先Redis提供了哨兵的命令，哨兵是一个独立的进程，作为进程，它会独立运行。其原理是<strong>哨兵通过发送命令，等待Redis服务器响应，从而监控运行的多个Redis实例。</strong></p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11320039-57a77ca2757d0924.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/507/format/webp" srcset="/img/loading.gif" alt="单哨兵"></p>
+<p>这里的哨兵有两个作用</p>
+<ul>
+<li>通过发送命令，让Redis服务器返回监控其运行状态，包括主服务器和从服务器。</li>
+<li>当哨兵监测到master宕机，会自动将slave切换成master，然后通过<strong>发布订阅模式</strong>通知其他的从服务器，修改配置文件，让它们切换主机。</li>
+</ul>
+<p>用文字描述一下多哨兵<strong>故障切换（failover）</strong>的过程。假设主服务器宕机，哨兵1先检测到这个结果，系统并不会马上进行failover过程，仅仅是哨兵1主观的认为主服务器不可用，这个现象成为<strong>主观下线</strong>。当后面的哨兵也检测到主服务器不可用，并且数量达到一定值时，那么哨兵之间就会进行一次投票，投票的结果由一个哨兵发起，进行failover操作。切换成功后，就会通过发布订阅模式，让各个哨兵把自己监控的从服务器实现切换主机，这个过程称为<strong>客观下线</strong>。这样对于客户端而言，一切都是透明的。</p>
+<p><img src="https://upload-images.jianshu.io/upload_images/11320039-3f40b17c0412116c.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/747/format/webp" srcset="/img/loading.gif" alt="多哨兵"></p>
+<h3 id="单哨兵"><a href="#单哨兵" class="headerlink" title="单哨兵"></a>单哨兵</h3><p>创建哨兵配置文件<code>sentinel.conf</code>:</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> 禁止保护模式(多服务器)</span><br>protected-mode no<br><span class="hljs-meta">#</span><span class="bash"> 配置监听的主服务器，这里sentinel monitor代表监控，mymaster代表服务器的名称，可以自定义，</span><br><span class="hljs-meta">#</span><span class="bash">192.168.11.128代表监控的主服务器，6379代表端口，1代表只有一个或一个以上的哨兵认为主服务器不可用的时候，才会进行failover操作。</span><br>sentinel monitor mymaster 127.0.0.1 6379 1<br><span class="hljs-meta">#</span><span class="bash"> sentinel author-pass定义服务的密码，mymaster是服务名称，123456是Redis服务器密码</span><br>sentinel auth-pass mymaster 123456<br></code></pre></td></tr></table></figure>
+<p>启动哨兵，哨兵启动成功后会更新<code>sentinel.conf</code>。</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs shell">[root@Levi bin]$ redis-sentinel sentinel.conf <br>2771847:X 15 Sep 2021 22:04:41.712 # oO0OoO0OoO0Oo Redis is starting oO0OoO0OoO0Oo<br>2771847:X 15 Sep 2021 22:04:41.712 # Redis version=6.2.5, bits=64, commit=00000000, modified=0, pid=2771847, just started<br>2771847:X 15 Sep 2021 22:04:41.712 # Configuration loaded<br>2771847:X 15 Sep 2021 22:04:41.713 * monotonic clock: POSIX clock_gettime<br>                _._                                                  <br>           _.-``__ &#x27;&#x27;-._                                             <br>      _.-``    `.  `_.  &#x27;&#x27;-._           Redis 6.2.5 (00000000/0) 64 bit<br>  .-`` .-```.  ```\/    _.,_ &#x27;&#x27;-._                                  <br> (    &#x27;      ,       .-`  | `,    )     Running in sentinel mode<br> |`-._`-...-` __...-.``-._|&#x27;` _.-&#x27;|     Port: 26379<br> |    `-._   `._    /     _.-&#x27;    |     PID: 2771847<br>  `-._    `-._  `-./  _.-&#x27;    _.-&#x27;                                   <br> |`-._`-._    `-.__.-&#x27;    _.-&#x27;_.-&#x27;|                                  <br> |    `-._`-._        _.-&#x27;_.-&#x27;    |           https://redis.io       <br>  `-._    `-._`-.__.-&#x27;_.-&#x27;    _.-&#x27;                                   <br> |`-._`-._    `-.__.-&#x27;    _.-&#x27;_.-&#x27;|                                  <br> |    `-._`-._        _.-&#x27;_.-&#x27;    |                                  <br>  `-._    `-._`-.__.-&#x27;_.-&#x27;    _.-&#x27;                                   <br>      `-._    `-.__.-&#x27;    _.-&#x27;                                       <br>          `-._        _.-&#x27;                                           <br>              `-.__.-&#x27;                                               <br><br>2771847:X 15 Sep 2021 22:04:41.717 # Sentinel ID is 752d9dbfe066f2ec0206227c0be60f8500478a50<br>2771847:X 15 Sep 2021 22:04:41.717 # +monitor master mymaster 127.0.0.1 6379 quorum 1<br>2771847:X 15 Sep 2021 22:04:41.717 * +slave slave 127.0.0.1:6381 127.0.0.1 6381 @ mymaster 127.0.0.1 6379	#发现了两个从机<br>2771847:X 15 Sep 2021 22:04:41.720 * +slave slave 127.0.0.1:6380 127.0.0.1 6380 @ mymaster 127.0.0.1 6379<br><br></code></pre></td></tr></table></figure>
+<p>宕机主机，哨兵确认宕机后会投票选取一个从机为新的主机，相关日志如下：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs shell">2771847:X 15 Sep 2021 22:09:49.686 # +sdown master mymaster 127.0.0.1 6379									##察觉到主机宕机<br>2771847:X 15 Sep 2021 22:09:49.686 # +odown master mymaster 127.0.0.1 6379 #quorum 1/1						##确认宕机<br>2771847:X 15 Sep 2021 22:09:49.686 # +new-epoch 1<br>2771847:X 15 Sep 2021 22:09:49.686 # +try-failover master mymaster 127.0.0.1 6379							##开始选举<br>2771847:X 15 Sep 2021 22:09:49.689 # +vote-for-leader 752d9dbfe066f2ec0206227c0be60f8500478a50 1			##752d9db号哨兵发起投票<br>2771847:X 15 Sep 2021 22:09:49.689 # +elected-leader master mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:49.689 # +failover-state-select-slave master mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:49.780 # +selected-slave slave 127.0.0.1:6381 127.0.0.1 6381 @ mymaster 127.0.0.1 6379			##投票给127.0.0.1:6381<br>2771847:X 15 Sep 2021 22:09:49.780 * +failover-state-send-slaveof-noone slave 127.0.0.1:6381 127.0.0.1 6381 @ mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:49.838 * +failover-state-wait-promotion slave 127.0.0.1:6381 127.0.0.1 6381 @ mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:49.991 # +promoted-slave slave 127.0.0.1:6381 127.0.0.1 6381 @ mymaster 127.0.0.1 6379			##确认127.0.0.1:6381为新主机<br>2771847:X 15 Sep 2021 22:09:49.991 # +failover-state-reconf-slaves master mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:50.059 * +slave-reconf-sent slave 127.0.0.1:6380 127.0.0.1 6380 @ mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:51.059 * +slave-reconf-inprog slave 127.0.0.1:6380 127.0.0.1 6380 @ mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:51.059 * +slave-reconf-done slave 127.0.0.1:6380 127.0.0.1 6380 @ mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:51.130 # +failover-end master mymaster 127.0.0.1 6379<br>2771847:X 15 Sep 2021 22:09:51.130 # +switch-master mymaster 127.0.0.1 6379 127.0.0.1 6381									##更改127.0.0.1:6381配置，成为新主机<br>2771847:X 15 Sep 2021 22:09:51.130 * +slave slave 127.0.0.1:6380 127.0.0.1 6380 @ mymaster 127.0.0.1 6381					##更改从机配置文件<br>2771847:X 15 Sep 2021 22:09:51.130 * +slave slave 127.0.0.1:6379 127.0.0.1 6379 @ mymaster 127.0.0.1 6381<br>2771847:X 15 Sep 2021 22:10:21.132 # +sdown slave 127.0.0.1:6379 127.0.0.1 6379 @ mymaster 127.0.0.1 6381<br></code></pre></td></tr></table></figure>
+<p>即使原主机回来，也只能成为新主机的从机。</p>
+<h3 id="哨兵配置"><a href="#哨兵配置" class="headerlink" title="哨兵配置"></a>哨兵配置</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br></pre></td><td class="code"><pre><code class="hljs shell"><span class="hljs-meta">#</span><span class="bash"> Example sentinel.conf</span>  <br><br><span class="hljs-meta">#</span><span class="bash"> 哨兵sentinel实例运行的端口 默认26379</span>  <br>port 26379  <br>  <br><span class="hljs-meta">#</span><span class="bash"> 哨兵sentinel的工作目录</span>  <br>dir /tmp  <br>  <br><span class="hljs-meta">#</span><span class="bash"> 哨兵sentinel监控的redis主节点的 ip port</span>   <br><span class="hljs-meta">#</span><span class="bash"> master-name  可以自己命名的主节点名字 只能由字母A-z、数字0-9 、这三个字符<span class="hljs-string">&quot;.-_&quot;</span>组成。</span>  <br><span class="hljs-meta">#</span><span class="bash"> quorum 当这些quorum个数sentinel哨兵认为master主节点失联 那么这时 客观上认为主节点失联了</span>  <br><span class="hljs-meta">#</span><span class="bash"> sentinel monitor &lt;master-name&gt; &lt;ip&gt; &lt;redis-port&gt; &lt;quorum&gt;</span>  <br>  sentinel monitor mymaster 127.0.0.1 6379 2  <br>  <br><span class="hljs-meta">#</span><span class="bash"> 当在Redis实例中开启了requirepass foobared 授权密码 这样所有连接Redis实例的客户端都要提供密码</span>  <br><span class="hljs-meta">#</span><span class="bash"> 设置哨兵sentinel 连接主从的密码 注意必须为主从设置一样的验证密码</span>  <br><span class="hljs-meta">#</span><span class="bash"> sentinel auth-pass &lt;master-name&gt; &lt;password&gt;</span>  <br>sentinel auth-pass mymaster MySUPER--secret-0123passw0rd  <br><br><span class="hljs-meta">#</span><span class="bash"> 指定多少毫秒之后 主节点没有应答哨兵sentinel 此时 哨兵主观上认为主节点下线 默认30秒</span>  <br><span class="hljs-meta">#</span><span class="bash"> sentinel down-after-milliseconds &lt;master-name&gt; &lt;milliseconds&gt;</span>  <br>sentinel down-after-milliseconds mymaster 30000  <br>  <br><span class="hljs-meta">#</span><span class="bash"> 这个配置项指定了在发生failover主备切换时最多可以有多少个slave同时对新的master进行同步，</span>  <br><span class="hljs-meta">#</span><span class="bash">这个数字越小，完成failover所需的时间就越长，</span><br><span class="hljs-meta">#</span><span class="bash">但是如果这个数字越大，就意味着越多的slave因为failover而不可用。</span><br><span class="hljs-meta">#</span><span class="bash">可以通过将这个值设为 1 来保证每次只有一个slave 处于不能处理命令请求的状态。</span><br><span class="hljs-meta">#</span><span class="bash"> sentinel parallel-syncs &lt;master-name&gt; &lt;numslaves&gt;</span><br>sentinel parallel-syncs mymaster 1<br> <br><span class="hljs-meta">#</span><span class="bash"> 故障转移的超时时间 failover-timeout 可以用在以下这些方面：</span>   <br><span class="hljs-meta">#</span><span class="bash">1. 同一个sentinel对同一个master两次failover之间的间隔时间。</span>  <br><span class="hljs-meta">#</span><span class="bash">2. 当一个slave从一个错误的master那里同步数据开始计算时间。直到slave被纠正为向正确的master那里同步数据时。</span>  <br><span class="hljs-meta">#</span><span class="bash">3.当想要取消一个正在进行的failover所需要的时间。</span>    <br><span class="hljs-meta">#</span><span class="bash">4.当进行failover时，配置所有slaves指向新的master所需的最大时间。不过，即使过了这个超时，slaves依然会被正确配置为指向master，但是就不按parallel-syncs所配置的规则来了</span>  <br><span class="hljs-meta">#</span><span class="bash"> 默认三分钟</span>  <br><span class="hljs-meta">#</span><span class="bash"> sentinel failover-timeout &lt;master-name&gt; &lt;milliseconds&gt;</span>  <br>sentinel failover-timeout mymaster 180000  <br>  <br><span class="hljs-meta">#</span><span class="bash"> SCRIPTS EXECUTION</span>  <br>  <br><span class="hljs-meta">#</span><span class="bash">配置当某一事件发生时所需要执行的脚本，可以通过脚本来通知管理员，例如当系统运行不正常时发邮件通知相关人员。</span>  <br><span class="hljs-meta">#</span><span class="bash">对于脚本的运行结果有以下规则：</span>  <br><span class="hljs-meta">#</span><span class="bash">若脚本执行后返回1，那么该脚本稍后将会被再次执行，重复次数目前默认为10</span>  <br><span class="hljs-meta">#</span><span class="bash">若脚本执行后返回2，或者比2更高的一个返回值，脚本将不会重复执行。</span>  <br><span class="hljs-meta">#</span><span class="bash">如果脚本在执行过程中由于收到系统中断信号被终止了，则同返回值为1时的行为相同。</span>  <br><span class="hljs-meta">#</span><span class="bash">一个脚本的最大执行时间为60s，如果超过这个时间，脚本将会被一个SIGKILL信号终止，之后重新执行。</span>  <br>  <br><span class="hljs-meta">#</span><span class="bash">通知型脚本:当sentinel有任何警告级别的事件发生时（比如说redis实例的主观失效和客观失效等等），将会去调用这个脚本，</span>  <br><span class="hljs-meta">#</span><span class="bash">这时这个脚本应该通过邮件，SMS等方式去通知系统管理员关于系统不正常运行的信息。调用该脚本时，将传给脚本两个参数，</span>  <br><span class="hljs-meta">#</span><span class="bash">一个是事件的类型，一个是事件的描述。</span>  <br><span class="hljs-meta">#</span><span class="bash">如果sentinel.conf配置文件中配置了这个脚本路径，那么必须保证这个脚本存在于这个路径，并且是可执行的，否则sentinel无法正常启动成功。</span>   <br><span class="hljs-meta">#</span><span class="bash"> sentinel notification-script &lt;master-name&gt; &lt;script-path&gt;</span>  <br>  sentinel notification-script mymaster /var/redis/notify.sh  <br>  <br><span class="hljs-meta">#</span><span class="bash"> 客户端重新配置主节点参数脚本</span>  <br><span class="hljs-meta">#</span><span class="bash"> 当一个master由于failover而发生改变时，这个脚本将会被调用，通知相关的客户端关于master地址已经发生改变的信息。</span>  <br><span class="hljs-meta">#</span><span class="bash"> 以下参数将会在调用脚本时传给脚本:</span>  <br><span class="hljs-meta">#</span><span class="bash"> &lt;master-name&gt; &lt;role&gt; &lt;state&gt; &lt;from-ip&gt; &lt;from-port&gt; &lt;to-ip&gt; &lt;to-port&gt;</span>  <br><span class="hljs-meta">#</span><span class="bash"> 目前&lt;state&gt;总是“failover”,</span>  <br><span class="hljs-meta">#</span><span class="bash"> &lt;role&gt;是“leader”或者“observer”中的一个。</span>   <br><span class="hljs-meta">#</span><span class="bash"> 参数 from-ip, from-port, to-ip, to-port是用来和旧的master和新的master(即旧的slave)通信的</span>  <br><span class="hljs-meta">#</span><span class="bash"> 这个脚本应该是通用的，能被多次调用，不是针对性的。</span>  <br><span class="hljs-meta">#</span><span class="bash"> sentinel client-reconfig-script &lt;master-name&gt; &lt;script-path&gt;</span>  <br> sentinel client-reconfig-script mymaster /var/redis/reconfig.sh <br></code></pre></td></tr></table></figure>
+<h1 id="Redis击穿和雪崩"><a href="#Redis击穿和雪崩" class="headerlink" title="Redis击穿和雪崩"></a>Redis击穿和雪崩</h1><h2 id="缓存穿透"><a href="#缓存穿透" class="headerlink" title="缓存穿透"></a>缓存穿透</h2><p><img src="https://pic.imgdb.cn/item/6142ae792ab3f51d91b28467.jpg" srcset="/img/loading.gif" alt="绕过缓存直接攻击数据库"></p>
+<p>对于系统A，假设一秒 5000 个请求，结果其中 4000 个请求是黑客发出的恶意攻击。</p>
+<p>黑客发出的那 4000 个攻击，缓存中查不到，每次你去数据库里查，也查不到。数据库 id 是从 1 开始的，结果黑客发过来的请求 id 全部都是负数。这样的话，缓存中不会有，请求每次都“视缓存于无物”，直接查询数据库。这种恶意攻击场景的缓存穿透就会直接把数据库给打死。</p>
+<p>==解决方案：==</p>
+<ul>
+<li><strong>缓存空对象</strong></li>
+</ul>
+<p>如果数据库中找不到，就会返回一个空值储存到缓存中，并设置过期时间。在有效期内，所有相同key的请求都能在缓存中找到值。</p>
+<ul>
+<li><strong>布隆过滤器</strong></li>
+</ul>
+<p>布隆过滤器对可能的参数以hash形式储存，其他不合理的请求会被丢弃，从而避免直接对数据库的施压。</p>
+<p>==隐患：==</p>
+<p>但如果大量不同的key都找不到数据，就会导致缓存中存有大量无效的空值，从而降低性能。</p>
+<h2 id="缓存击穿"><a href="#缓存击穿" class="headerlink" title="缓存击穿"></a>缓存击穿</h2><p>当某个 key 非常热点，访问非常频繁，处于集中式高并发访问的情况，当这个 key 在失效的瞬间，大量的请求就击穿了缓存，直接请求数据库，就像是在一道屏障上凿开了一个洞。</p>
+<p>==解决方案：==</p>
+<ul>
+<li><strong>设置key永不过期</strong></li>
+</ul>
+<p>这种方式可以说是最可靠的，最安全的但是占空间，内存消耗大，并且不能保持数据最新 这个需要根据具体的业务逻辑来做。但也可以隔段时间便去数据库更新数据，此时要求不会给数据库很大的压力。</p>
+<ul>
+<li><strong>使用互斥锁</strong></li>
+</ul>
+<p>就是在缓存失效的时候（判断拿出来的值为空），不是立即去load db，而是先使用某些一定能成功返回值的操作（比如Redis的SETNX）去set一个mutex key（一个特定的key，当成竞争资源），当操作返回成功时，再进行load db的操作并回设缓存；否则，就重试整个get缓存的方法</p>
+<p>站在用户层面，但key失效时用户获取的就是空页面。因此只需要多刷新几次，等待缓存恢复正常就能获取到正常页面了。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">get</span><span class="hljs-params">(key)</span> </span>&#123;<br>    String value = redis.get(key);<br>    <span class="hljs-keyword">if</span> (value == <span class="hljs-keyword">null</span>) &#123; <span class="hljs-comment">//代表缓存值过期</span><br>        <span class="hljs-comment">//设置3min的超时，防止del操作前程序出误，导致锁一直不能被释放</span><br>        <span class="hljs-keyword">if</span> (redis.setnx(key_mutex, <span class="hljs-number">1</span>, <span class="hljs-number">3</span> * <span class="hljs-number">60</span>) == <span class="hljs-number">1</span>) &#123;  <span class="hljs-comment">//说明此时获得了锁</span><br>            value = db.get(key);<br>            redis.set(key, value, expire_secs);		<span class="hljs-comment">//设置key的存在时间，避免出现key永不过期的现象</span><br>            redis.del(key_mutex);<br>        &#125; <span class="hljs-keyword">else</span> &#123;  <span class="hljs-comment">//等待一段时间后，持锁线程已经完成load db，故而重试get即可。</span><br>            sleep(<span class="hljs-number">50</span>);<br>            get(key);  <span class="hljs-comment">//重试</span><br>        &#125;<br>    <span class="hljs-keyword">else</span> &#123;<br>        <span class="hljs-keyword">return</span> value;      <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<blockquote>
+<p><code>redis.set(key, value, expire_secs)</code>是有讲究的，如果在SETNX和EXPIRE分开操作，但两者之间程序又发生了错误，当前锁又无法释放，key成为了永不过期。所以根本原因还是需要一个原子的操作，在获得锁的同时能够同时设置锁的过期时间。</p>
+</blockquote>
+<h2 id="缓存雪崩"><a href="#缓存雪崩" class="headerlink" title="缓存雪崩"></a>缓存雪崩</h2><p>对于系统 A，假设每天高峰期每秒 5000 个请求，本来缓存在高峰期可以扛住每秒 4000 个请求，但是缓存机器意外发生了全盘宕机。缓存挂了，此时 1 秒 5000 个请求全部落数据库，数据库必然扛不住，它会报一下警，然后就挂了。此时，如果没有采用什么特别的方案来处理这个故障，DBA 很着急，重启数据库，但是数据库立马又被新的流量给打死了。</p>
+<p><img src="https://pic.imgdb.cn/item/6142b9ea2ab3f51d91c11d63.jpg" srcset="/img/loading.gif" alt="缓存失效，大量请求攻击数据库"></p>
+<p>==解决方案：==</p>
+<ul>
+<li><strong>Redis高可用</strong></li>
+</ul>
+<p>有预知地在流量集中爆发的时间段前，扩大缓存集群（如暂停其他服务）来应付集中的请求，以此避免全盘崩溃</p>
+<ul>
+<li><strong>ehcache 缓存 + hystrix 限流&amp;降级</strong></li>
+</ul>
+<p>在缓存失效后，通过加锁或是限制队列长度的方式控制流量，避免数据库被直接打死。</p>
+<ul>
+<li><strong>数据预热</strong></li>
+</ul>
+<p>有预知地让缓存去数据库访问一遍可能会被集中访问的key，在大并发访问之前手动触发加载缓存的预热key。</p>
+<h1 id="Redis应用"><a href="#Redis应用" class="headerlink" title="Redis应用"></a>Redis应用</h1><h2 id="Redis应用场景"><a href="#Redis应用场景" class="headerlink" title="Redis应用场景"></a>Redis应用场景</h2><ul>
+<li>对于具有时效性的业务功能如验证码，订单有效期</li>
+<li>redis分布式集群系统可以用作Session共享</li>
+<li>redis的zset类型可用作实时排行榜</li>
+<li>redis的setnx用作分布式锁</li>
+<li>分布式缓存  </li>
+</ul>
+<h2 id="Redis过期策略及内存淘汰"><a href="#Redis过期策略及内存淘汰" class="headerlink" title="Redis过期策略及内存淘汰"></a>Redis过期策略及内存淘汰</h2><p>Redis对于过期数据或溢出内存后进行淘汰数据的策略可概括为<strong>定期删除+惰性删除</strong></p>
+<p><strong>为什么不用定时删除策略?</strong><br>定时删除,用一个定时器来负责监视key,过期则自动删除。虽然内存及时释放，但是十分消耗CPU资源。在大并发请求下，CPU要将时间应用在处理请求，而不是删除key,因此没有采用这一策略.</p>
+<h3 id="定期删除和惰性删除"><a href="#定期删除和惰性删除" class="headerlink" title="定期删除和惰性删除"></a>定期删除和惰性删除</h3><p>定期删除，redis默认每个100ms随机抽取key进行检查，如果key过期则删除。但只采用定期删除，可能会导致很多过期key无法被检查到。</p>
+<p>惰性删除，当获取某一key时，如果该key设置了过期时间，再检查是否过期，过期了才会删除。</p>
+<p>但如果有一过期key没有被检查到，也没有被使用上，即绕开了定期删除与惰性删除的机制。这种key就会一直堆积在内存中，就需要引入<strong>内存淘汰机制</strong>。</p>
+<h3 id="内存淘汰机制"><a href="#内存淘汰机制" class="headerlink" title="内存淘汰机制"></a>内存淘汰机制</h3><p>redis.conf中可以配置内存淘汰机制，当内存不足以纳入新的数据时就会触发机制：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs shell">maxmemory-policy allkeys-lru<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>allkeys-lru</code>：在键空间中，优先淘汰最近最少使用的key</li>
+<li><code>noeviction</code>：写入新数据时会报错。</li>
+<li><code>allkeys-random</code>：在键空间中，随机移除某一key</li>
+<li><code>volatile-lru</code>：在设置了过期时间的键空间中，优先淘汰最近最少使用的key</li>
+<li><code>volatile-random</code>：在设置了过期时间的键空间中，随机移除某一key</li>
+<li><code>volatile-ttl</code>：在设置了过期时间的键空间中，优先淘汰TTL设置得更早的key</li>
+</ul>
+<h2 id="Redis与数据库一致性问题"><a href="#Redis与数据库一致性问题" class="headerlink" title="Redis与数据库一致性问题"></a>Redis与数据库一致性问题</h2><p>当数据库和缓存双写，必定会存在不一致的问题。为了解决这一问题，我们可以采用双删+TTL失效来实现，但这也只能保证数据的<strong>最终一致性</strong>。如果对数据有<strong>强一致性</strong>的要求，就不能设置缓存！！！</p>
+<p>数据库和缓存更新，就容易出现缓存和数据库间的数据一致性问题。不管是先写数据库，再删除缓存；还是先删除缓存，再写库，都有可能出现数据不一致的情况。举个例子：</p>
+<ol>
+<li>如果删除了缓存Redis，还没有来得及写库MySQL，另一个线程就来读取，发现缓存为空，则去数据库中读取数据写入缓存，此时缓存中依然为脏数据。</li>
+<li>如果先写了库，在删除缓存前，写库的线程宕机了，没有删除掉缓存，则也会出现数据不一致情况。</li>
+</ol>
+<hr>
+<p>为了解决一致性问题，普遍有以下四种方式（为简述方便，对于每一种方法的两步分别以1，2标识，如写进程A的两步分别为A1，A2）：</p>
+<ol>
+<li>先更新数据库，再更新缓存</li>
+<li>先更新缓存，再更新数据库</li>
+<li>先删除缓存，再更新数据库</li>
+<li>先更新数据库，再删除缓存</li>
+</ol>
+<p>==<strong>先更新数据库，再更新缓存</strong>==</p>
+<p>对于写进程A，B，执行顺序为A1-B1-B2-A1，这样缓存中的数据还是A的数据，数据出现不一致。</p>
+<p>==<strong>先更新缓存，再更新数据库</strong>==</p>
+<p>对于写进程A，A2在A1后执行失败，数据依旧不一致。</p>
+<p><em>其实，通过更新缓存来同步数据库数据的两种方式都有以下两个问题：</em></p>
+<ol>
+<li><em>对于写操作频繁的场景，缓存的数据时刻都在更新，浪费性能</em></li>
+<li><em>如果真正需要写入缓存的数据是要进入数据库后再演算出来的，那么先更新缓存，所更新的数据也是错误的。</em></li>
+</ol>
+<p><em>那么，通过懒加载的方式（删除缓存）同步数据库数据更佳</em></p>
+<hr>
+<h3 id="懒加载"><a href="#懒加载" class="headerlink" title="懒加载"></a>懒加载</h3><blockquote>
+<p>当数据库中的数据更新/删除时选择<strong>删除缓存中的数据</strong>，删除后不更新新数据到缓存中，直到查询的时候没命中缓存，访问数据库后再添加至缓存</p>
+</blockquote>
+<img src="https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/98a4b375d0444e589b217a94065219aa~tplv-k3u1fbpfcp-watermark.awebp" srcset="/img/loading.gif" alt="Redis懒加载缓存.png" style="zoom:50%;" />
+
+<p>在懒加载的概念下，我们讨论后两种方式：先删除缓存，再更新数据库/先更新数据库，再删除缓存</p>
+<p>==<strong>先删除缓存，再更新数据库</strong>==</p>
+<ol>
+<li>线程 A 要更新 X = 2（数据库中 X = 1）</li>
+<li>线程 A 先删除缓存</li>
+<li>线程 B 读缓存，发现不存在，从数据库中读取到旧值（X = 1）</li>
+<li>线程 A 将新值写入数据库（X = 2）</li>
+<li>线程 B 将旧值写入缓存（X = 1）</li>
+</ol>
+<p>缓存中依然留的是旧值。这还是一个数据库出现的问题，如果在<strong>主从库</strong>的环境下：</p>
+<ol>
+<li>线程 A 更新主库 X = 2（原值 X = 1）</li>
+<li>线程 A 删除缓存</li>
+<li>线程 B 查询缓存，没有命中，查询「从库」得到旧值（从库 X = 1）</li>
+<li>从库「同步」完成（主从库 X = 2）</li>
+<li>线程 B 将「旧值」写入缓存（X = 1）</li>
+</ol>
+<p>为了解决以上两个问题，业界给出了<strong>延迟双删</strong>的答案：</p>
+<h3 id="延迟双删"><a href="#延迟双删" class="headerlink" title="延迟双删"></a>延迟双删</h3><p>1）先删除缓存；</p>
+<p>2）再写数据库；</p>
+<p>3）触发异步写入串行化MQ（也可以采取一种key+version的分布式锁）；</p>
+<p>4）MQ接受再次删除缓存。</p>
+<p>两次删除的目的是防止在1）到 2）的过程中读操作访问缓存，从而把还未更新的数据由存到了缓存中去。延迟删除就保证了此后缓存中的数据是最新的。</p>
+<p><strong>但是！！双删依旧存在问题！！</strong></p>
+<p>1、A删除缓存</p>
+<p>2、B查询数据库获取旧值</p>
+<p>3、B更新了缓存</p>
+<p>4、A更新数据库</p>
+<p>5、A延时删缓存</p>
+<p>这种情况下，1-3步会让删除的旧缓存重新回来了，那么先删除缓存就没有任何意义。</p>
+<p><strong>此外！！如果步骤3要晚于步骤5，以后的读操作读的还是旧缓存！！！（虽然可以加长延时长度来避免）</strong></p>
+<hr>
+<p><strong>==先更新数据库，再删除缓存==</strong></p>
+<p>综上，该方式能应付大多并发请求。为了防止删除缓存程序宕机，可以<strong>设置缓存有效时间</strong>。</p>
+<p>但这样更新数据库到删除缓存的这段时间内，缓存和数据库无法保证一致性。</p>
+<h3 id="串行化"><a href="#串行化" class="headerlink" title="串行化"></a>串行化</h3><p>对于==先删除缓存，再更新数据库==，其问题就是没能保证读应该在写之后发生，为此我们可以引用串行MQ来保证读写的顺序执行。</p>
+<blockquote>
+<ol>
+<li>先删缓存，将更新数据库的操作放进有序队列中</li>
+<li>如果缓存查不到，访问数据库和更新缓存的操作都进入有序队列</li>
+</ol>
+</blockquote>
+<p>我们再考虑以下场景：</p>
+<ol>
+<li>线程 A 先删除缓存</li>
+<li>线程 A 要更新 X = 2（数据库中 X = 1），<strong>更新数据库请求进入MQ</strong></li>
+<li>线程 B 读缓存，发现不存在，<strong>读取数据库请求进入MQ</strong></li>
+<li>MQ消费到更新数据库请求，线程 A 将新值写入数据库（X = 2）</li>
+<li>MQ消费到读取数据库请求，线程 B 读取新值（X = 2）</li>
+<li>MQ消费到更新缓存请求，线程 B更新缓存</li>
+</ol>
+<p>可以优化的一点是，当有多个连续更新缓存请求在MQ中，只需要保留最新的更新请求即可。</p>
+<p><strong>但该方案依旧存在问题！！！</strong></p>
+<ol>
+<li>如果数据库更新频繁，缓存一直没有值，这就会导致大量读取数据库请求积压在MQ末端中，如果放行这些请求，数据库的压力会很大。</li>
+<li><em>串行化虽然能保证不会出现数据不一致的问题，但是高并发更新操作场景下，读操作被推迟，严重降低系统吞吐量，影响客户体验。</em></li>
+</ol>
+<hr>
+<h3 id="重发"><a href="#重发" class="headerlink" title="重发"></a>重发</h3><p>==消息队列==</p>
+<p>无论是先还是后操作数据库，两步没有全走完都会出现不一致的后果，为了保证请求能确保被完全执行，我们可以引入<strong>消息队列</strong>，原因有三：</p>
+<ol>
+<li>重发操作不能由业务层发起，这会严重干扰业务进行。同时如果执行失败的线程中一直重试，还没等执行成功，此时如果项目「重启」了，那这次重试请求也就「丢失」了，那这条数据就一直不一致了。因此我们就需要在另一个服务中完成重发操作</li>
+<li>消息队列能保证队列里的消息在成功被消费之前不会丢失</li>
+<li>消息队列可以保证消息被成功传递，否则还会继续投递</li>
+</ol>
+<p><img src="https://pic1.zhimg.com/80/v2-3b7070cafdc1e61db131c3e203dbe72c_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<p>==订阅Binlog==</p>
+<p>当然业务层也可以不发起重发操作，因为更新数据库的时候会将信息写入binlog日志中，通过订阅该日志就能获取到key，之后发布删除操作到MQ中。常用的如<strong>阿里的Canal</strong></p>
+<p><img src="https://pic3.zhimg.com/80/v2-c0c4adf727ee3fdb8d1086c369270932_720w.jpg" srcset="/img/loading.gif" alt="img"></p>
+<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>在保证最终一致性的情况下，可以<strong>采用「先更新数据库，再删除缓存」方案，并配合「消息队列」或「订阅变更日志」的方式来做</strong>。</p>
+<p>串行化能达到强一致性的，但会降低缓存的作用。</p>
+<h2 id="Redis并发竞争key"><a href="#Redis并发竞争key" class="headerlink" title="Redis并发竞争key"></a>Redis并发竞争key</h2><p>如果多个子系统同时设置一个key，可以：</p>
+<p>(1)如果对这个key操作，<strong>不要求顺序</strong><br>这种情况下，准备一个分布式锁，大家去抢锁，抢到锁就做set操作即可，比较简单。<br>(2)如果对这个key操作，<strong>要求顺序</strong><br>假设有一个key1,系统A需要将key1设置为valueA,系统B需要将key1设置为valueB,系统C需要将key1设置为valueC.<br>期望按照key1的value值按照 valueA–&gt;valueB–&gt;valueC的顺序变化。这种时候我们在数据写入数据库的时候，需要保存一个时间戳。假设时间戳如下</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs text">系统A key1 &#123;valueA  3:00&#125;<br>系统B key 1 &#123;valueB  3:05&#125;<br>系统C key 1 &#123;valueC  3:10&#125;<br></code></pre></td></tr></table></figure>
+<p>那么，假设这会系统B先抢到锁，将key1设置为{valueB 3:05}。接下来系统A抢到锁，发现自己的valueA的时间戳早于缓存中的时间戳，那就不做set操作了。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/%E5%90%8E%E7%AB%AF/">后端</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/09/20/Kubernetes/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Kubernetes</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/09/03/Shiro/">
+                        <span class="hidden-mobile">Shiro</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

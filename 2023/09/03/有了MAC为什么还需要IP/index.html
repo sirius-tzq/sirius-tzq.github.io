@@ -1,0 +1,493 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>有了MAC为什么还需要IP - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="有了MAC为什么还需要IP">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-03 21:34" pubdate>
+        2023年9月3日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">有了MAC为什么还需要IP</h1>
+            
+            <div class="markdown-body">
+              <h1 id="端到端的网络"><a href="#端到端的网络" class="headerlink" title="端到端的网络"></a>端到端的网络</h1><p>如今只有两台主机，他们之间想要通信，我们顺理成章地在两台主机之间接上了一根网线，这样他们就可以通信了。之后又有主机想要加入通信，但似乎也不是问题，只是每个主机都连接两根网线。可随着更多主机的加入，我们发现主机的网口已经被占满了。于是我们需要一个“集线器”，作为主机间的中间设备。每个主机只需要连接“集线器”，主机间的通信可以通过这个设备转发。</p>
+<h1 id="交换机"><a href="#交换机" class="headerlink" title="交换机"></a>交换机</h1><p>但这并没有完全解决问题，“集线器”做不到原先端到端的定点传输，还只能是广播转发。为了让“集线器”更加智能，我们设计了<strong>MAC地址表</strong>，MAC地址则是每台主机的唯一标识。在这一设计下，主机发送消息前会在数据包外附加一层带有本机MAC地址（源MAC地址）和目标主机MAC地址（目标MAC地址）的数据。这全部就称之为<strong>帧</strong>。帧在到达“集线器”后，根据MAC地址表可以找到目标主机连接在哪一端口，从而定向转发。这种具有转发能力的中间设备，我们称为“交换机”。</p>
+<p>交换机刚加入网络时，MAC地址表肯定是空的，又是如何逐步建立起来的？以主机A向主机B通信为例，主机A发出的帧在到达交换机时，交换机会在MAC地址表记录下MAC_A到PORT_A的映射，但因为没有主机B的记录，交换机会将该帧广播给所有可用端口。此后主机B接受到帧，比较自身MAC和帧记录的目标MAC，发现自己是目标主机，于是打包好响应帧（源MAC为MAC_B，目标MAC为MAC_A）并返还给交换机。之后交换机收到响应帧，记录MAC_B到PORT_B的映射，然后因为原先有记录便直接把响应帧通过PORT_A转发给主机A，至此，MAC地址表记录下了A、B的信息。对于其他主机C、D等等，当发现自己不是目标主机就会丢弃帧，自然也不会在MAC地址表留下记录。</p>
+<h1 id="路由器"><a href="#路由器" class="headerlink" title="路由器"></a>路由器</h1><p>可网络继续扩大，直到路由器的物理端口也被占满了呢？再添加一个交换机，交换机间用网线连接，这是一个解决办法，但每个交换机依然要记录网络拓扑中所有主机的MAC地址。如果网络规模发展至千万级别，MAC地址表将不堪重负。</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309032220756.png" srcset="/img/loading.gif" alt="图片"></p>
+<p>我们注意到，主机A、B、C、D向主机E、F、G、H通信时，数据第一次肯定通过上图的红线转发出去。自然的，A、B、C、D形成了一个网络区域，对于这一网络区域的任何主机而言，向另一网络区域通信时都只需要统一向一个端口转发即可，至于这个端口外面的网络有多大多复杂，我似乎并不需要在意。</p>
+<p>这样，网络区域向网络区域的数据转发工作，就由一个新设备“交换机”来承担。交换机存在于不同的网络区域之间，即上图红线处。被交换机划分出的网络区域我们称之为局域网。局域网内的通信可以由交换机完成，否则要先转发给路由器。那么路由器也就需要自己的MAC地址了，作为这个局域网向外通信的默认MAC地址。</p>
+<blockquote>
+<p>值得注意的是，路由器的每一个端口都有独立的MAC地址。这是因为路由器要为每一个连接到的局域网提供默认MAC地址。</p>
+</blockquote>
+<p>局域网怎么知道数据包是否要发往网外呢？理想的方式是通过地址前缀判断，如果数据包的源、目的MAC地址的固定前缀一样，则表明源、目的主机在同一局域网内。</p>
+<p>可这种方式仍有很大的局限性：MAC地址是烧录在设备上的，想凑到同一局域网就必须找到同一前缀的设备；此外设备也很难迁移到其他局域网里。</p>
+<h2 id="IPv4"><a href="#IPv4" class="headerlink" title="IPv4"></a>IPv4</h2><p>为此，我们构造了IPv4，即一个由4组8位二进制数构成，共32位的二进制动态编号，每组以<code>.</code>相连。比如<code>11000000.10101000.00000000.00000001</code>，转换成十进制就是我们熟知的IP地址<code>192.168.0.1</code>。</p>
+<p>再套用地址前缀的理念，当我们规定前缀长度为5时，就有<code>11111000.00000000.00000000.00000000</code>，两主机的IP分别与该IP作与运算的结果如果相同，就说明两主机处于同一局域网，否则两主机的通信就要借助交换机转发。我们称这种特殊IP为子网掩码，路由器的端口IP称为默认网关。</p>
+<p>有了IP的加入，主机在帧的外面还要附加一层带有源IP和目标IP的数据，整体称之为<code>段</code>。</p>
+<p>主机在打包数据前，先判断目标主机是否处于同一子网，是则正常把源MAC和目的MAC打包进段中，不是就把目的MAC改为路由器MAC，也就是告诉交换机要把流量转发给路由器处理。</p>
+<h2 id="ARP"><a href="#ARP" class="headerlink" title="ARP"></a>ARP</h2><p>我们提到过，路由器每个端口都有独立的MAC地址，以便连接各个局域网。但是问题来了，局域网内的主机只有默认网关，即路由器端口的IP地址，可向外通信时填写的路由器MAC，主机是怎么知道的呢？</p>
+<p>通过目标IP寻找目标MAC的过程称为ARP，为了知道目标MAC，源主机会广播一条ARP请求，目标主机比对IP后就会回复ARP响应，其中就带有自己的MAC地址。此外，主机内部有一张<code>ARP缓存表</code>，用于储存目标地址到目标MAC的映射。在这次的ARP过程中，源主机和目标主机就都记录下了各自的IP和MAC。</p>
+<p>同样的，目的IP为外网IP时，路由器端口就会回应这次ARP请求，源主机也就知道了路由器端口的MAC地址。</p>
+<h2 id="路由表"><a href="#路由表" class="headerlink" title="路由表"></a>路由表</h2><p>有了目的IP（外网主机IP）、目的MAC（路由器端口MAC），发送的段也抵达了路由器。那问题来了，路由器怎么知道转发到哪个端口呢？或者说，转发到哪个子网呢？</p>
+<p>类似与MAC地址表，路由器的路由表储存着子网到端口的映射，子网也就通过IP和子网掩码来表示。这里了解一个新的表示方法，IP：192.168.0.0，子网掩码：255.255.255.0；简写为192.168.0.0/24。24也就是子网掩码在二进制下的前缀长度。</p>
+<p>至于路由表是如何建立起来的，涉及到的路由算法可参考<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/138122809">路由算法（全网最细） - 知乎 (zhihu.com)</a></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>至此，从两台主机到亿万台主机网络的发展过程已经概述了一遍。主机、交换机和路由器在网络中各司其职就能织成一张巨大的网络。</p>
+<p>站在主机视角上：</p>
+<ul>
+<li>需要知道源IP和目的IP</li>
+<li>需要知道子网源码和默认网关，用于判断目的IP是否处于同一局域网，以及向外通信时要找谁转发</li>
+<li>ARP缓存没有目的MAC时需要先通过ARP找到</li>
+</ul>
+<p>站在交换机视角上：</p>
+<ul>
+<li>需要知道目的MAC地址，可以不关心源MAC地址</li>
+<li>MAC地址表没有对应记录时，直接广播</li>
+<li>收到数据包的同时更新或新增MAC地址表项</li>
+</ul>
+<p>站在路由器视角上：</p>
+<ul>
+<li>需要知道目的IP地址</li>
+<li>查找路由表来转发，没找到就返回路由不可达的响应包</li>
+</ul>
+<h1 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h1><ol>
+<li><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/jiPMUk6zUdOY6eKxAjNDbQ">如果让你来设计网络 (qq.com)</a></li>
+</ol>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/09/GoLang-Java/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">GoLang&Java</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/02/powershell-beautify/">
+                        <span class="hidden-mobile">powershell beautify</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

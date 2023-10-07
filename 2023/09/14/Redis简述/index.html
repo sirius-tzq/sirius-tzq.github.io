@@ -1,0 +1,609 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>Redis简言 - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Redis简言">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-14 20:56" pubdate>
+        2023年9月14日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      30
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Redis简言</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Redis简言"><a href="#Redis简言" class="headerlink" title="Redis简言"></a>Redis简言</h1><h2 id="底层数据结构"><a href="#底层数据结构" class="headerlink" title="底层数据结构"></a>底层数据结构</h2><pre><code class=" mermaid">graph TD
+	A(String) --&gt; B[简单动态字符串:embstr&#x2F;raw]
+	A --&gt; b[int]
+	C(List) --&gt; D[双向链表]
+	C --&gt; E[压缩列表]
+	F(Hash) --&gt; E
+	F --&gt; G[哈希表]
+	H(Sorted Set) --&gt; E
+	H --&gt; I[跳表]
+	J(Set) --&gt; G
+	J --&gt; K[整数数组]
+</code></pre>
+<h3 id="RedisObject"><a href="#RedisObject" class="headerlink" title="RedisObject"></a>RedisObject</h3><p>redisObject定义在redis.h中，用于表示所有类型的key，value。其中有一些重要属性</p>
+<ol>
+<li>type：表示数据类型，包括String、List、Hash、ZSet、Set</li>
+<li>encoding：表示数据的编码方式，即双向链表，压缩列表，动态字符串等等</li>
+<li>ptr：数据指针，指向数据的真实存储位置</li>
+</ol>
+<h3 id="String"><a href="#String" class="headerlink" title="String"></a>String</h3><p>String有三种编码方式:int、raw、embstr。</p>
+<p>当value为整型时，encoding设为int,ptr指向数字的储存位置。</p>
+<p>当value为字符串，且字符串长度不多于32字节时，encoding设为embstr，否则设为raw。ptr则都指向SDS（simple dynamic string）结构。</p>
+<p>SDS结构包含三个属性：buf[]为字符组，free表示buf还未利用的空间大小，len表示字符串长度</p>
+<h3 id="Hash"><a href="#Hash" class="headerlink" title="Hash"></a>Hash</h3><h4 id="哈希表"><a href="#哈希表" class="headerlink" title="哈希表"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/166549206">哈希表</a></h4><p>Hash的底层储存结构主要是字典dict,该结构包含两个重要属性:ht,rehashidx标志渐进式rehash的进度。其中ht由两个dictht类型数组构成，其中一个是数据的储存位置，一个用于rehash。</p>
+<p><img src="https://pic2.zhimg.com/v2-dd8e346e267fd00c6e8d47f32d15ce1d_r.jpg" srcset="/img/loading.gif" alt="字典结构"></p>
+<p>dictht结构的几个重要属性：table：储存键值对dictEntry的数组，size：数组table的长度，sizemask：等于size-1，用于hash寻址，used：表示已有的dictEntry数量</p>
+<p>dictEntry结构的几个重要属性：key为HKey，v为HValue，next指向下一dictEntry</p>
+<h4 id="渐进式rehash"><a href="#渐进式rehash" class="headerlink" title="渐进式rehash"></a>渐进式rehash</h4><p>redis通过链地址法解决Hash冲突，但冲突率过高就需要进行扩容，要扩容就要对所有节点rehash。可以试想，如果在一个dictht上rehash，该dictht在rehash过程中是不可用的。这也就是为什么会有第二个dictht，在第一个dictht的节点rehash到第二个dictht的过程中，redis依然是可以对外提供服务的，这也就是渐进式rehash。而rehashidx就是用来指示当前rehash到了哪个下标。</p>
+<p>扩容时，ht[1].size会设定为N(2*ht[0].size &lt;= N &lt;= 2^n^，n尽可能取最小值)，扩容过程中遍历所有节点并逐渐迁移到ht[1].table中</p>
+<h4 id="压缩列表"><a href="#压缩列表" class="headerlink" title="压缩列表"></a>压缩列表</h4><p>压缩列表是一段完整连续的内存块</p>
+<p><img src="https://pic1.zhimg.com/80/v2-8fd5104994d92443af483d747d631390_720w.webp" srcset="/img/loading.gif" alt="ziplist"></p>
+<ol>
+<li><code>zlbytes</code>：4个字节的大小，记录压缩列表占用内存的字节数。</li>
+<li><code>zltail</code>：4个字节大小，记录表尾节点距离起始地址的偏移量，用于快速定位到尾节点的地址。</li>
+<li><code>zllen</code>：2个字节的大小，记录压缩列表中的节点数。</li>
+<li><code>entry</code>：表示列表中的每一个节点。<ol>
+<li><code>previous_entry_ength</code>表示前一个节点entry的长度，可用于计算前一个节点的其实地址，因为他们的地址是连续的。</li>
+<li><code>encoding</code>：这里保存的是content的内容类型和长度。</li>
+<li><code>content</code>：content保存的是每一个节点的内容。</li>
+</ol>
+</li>
+<li><code>zlend</code>：表示压缩列表的特殊结束符号<code>&#39;0xFF&#39;</code></li>
+</ol>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><p>List底层除了使用压缩列表实现，也可以通过双向链表实现。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-102238a40860c08faf37c492f61f6d94_720w.webp" srcset="/img/loading.gif" alt="linkedlist"></p>
+<p>因为List双向链表的pop/push特性，所以List可用作是实现阻塞队列</p>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set可以通过哈希表实现，区别于Hash，Set只是不解决哈希冲突问题。此外当集合的元素数量不多时，Set会通过整数数组实现</p>
+<p><img src="https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/d652474acd9a4e068c791fcd0544db98~tplv-k3u1fbpfcp-zoom-in-crop-mark:1512:0:0:0.awebp" srcset="/img/loading.gif" alt="intset"></p>
+<p>其中三个属性值<code>encoding、length、contents[]</code>，分别表示编码方式、整数集合的长度、以及元素内容</p>
+<h3 id="Zset"><a href="#Zset" class="headerlink" title="Zset"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386473631">Zset</a></h3><p>当Zset中节点数量过多或节点过大时，Zset底部会由压缩表转换为跳表。</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309142054924.png" srcset="/img/loading.gif" alt="image-20230914205407453"></p>
+<p>skipList本质是多层链表,只是每个高层节点都有一个指向正下方底层节点的指针。</p>
+<p>插入节点时，会随机选取一个层级LayerN（从第1层到第32层的概率逐级递减，选取第一层有50%的概率）。该节点顺序插入到LayerN的链表中后，又会复制一份插入到LayerN-1的链表中，如此操作直到Lyaer1的链表也有该节点。</p>
+<p>据此，我们可以知道跳表的一些基本特性：</p>
+<ol>
+<li>跳表的最底层拥有所有节点</li>
+<li>节点插入跳表后，从选取的层级开始，直到最底层都有该节点的副本。且上层节点有个指向下层节点的指针。</li>
+<li>每层的链表是一个<strong>双向链表</strong></li>
+</ol>
+<p>查询score=5.5的节点</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309142054821.png" srcset="/img/loading.gif" alt="image-20230914205421766"></p>
+<p>最后在底层的5和6之间发现5.5不存在。</p>
+<h2 id="集群"><a href="#集群" class="headerlink" title="集群"></a>集群</h2><h3 id="全量复制"><a href="#全量复制" class="headerlink" title="全量复制"></a>全量复制</h3><p>当从节点首次加入集群或发生主从切换时，触发全量复制：</p>
+<pre><code class=" mermaid">sequenceDiagram
+	从节点 -&gt;&gt;主节点: psync ? -1
+	主节点 -&gt;&gt;从节点: FULLRESYNC offset
+	Note right of 主节点: bgsave生成RDB
+	主节点 -&gt;&gt;从节点: 发送RDB
+	Note right of 主节点: 继续接受命令并写入bufferB
+	Note left of 从节点: 加载RDB
+	主节点 -&gt;&gt;从节点: 发送buffer
+	Note left of 从节点: 加载buffer
+</code></pre>
+<h3 id="增量复制"><a href="#增量复制" class="headerlink" title="增量复制"></a>增量复制</h3><p>当主从断开重连或主节点同步时,触发增量复制</p>
+<pre><code class=" mermaid">sequenceDiagram
+	从节点 -&gt;&gt;主节点: 重连
+	从节点 -&gt;&gt;主节点: psync ID offset
+	主节点 -&gt;&gt;从节点: 从offset到最新数据的差值
+	Note right of 主节点: 继续接受命令并写入buffer
+	主节点 -&gt;&gt;从节点: 发送buffer
+	Note left of 从节点: 加载buffer
+</code></pre>
+<h3 id="Sharding"><a href="#Sharding" class="headerlink" title="Sharding"></a>Sharding</h3><p>Redis通过Hash分片将请求均匀地打到各个节点上，Hash = CRC16(Key)%2^14^。</p>
+<h3 id="重定向"><a href="#重定向" class="headerlink" title="重定向"></a>重定向</h3><p>当集群扩缩容后，各节点的位置都有可能有变化。这样客户端的请求就可能无法打到正确节点上，因此Redis节点在接受命令后先校验自身是否为目标节点，如果不是，则返回moved命令，指导客户端重定向到正确节点上。</p>
+<h3 id="哨兵分布式投票"><a href="#哨兵分布式投票" class="headerlink" title="哨兵分布式投票"></a>哨兵分布式投票</h3><h1 id="Redis持久化"><a href="#Redis持久化" class="headerlink" title="Redis持久化"></a>Redis持久化</h1><h2 id="RDB"><a href="#RDB" class="headerlink" title="RDB"></a>RDB</h2><h3 id="手动触发"><a href="#手动触发" class="headerlink" title="手动触发"></a>手动触发</h3><p>save会阻塞当前Redis服务器，直到RDB生成。bgsave则是fork一个子进程来生成RDB文件，只有在fork的过程中会阻塞Redis服务器一段时间。</p>
+<h3 id="自动触发"><a href="#自动触发" class="headerlink" title="自动触发"></a>自动触发</h3><ol>
+<li>save m n：m秒中发生n次修改，自动触发bgsave</li>
+<li>全量同步时触发bgsave</li>
+<li>执行shutdown时，如果没有开启AOF则会触发bgsave</li>
+</ol>
+<h3 id="bgsave"><a href="#bgsave" class="headerlink" title="bgsave"></a>bgsave</h3><p>bgsave执行的是cow(copy and write)流程，表面意义就是Redis将所有数据生成一份快照，子进程根据快照生成RDB，主进程则继续对外服务。但显然，Redis不会这么做，因为这会直接将可用内存削减掉一半。</p>
+<p>Redis创建子进程后，不会进行copy，主进程和子进程共享数据。但是主进程会将所有内存页权限设置为read-only，当主进程尝试修改某一内存页时，会触发页异常中断。之后该页生成一份快照供子进程使用，解除限制的内存页就继续对外服务。这样，在理想状态下，如果主进程没有写操作，整个bgsave都不会产生额外内存开销。</p>
+<h2 id="AOF"><a href="#AOF" class="headerlink" title="AOF"></a>AOF</h2><p>写操作命令会追加到aof_buf缓冲区中，之后根据appendfsync策略决定何时将缓冲区写到AOF中</p>
+<p>可以预想到，如果不做控制，AOF的体积会不断膨大。为此，Redis可以通过AOF重写将AOF中的命令压缩，以做到命令更少，但结果一致。</p>
+<h2 id="混合持久化"><a href="#混合持久化" class="headerlink" title="混合持久化"></a>混合持久化</h2><p>在aof文件重写时，fork一个子进程将内存数据以RDB二进制格式写入AOF头部，重写后执行的redis命令，会以aof持久化的方式追加到aof文件尾部。</p>
+<h2 id="Redis事务"><a href="#Redis事务" class="headerlink" title="Redis事务"></a>Redis事务</h2><p>Redis事务本质是将一组命令顺序排列，保证一次性执行完命令组。MULTI开启事务，EXEC结束事务并执行命令组。Redis事务相比于MySQL事务，不会进行回滚。</p>
+<p>Redis不支持分布式事务，即事务中的所有命令都必须在同一节点上执行，否则事务丢失。Redis提供了Hash Tag作为Sharding Key，以保证带有同一Hash Tag的命令都会被分到同一slot中，如<code>set &#123;tag&#125;key value</code></p>
+<p>Redis并非完全不支持事务回滚，在事务开启前执行WATCH Key，如果事务过程中Key被修改，则回滚所有操作。</p>
+<h1 id="缓存设计"><a href="#缓存设计" class="headerlink" title="缓存设计"></a>缓存设计</h1><h2 id="缓存一致性"><a href="#缓存一致性" class="headerlink" title="缓存一致性"></a>缓存一致性</h2><p>为尽量保证缓存与数据库的数据是一致的，业内多采用延迟双删。修改数据库前删除缓存，修改成功后再次尝试删除缓存。</p>
+<h2 id="TTL设计"><a href="#TTL设计" class="headerlink" title="TTL设计"></a>TTL设计</h2><p>缓存最好都设置过期时间，以免冷数据长期占用内存空间。TTL过小会影响缓存命中率，TTL过大则会不必要地占用内存。如何在命中率和内存占用中权衡，有下经验：</p>
+<p>递增式设置不同TTL，统计TTL内请求的用户量，请求总量。通过公式 $$ 命中率 = 1-  \frac{TTL内请求的用户量}{TTL内请求总量}$$ 计算命中率，随后设计缓存类型是String还是Hash，在<a target="_blank" rel="noopener" href="http://www.redis.cn/redis_memory/">Redis内存估计</a>中预算出TTL内缓存的内存占用量，其中Key个数约等于TTL内请求的用户量。</p>
+<table>
+<thead>
+<tr>
+<th>时间</th>
+<th>10s</th>
+<th>30s</th>
+<th>1min</th>
+<th>10min</th>
+<th>20min</th>
+<th>30min</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>设备数量</td>
+<td>31296</td>
+<td>35139</td>
+<td>35261</td>
+<td>37013</td>
+<td>38523</td>
+<td>38505</td>
+</tr>
+<tr>
+<td>请求总数</td>
+<td>31378</td>
+<td>93770</td>
+<td>187632</td>
+<td>1878392</td>
+<td>3755227</td>
+<td>5631076</td>
+</tr>
+<tr>
+<td>命中率（%）</td>
+<td>0.26</td>
+<td>62.5</td>
+<td>81.21</td>
+<td>98.03</td>
+<td>98.97</td>
+<td>99.32</td>
+</tr>
+<tr>
+<td>内存估计（M）</td>
+<td>5.16</td>
+<td>5.79</td>
+<td>5.81</td>
+<td>6.10</td>
+<td>6.35</td>
+<td>6.35</td>
+</tr>
+</tbody></table>
+<p>列出数据后，比对可发现合适的TTL。</p>
+<p>但注意，需要一些额外设计：</p>
+<ol>
+<li>所有缓存设置同一TTL会引发缓存雪崩，为避免这一现象，应该在TTL基础上随机加盐。以上表为例，TTL设定在10min±3min比较合适</li>
+<li>对于数据库中不存在的数据，应该在缓存中回写空值，以避免缓存穿透。对于不合理的请求，比如主键为负值，缓存就应该直接拒绝，以避免缓存穿透（<strong>布隆过滤器实现</strong>）</li>
+<li>对于写多读少的场景，Redis持久化可以选择AOF或混合持久化；否则，RDB会更为合适</li>
+</ol>
+<h2 id="布隆过滤器"><a href="#布隆过滤器" class="headerlink" title="布隆过滤器"></a>布隆过滤器</h2><p>布隆过滤器由n个无偏Hash函数和二进制数组组成。某一Key在添加到过滤器的时候，会先通过n个无偏Hash函数获得n个hash值，这n个值落在二进制数组上就将该值改为1。如果需要查询某Key原先是否已存在，只需将该Key在二进制数组落点上的所有值进行与运算，结果为0则表示该Key不存在，但结果为1并不意味着一定存在，因为那些为1的落点有可能是其他Key落下的。</p>
+<p><img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309142054756.png" srcset="/img/loading.gif" alt="image-20230914205449687"></p>
+<p>二进制数组越长，Hash函数越多就越容易减小Key3这种情况的概率。但这也会带来性能损耗，如何权衡便是一个问题，<a target="_blank" rel="noopener" href="https://krisives.github.io/bloom-calculator/">Bloom Filter Calculator</a>能帮忙计算合适的数组长度和Hash数量。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/23/RPC%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">RPC调用过程</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/13/MySQL/">
+                        <span class="hidden-mobile">MySQL</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

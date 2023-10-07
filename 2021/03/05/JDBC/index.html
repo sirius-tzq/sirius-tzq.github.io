@@ -1,0 +1,558 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>JDBC - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/JDBC.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="JDBC">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-03-05 19:13" pubdate>
+        2021年3月5日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      1.7k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      21
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">JDBC</h1>
+            
+            <div class="markdown-body">
+              <h1 id="JDBC概念先导"><a href="#JDBC概念先导" class="headerlink" title="JDBC概念先导"></a>JDBC概念先导</h1><p>JDBC（<strong>J</strong>ava <strong>D</strong>ata<strong>B</strong>ase <strong>C</strong>onnectivity）即Java语言连接数据库，本质上是一套位于<code>java.sql.*</code>下的接口。因为每种数据库的底层实现原理都不一致，如Oracle、MySQL，为了统一能够被Java调用，SUN制定了<code>JDBC</code>这套接口，其他数据库厂家就需要实现接口的实现类。</p>
+<h2 id="JDBC实现的过程"><a href="#JDBC实现的过程" class="headerlink" title="JDBC实现的过程"></a>JDBC实现的过程</h2><ol>
+<li><strong>Driver注册</strong></li>
+</ol>
+<p>在JAVA工程中注册好Driver，即为MySQL服务器打开通道口</p>
+<ol start="2">
+<li><strong>建立通道</strong></li>
+</ol>
+<p>通过JDBC【java.sql.DriverManager】在JAVA工程与MySQL服务器之间建立通道，以便于JAVA工程能向MySQL发送命令，MySQL能向JAVA工程返回结果。</p>
+<ol start="3">
+<li><strong>实现交通工具</strong></li>
+</ol>
+<p>Connection接口实现类【PreparedStatement接口实现类】能作为JAVA工程和MySQL之间通信的工具。</p>
+<ol start="4">
+<li><strong>执行并返回结果</strong></li>
+</ol>
+<p>Connection接口实现类到达MySQL，MySQL收到SQL命令后执行，将操作结果放回Connection接口实现类中。</p>
+<ol start="5">
+<li><strong>释放资源</strong></li>
+</ol>
+<p>在工作完成后，需要对所有对象进行销毁，主要包括以下实现类：<code>Connection【管理连接通道】</code>，<code>PreparedStatement【管理交通工具】</code>，<code>ResultSet【查询命令返回的临时表】</code></p>
+<h2 id="JDBC你需要知道的类"><a href="#JDBC你需要知道的类" class="headerlink" title="JDBC你需要知道的类"></a>JDBC你需要知道的类</h2><ul>
+<li><strong>java.sql.DriverManager</strong></li>
+</ul>
+<p>这个类存放在JDK1.8下，负责将数据库厂商提供的Driver接口进行注册，以便建立通道。</p>
+<ul>
+<li><strong>java.sql.Connection</strong></li>
+</ul>
+<p>负责管理Java工程与数据库服务器之间的连接通道</p>
+<ul>
+<li><strong>java.sql.PreparedStatement</strong></li>
+</ul>
+<p>负责管理在连接通道上进行往返的交通工具</p>
+<ul>
+<li><strong>java.sql.ResultSet</strong></li>
+</ul>
+<p>负责管理数据库服务器返回的临时表，即返回给JAVA工程的处理结果。</p>
+<h1 id="JDBC开发"><a href="#JDBC开发" class="headerlink" title="JDBC开发"></a>JDBC开发</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.theo;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.sql.*;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JDBCtest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> SQLException </span>&#123;</span><br><span class="line">        <span class="comment">//注册</span></span><br><span class="line">        Driver driver = <span class="keyword">new</span> com.mysql.jdbc.Driver();</span><br><span class="line">        DriverManager.registerDriver(driver);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//建立通道</span></span><br><span class="line">        String url = <span class="string">&quot;jdbc:mysql://localhost:3306/companydb&quot;</span>;</span><br><span class="line">        Connection connection = DriverManager.getConnection(url, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;tzq1635886602&quot;</span>);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//建立交通工具</span></span><br><span class="line">        PreparedStatement ps = connection.prepareStatement(<span class="string">&quot;&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//处理命令放回结果</span></span><br><span class="line">        <span class="keyword">int</span> result = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">        result = ps.executeUpdate(<span class="string">&quot;INSERT INTO admin() VALUES(&#x27;theo2&#x27;,&#x27;123456&#x27;,&#x27;15879313152&#x27;,&#x27;theo_tzq@qq.com&#x27;);&quot;</span>);</span><br><span class="line"></span><br><span class="line">        <span class="comment">//销毁</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (ps != <span class="keyword">null</span>) &#123;</span><br><span class="line">            ps.close();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;</span><br><span class="line">            connection.close();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        System.out.println(result);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<ul>
+<li><strong>注册驱动</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Driver driver = <span class="keyword">new</span> com.mysql.jdbc.Driver();</span><br><span class="line">DriverManager.registerDriver(driver);</span><br></pre></td></tr></table></figure>
+<p>注册好JAVA工程对MySQL的通道口，接下来创建通道。</p>
+<blockquote>
+<p>注册驱动还可以通过类加载动作来实现。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Class.forName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br></pre></td></tr></table></figure>
+
+<p><code>Driver</code>类中有一个静态代码块，类加载时就能实现注册驱动。我们使用<code>Class.forname(类名)</code>就能启动该类的静态代码块。由于类名是一个字符串，我们很好的可以将这些写在配置文件中。</p>
+</blockquote>
+<ul>
+<li><strong>创建通道</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="string">&quot;jdbc:mysql://localhost:3306/companydb&quot;</span>;</span><br><span class="line">Connection connection = DriverManager.getConnection(url, <span class="string">&quot;root&quot;</span>, <span class="string">&quot;tzq1635886602&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><code>jdbc:mysql://localhost:3306</code>接通到MySQL服务器下，通过<code>localhost:3306</code>连接到你本地数据库，<code>companydb</code>就是你想操作的数据表了,这里算便也用了学习MySQL时创建的表。<code>DriverManager.getConnection(url,username,password)</code>则是需要登入你的MySQL账号才能建立成功通道。</p>
+<ul>
+<li><strong>创建交通工具</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">PreparedStatement ps = connection.prepareStatement(<span class="string">&quot;&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><code>connection.prepareStatement(&quot;&quot;)</code>创建交通工具，这里sql先不写。</p>
+<ul>
+<li><strong>输送命令</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> result = ps.executeUpdate(<span class="string">&quot;INSERT INTO admin() VALUES(&#x27;theo&#x27;,&#x27;123456&#x27;,&#x27;15879313152&#x27;,&#x27;theo_tzq@qq.com&#x27;);&quot;</span>);</span><br></pre></td></tr></table></figure>
+<p><code>ps.executeUpdate(sql)</code>利用交通工具的命令输送SQL语句。返回值时SQL语句成功影响的行数。</p>
+<ul>
+<li><strong>销毁</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (ps != <span class="keyword">null</span>) 		&#123;ps.close();&#125;</span><br><span class="line"><span class="keyword">if</span> (connection != <span class="keyword">null</span>) &#123;connection.close(); &#125;</span><br></pre></td></tr></table></figure>
+<p>每个使用到的实现类都要经过<code>close()</code>销毁</p>
+<blockquote>
+<p>以上就实现了一个简单的JAVA工程链接MySQL的任务，执行JAVA后打开admin会发现新增了theo数据。</p>
+<p>如果需要连接到Oracle数据库，就只需要改变通道url和注册方式（导入Oracle的专有jar包）。实现起来十分方便。</p>
+</blockquote>
+<h2 id="使用properties文件获取连接数据"><a href="#使用properties文件获取连接数据" class="headerlink" title="使用properties文件获取连接数据"></a>使用properties文件获取连接数据</h2><p>使用配置文件<code>.properties</code>来注册驱动和建立通道。</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#JDBC.properties</span></span><br><span class="line"><span class="attr">url</span>=<span class="string">jdbc:mysql://localhost:3306/companydb</span></span><br><span class="line"><span class="attr">driver</span>=<span class="string">com.sql.jdbc.Driver</span></span><br><span class="line"><span class="attr">username</span>=<span class="string">root</span></span><br><span class="line"><span class="attr">password</span>=<span class="string">tzq1635886602</span></span><br></pre></td></tr></table></figure>
+<p>再使用资源版定器绑定属性配置文件，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">ResourceBundle bundle = ResourceBundle(<span class="string">&quot;JDBC&quot;</span>);	<span class="comment">//不用加后缀名，会自动去Java工程的目录找该配置文件、</span></span><br><span class="line">String driver = bundle.getString(<span class="string">&quot;driver&quot;</span>);</span><br><span class="line">String url = bundle.getString(<span class="string">&quot;url&quot;</span>);</span><br><span class="line">String username = bundle.getString(<span class="string">&quot;username&quot;</span>);</span><br><span class="line">String password = bundle.getString(<span class="string">&quot;password&quot;</span>);</span><br><span class="line"><span class="comment">//注册驱动</span></span><br><span class="line">Class.forName(driver);</span><br><span class="line"><span class="comment">//创建通道</span></span><br><span class="line">Connection connection = DriverManager.getConnection(url,username,password);</span><br></pre></td></tr></table></figure>
+<p>也可以通过I/O流与配置文件，这样可以省去多次使用<code>bundle.getString()</code>来获取特定数据。这个坑有待补充。</p>
+<h2 id="ps-executeUpdate与ps-execteQuery"><a href="#ps-executeUpdate与ps-execteQuery" class="headerlink" title="ps.executeUpdate与ps.execteQuery"></a>ps.executeUpdate与ps.execteQuery</h2><table>
+<thead>
+<tr>
+<th>语法</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>int ps.executeUpdate(SQL语句)</td>
+<td>负责推送的语句有如INSERT,UPDATE,DElETE等会返回影响了多少行数的命令</td>
+</tr>
+<tr>
+<td>ResultSet ps.executeQuery(SQL语句)</td>
+<td>负责推送查询语句SELECT.放回的是临时表,在销毁阶段也要注意将ResultSet销毁了.</td>
+</tr>
+</tbody></table>
+<p>这里查看如何<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yz411B7Pk?p=73">提取ResultSet返回的对象信息</a></p>
+<h2 id="ps-Batch-与预编译"><a href="#ps-Batch-与预编译" class="headerlink" title="ps.Batch()与预编译"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Yz411B7Pk?p=74">ps.Batch()与预编译</a></h2><p>之前我们造车没有填入参数，<code>PreparedStatement ps = connection.prepareStatement(&quot;&quot;);</code>，通过添加SQL语句可以为该车指定模板。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">String SQL = <span class="string">&quot;INSERT INTO admin() VALUES(?,?,?,?)&quot;</span>;</span><br><span class="line">PreparedStatement ps = connection.prepareStatement(SQL);	<span class="comment">//定制好该车承载SQL语句的模板,批处理添加SQL语句时只需要填好?空位即可。</span></span><br><span class="line"><span class="keyword">while</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;<span class="number">100</span>;i++)&#123;</span><br><span class="line">    ps.setString(<span class="number">1</span>,<span class="string">&quot;TZQ&quot;</span>+i+<span class="string">&quot;号&quot;</span>);	<span class="comment">//ps.setString(n,m) n是指第几个问号,m是填充的内容</span></span><br><span class="line">    ps.setString(<span class="number">2</span>,<span class="string">&quot;1234&quot;</span>);</span><br><span class="line">    ps.setString(<span class="number">3</span>,<span class="string">&quot;12345678910&quot;</span>);</span><br><span class="line">    ps.setString(<span class="number">4</span>,<span class="string">&quot;qq@com&quot;</span>);</span><br><span class="line">    ps.addBatch();	<span class="comment">//每循环一次一条完整的SQL语句就会压到ps中,循环结束ps身上就会带上一百组SQL命令.</span></span><br><span class="line">&#125;</span><br><span class="line">ps.executeBatch();	<span class="comment">//代替executeUpdate或execteQuery,将装好命令的车送到SQL服务器中.</span></span><br></pre></td></tr></table></figure>
+<h2 id="事务控制"><a href="#事务控制" class="headerlink" title="事务控制"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1Bt41137iB?p=25&spm_id_from=pageDriver">事务控制</a></h2><p>我们之前说过,JDBC获得的结果都是临时表，真实的数据没有被改变。当如果我们想要改变数据库，我们需要用到<code>connection.commit</code>等函数。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">connection.setAutoCommit(<span class="keyword">false</span>);</span><br><span class="line">ps.executeUpdate(SQL);	<span class="comment">//推送SQL命令</span></span><br><span class="line">connection.commit();	<span class="comment">//确认将该影响应用到真实数据库中</span></span><br><span class="line">connection.rollback();	<span class="comment">//确认不将命令的影响应用到真实数据库,还原备份数据库</span></span><br></pre></td></tr></table></figure>
+<p>当<code>connection.setAutoCommit()</code>未被设置时，默认为true。这样的话每执行一次execute，数据库的数据就会更新并保存。倘若代码中有两次execute，第二次execute出现了错误，我想要将数据库还原到两次execute前的数据。由于第一次execute正常执行，数据库最新的备份时第一次execute后的，那么我想回溯到最初的数据库就晚了。</p>
+<p>因此，设置<code>connection.setAutoCommit(false)</code>，可以保证整个代码正常运行后再人为地覆盖掉最初数据。代码中出错了就能通过<code>connection.rollback</code>回溯到最开始版本。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Java/">Java!</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/03/13/Druid-ThreadLocal-QueryRunner/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Druid-ThreadLocal-QueryRunner</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/03/Linux-CentOS7/">
+                        <span class="hidden-mobile">Linux+CentOS7</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

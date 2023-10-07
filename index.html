@@ -1,0 +1,872 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>-琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 100vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.2)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="_念念不忘，必有回响">
+              
+            </span>
+
+            
+          </div>
+
+          
+            <div class="scroll-down-bar">
+              <i class="iconfont icon-arrowdown"></i>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          style=margin-top:0>
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/10/07/%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E8%AF%AD%E8%A8%80,%E4%BB%A5GoLang%E4%B8%BA%E4%BE%8B/" target="_self">
+          <img src="/img/post_img.jpg" srcset="/img/loading.gif" alt="��ο�ʼѧϰһ������,��GoLangΪ��">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/10/07/%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E8%AF%AD%E8%A8%80,%E4%BB%A5GoLang%E4%B8%BA%E4%BE%8B/">��ο�ʼѧϰһ������,��GoLangΪ��</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/10/07/%E5%A6%82%E4%BD%95%E5%BC%80%E5%A7%8B%E5%AD%A6%E4%B9%A0%E4%B8%80%E9%97%A8%E8%AF%AD%E8%A8%80,%E4%BB%A5GoLang%E4%B8%BA%E4%BE%8B/">
+          
+          
+            
+          
+          如何开始学习一门语言,以GoLang为例语言层面在语言层面上,学习新语言的最佳方式是对照一门熟悉的语言,进行比较学习。
+基础特性
+
+
+基础特性
+GO
+Java
+
+
+
+关键字
+go，type，const等
+new，public，final等
+
+
+流程控制
+for-range，select，defer
+while/do-while，for-each，try-catch
+
+
+类型
+静态类型（支持运行时动
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-10-07 20:47" pubdate>
+              2023-10-07
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/09/23/RPC%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B/" target="_self">
+          <img src="/img/post_img.jpg" srcset="/img/loading.gif" alt="RPC调用过程">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/23/RPC%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B/">RPC调用过程</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/23/RPC%E8%B0%83%E7%94%A8%E8%BF%87%E7%A8%8B/">
+          
+          
+            
+          
+          RPC调用过程RPC五大核心组成
+
+server(provider) ：服务提供者
+server-stub(provider-stub) ：服务端的本地存根。进行类型和参数转换，“翻译员”
+user(consumer)：服务消费者
+user-stub(consumer-stub) ：消费端的本地存根
+RPCRuntime：RPC通信者。负责传输数据包，服务端/消费端均存在一个RPCRuntime，
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-23 17:15" pubdate>
+              2023-09-23
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/09/14/Redis%E7%AE%80%E8%BF%B0/" target="_self">
+          <img src="/img/post_img.jpg" srcset="/img/loading.gif" alt="Redis简言">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/14/Redis%E7%AE%80%E8%BF%B0/">Redis简言</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/14/Redis%E7%AE%80%E8%BF%B0/">
+          
+          
+            
+          
+          Redis简言底层数据结构graph TD
+	A(String) --&gt; B[简单动态字符串:embstr&#x2F;raw]
+	A --&gt; b[int]
+	C(List) --&gt; D[双向链表]
+	C --&gt; E[压缩列表]
+	F(Hash) --&gt; E
+	F --&gt; G[哈希表]
+	H(Sorted Set) --&gt; E
+	H --&gt; I[跳表]
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-14 20:56" pubdate>
+              2023-09-14
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/09/13/MySQL/" target="_self">
+          <img src="/img/post_img.jpg" srcset="/img/loading.gif" alt="MySQL">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/13/MySQL/">MySQL</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/13/MySQL/">
+          
+          
+            
+          
+          MySQL简言SQL执行顺序12345678910(6) SELECT [DISTINCT | ALL] col1, col2, agg_func(col3) AS alias(1) FROM t1 JOIN t2(2) ON (join_conditions)(3) WHERE where_conditions(4) GROUP BY col1, col2(5) HAVING having_co
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-13 23:11" pubdate>
+              2023-09-13
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/09/09/GoLang-Java/" target="_self">
+          <img src="/img/post_img.jpg" srcset="/img/loading.gif" alt="GoLang&amp;Java">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/09/GoLang-Java/">GoLang&amp;Java</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/09/GoLang-Java/">
+          
+          
+            
+          
+          Golang与Java区别
+
+
+对比项
+Java
+Golang
+
+
+
+
+实现跨平台
+通过JVM支持
+能直接在目标平台编译执行
+
+
+
+内存管理
+1. 运行期间依托JVM进行内存管理2.配置繁杂3.启动所需内存大,速度慢
+1.配置简单2.启动所需内存少,速度快
+Java的GC更为成熟
+
+
+并发
+支持多线程级别,本质是更高效地利用系统线程. Java19开始支持虚拟线程1.线程池2.volatile、a
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-09 14:05" pubdate>
+              2023-09-09
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/09/03/%E6%9C%89%E4%BA%86MAC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E9%9C%80%E8%A6%81IP/" target="_self">
+          <img src="/img/post_img.jpg" srcset="/img/loading.gif" alt="有了MAC为什么还需要IP">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/03/%E6%9C%89%E4%BA%86MAC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E9%9C%80%E8%A6%81IP/">有了MAC为什么还需要IP</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/03/%E6%9C%89%E4%BA%86MAC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E9%9C%80%E8%A6%81IP/">
+          
+          
+            
+          
+          端到端的网络如今只有两台主机，他们之间想要通信，我们顺理成章地在两台主机之间接上了一根网线，这样他们就可以通信了。之后又有主机想要加入通信，但似乎也不是问题，只是每个主机都连接两根网线。可随着更多主机的加入，我们发现主机的网口已经被占满了。于是我们需要一个“集线器”，作为主机间的中间设备。每个主机只需要连接“集线器”，主机间的通信可以通过这个设备转发。
+交换机但这并没有完全解决问题，“集线器”做不
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-03 21:34" pubdate>
+              2023-09-03
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2023/09/02/powershell-beautify/" target="_self">
+          <img src="/img/post_img.jpg" srcset="/img/loading.gif" alt="powershell beautify">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2023/09/02/powershell-beautify/">powershell beautify</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2023/09/02/powershell-beautify/">
+          
+          
+            
+          
+          先从PowerShell说起Windows自带的Windows PowerShell一般为PowerShell 5, 相比于最新的PowerShell 7有着比较多的差异。
+本文后续的所有美化与功能加强都将基于PowerShell 7。建议在Github-PowerShell下载PowerShell 7+版本，即pwsh。注意，pwsh与原生Windows PowerShell为两个独立终端，pw
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2023-09-02 17:00" pubdate>
+              2023-09-02
+            </time>
+          </div>
+        
+        
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/20/Kubernetes/" target="_self">
+          <img src="/img/K8s.jpg" srcset="/img/loading.gif" alt="Kubernetes">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/20/Kubernetes/">Kubernetes</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/20/Kubernetes/">
+          
+          
+            
+          
+          KubernetesK8s集群架构
+Master主控节点
+API Server
+
+是集群的统一入口，都以RestFul风格交给Etcd存储。提供认证、授权、访问控制、API注册和发现等机制
+
+Scheduler
+
+节点调度，选择node节点应用部署
+
+controller-manager
+
+处理集群中常规后台任务，一个资源对应一个控制器
+
+Etcd
+
+储存系统，用于保存集群相关的数据
+Node工作
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-20 10:11" pubdate>
+              2021-09-20
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/Docker/">Docker</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/10/Redis/" target="_self">
+          <img src="/img/Redis.jpg" srcset="/img/loading.gif" alt="">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/10/Redis/"></a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/10/Redis/">
+          
+          
+            
+          
+          RedisLinux安装【狂神说Java】Redis最新超详细版教程通俗易懂_哔哩哔哩_bilibili
+Keys
+
+
+序号
+命令及描述
+
+
+
+1
+DEL key 该命令用于在 key 存在时删除 key。
+
+
+2
+DUMP key 序列化给定 key ，并返回被序列化的值。
+
+
+3
+EXISTS key 检查给定 key 是否存在。
+
+
+4
+EXPIRE key seconds  为给定 key
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-10 11:20" pubdate>
+              2021-09-10
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%90%8E%E7%AB%AF/">后端</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+  <div class="row mx-auto index-card">
+    
+    
+      <div class="col-12 col-md-4 m-auto index-img">
+        <a href="/2021/09/03/Shiro/" target="_self">
+          <img src="/img/Shiro.jpg" srcset="/img/loading.gif" alt="Shiro">
+        </a>
+      </div>
+    
+    <article class="col-12 col-md-8 mx-auto index-info">
+      <h1 class="index-header">
+        
+        <a href="/2021/09/03/Shiro/">Shiro</a>
+      </h1>
+
+      <p class="index-excerpt">
+        <a href="/2021/09/03/Shiro/">
+          
+          
+            
+          
+          Shiro认证1. 认证　　身份认证，就是判断一个用户是否为合法用户的处理过程。最常用的简单身份认证方式是系统通过核对用户输入的用户名口令，看其是否与系统中存储的该用户的用户名和口令一致，来判断用户身份是否正确。
+2. Shiro 中认证的关键对象
+Subject 主体：访问系统的用户，主体可以是用户、程序等等，进行认证的都称为主体；
+Principal 身份信息：是主体（Subject）进行身份
+        </a>
+      </p>
+
+      <div class="index-btm post-metas">
+        
+          <div class="post-meta mr-3">
+            <i class="iconfont icon-date"></i>
+            <time datetime="2021-09-03 11:21" pubdate>
+              2021-09-03
+            </time>
+          </div>
+        
+        
+        
+          <div class="post-meta">
+            <i class="iconfont icon-tags"></i>
+            
+              <a href="/tags/%E5%90%8E%E7%AB%AF/">后端</a>
+            
+          </div>
+        
+      </div>
+    </article>
+  </div>
+
+
+
+  <nav aria-label="navigation">
+    <span class="pagination" id="pagination">
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/"><i class="iconfont icon-arrowright"></i></a>
+    </span>
+  </nav>
+  
+  <script>
+    for (ele of document.getElementById("pagination").getElementsByTagName("a")) {
+      ele.href += '#board';
+    }
+  </script>
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

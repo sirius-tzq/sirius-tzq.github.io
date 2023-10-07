@@ -1,0 +1,721 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>page.title - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 60vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="page.title">
+              
+            </span>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="page-content">
+  <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:fragment="commonhead">
+    <link th:href="@{/css/style.css}" rel="stylesheet">
+    <link th:href="@{css/style-responsive.css}" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script th:src="@{/js/html5shiv.js}"></script>
+    <script th:src="@{/js/respond.min.js}"></script>
+    <![endif]-->
+</head>
+<body>
+<!-- left side start-->
+<div id="leftmenu" class="left-side sticky-left-side">
+
+    <!--logo and iconic logo start-->
+    <div class="logo">
+        <a href="main.html"><img src="images/logo.png" srcset="/img/loading.gif" alt=""></a>
+    </div>
+
+    <div class="logo-icon text-center">
+        <a href="main.html"><img src="images/logo_icon.png" srcset="/img/loading.gif" alt=""></a>
+    </div>
+    <!--logo and iconic logo end-->
+
+    <div class="left-side-inner">
+
+        <!-- visible to small devices only -->
+        <div class="visible-xs hidden-sm hidden-md hidden-lg">
+            <div class="media logged-user">
+                <img alt="" src="images/photos/user-avatar.png" srcset="/img/loading.gif" class="media-object">
+                <div class="media-body">
+                    <h4><a href="#">John Doe</a></h4>
+                    <span>"Hello There..."</span>
+                </div>
+            </div>
+
+            <h5 class="left-nav-title">Account Information</h5>
+            <ul class="nav nav-pills nav-stacked custom-nav">
+                <li><a href="#"><i class="fa fa-user"></i> <span>Profile</span></a></li>
+                <li><a href="#"><i class="fa fa-cog"></i> <span>Settings</span></a></li>
+                <li><a href="#"><i class="fa fa-sign-out"></i> <span>Sign Out</span></a></li>
+            </ul>
+        </div>
+
+        <!--sidebar nav start-->
+        <ul class="nav nav-pills nav-stacked custom-nav">
+            <li class="menu-list nav-active"><a href="main.html"><i class="fa fa-home"></i> <span>Dashboard</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="index_alt.html"> Dashboard 1</a></li>
+                    <li class="active"><a href="main.html"> Dashboard 2</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-list"><a href=""><i class="fa fa-laptop"></i> <span>Layouts</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="blank_page.html"> Blank Page</a></li>
+                    <li><a href="boxed_view.html"> Boxed Page</a></li>
+                    <li><a href="leftmenu_collapsed_view.html"> Sidebar Collapsed</a></li>
+                    <li><a href="horizontal_menu.html"> Horizontal Menu</a></li>
+
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-book"></i> <span>UI Elements</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="general.html"> General</a></li>
+                    <li><a href="buttons.html"> Buttons</a></li>
+                    <li><a href="tabs-accordions.html"> Tabs & Accordions</a></li>
+                    <li><a href="typography.html"> Typography</a></li>
+                    <li><a href="slider.html"> Slider</a></li>
+                    <li><a href="panels.html"> Panels</a></li>
+                    <li><a href="widgets.html"> Widgets</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-cogs"></i> <span>Components</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="grids.html"> Grids</a></li>
+                    <li><a href="gallery.html"> Media Gallery</a></li>
+                    <li><a href="calendar.html"> Calendar</a></li>
+                    <li><a href="tree_view.html"> Tree View</a></li>
+                    <li><a href="nestable.html"> Nestable</a></li>
+
+                </ul>
+            </li>
+
+            <li><a href="fontawesome.html"><i class="fa fa-bullhorn"></i> <span>Fontawesome</span></a></li>
+
+            <li class="menu-list"><a href=""><i class="fa fa-envelope"></i> <span>Mail</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="mail.html"> Inbox</a></li>
+                    <li><a href="mail_compose.html"> Compose Mail</a></li>
+                    <li><a href="mail_view.html"> View Mail</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-list"><a href=""><i class="fa fa-tasks"></i> <span>Forms</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="form_layouts.html"> Form Layouts</a></li>
+                    <li><a href="form_advanced_components.html"> Advanced Components</a></li>
+                    <li><a href="form_wizard.html"> Form Wizards</a></li>
+                    <li><a href="form_validation.html"> Form Validation</a></li>
+                    <li><a href="editors.html"> Editors</a></li>
+                    <li><a href="inline_editors.html"> Inline Editors</a></li>
+                    <li><a href="pickers.html"> Pickers</a></li>
+                    <li><a href="dropzone.html"> Dropzone</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-bar-chart-o"></i> <span>Charts</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="flot_chart.html"> Flot Charts</a></li>
+                    <li><a href="morris.html"> Morris Charts</a></li>
+                    <li><a href="chartjs.html"> Chartjs</a></li>
+                    <li><a href="c3chart.html"> C3 Charts</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href="#"><i class="fa fa-th-list"></i> <span>Data Tables</span></a>
+                <ul class="sub-menu-list">
+                    <li><a th:href="@{basic_table}"> Basic Table</a></li>
+                    <li><a th:href="@{dynamic_table}"> Advanced Table</a></li>
+                    <li><a th:href="@{responsive_table}"> Responsive Table</a></li>
+                    <li><a th:href="@{editable_table}"> Edit Table</a></li>
+                </ul>
+            </li>
+
+            <li class="menu-list"><a href="#"><i class="fa fa-map-marker"></i> <span>Maps</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="google_map.html"> Google Map</a></li>
+                    <li><a href="vector_map.html"> Vector Map</a></li>
+                </ul>
+            </li>
+            <li class="menu-list"><a href=""><i class="fa fa-file-text"></i> <span>Extra Pages</span></a>
+                <ul class="sub-menu-list">
+                    <li><a href="profile.html"> Profile</a></li>
+                    <li><a href="invoice.html"> Invoice</a></li>
+                    <li><a href="pricing_table.html"> Pricing Table</a></li>
+                    <li><a href="timeline.html"> Timeline</a></li>
+                    <li><a href="blog_list.html"> Blog List</a></li>
+                    <li><a href="blog_details.html"> Blog Details</a></li>
+                    <li><a href="directory.html"> Directory </a></li>
+                    <li><a href="chat.html"> Chat </a></li>
+                    <li><a href="404.html"> 404 Error</a></li>
+                    <li><a href="500.html"> 500 Error</a></li>
+                    <li><a href="registration.html"> Registration Page</a></li>
+                    <li><a href="lock_screen.html"> Lockscreen </a></li>
+                </ul>
+            </li>
+            <li><a href="login.html"><i class="fa fa-sign-in"></i> <span>Login Page</span></a></li>
+
+        </ul>
+        <!--sidebar nav end-->
+
+    </div>
+</div>
+<!-- left side end-->
+
+<!-- header section start-->
+<div id="headermenu"  class="header-section">
+
+    <!--toggle button start-->
+    <a class="toggle-btn"><i class="fa fa-bars"></i></a>
+    <!--toggle button end-->
+
+    <!--search start-->
+    <form class="searchform" action="http://view.jqueryfuns.com/2014/4/10/7_df25ceea231ba5f44f0fc060c943cdae/index.html" method="post">
+        <input type="text" class="form-control" name="keyword" placeholder="Search here..." />
+    </form>
+    <!--search end-->
+
+    <!--notification menu start -->
+    <div class="menu-right">
+        <ul class="notification-menu">
+            <li>
+                <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                    <i class="fa fa-tasks"></i>
+                    <span class="badge">8</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-head pull-right">
+                    <h5 class="title">You have 8 pending task</h5>
+                    <ul class="dropdown-list user-list">
+                        <li class="new">
+                            <a href="#">
+                                <div class="task-info">
+                                    <div>Database update</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div style="width: 40%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar progress-bar-warning">
+                                        <span class="">40%</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="new">
+                            <a href="#">
+                                <div class="task-info">
+                                    <div>Dashboard done</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div style="width: 90%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="90" role="progressbar" class="progress-bar progress-bar-success">
+                                        <span class="">90%</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div>Web Development</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div style="width: 66%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="66" role="progressbar" class="progress-bar progress-bar-info">
+                                        <span class="">66% </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div>Mobile App</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div style="width: 33%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="33" role="progressbar" class="progress-bar progress-bar-danger">
+                                        <span class="">33% </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <div class="task-info">
+                                    <div>Issues fixed</div>
+                                </div>
+                                <div class="progress progress-striped">
+                                    <div style="width: 80%" aria-valuemax="100" aria-valuemin="0" aria-valuenow="80" role="progressbar" class="progress-bar">
+                                        <span class="">80% </span>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        <li class="new"><a href="">See All Pending Task</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                    <i class="fa fa-envelope-o"></i>
+                    <span class="badge">5</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-head pull-right">
+                    <h5 class="title">You have 5 Mails </h5>
+                    <ul class="dropdown-list normal-list">
+                        <li class="new">
+                            <a href="">
+                                <span class="thumb"><img src="images/photos/user1.png" srcset="/img/loading.gif" alt="" /></span>
+                                <span class="desc">
+                                          <span class="name">John Doe <span class="badge badge-success">new</span></span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="thumb"><img src="images/photos/user2.png" srcset="/img/loading.gif" alt="" /></span>
+                                <span class="desc">
+                                          <span class="name">Jonathan Smith</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="thumb"><img src="images/photos/user3.png" srcset="/img/loading.gif" alt="" /></span>
+                                <span class="desc">
+                                          <span class="name">Jane Doe</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="thumb"><img src="images/photos/user4.png" srcset="/img/loading.gif" alt="" /></span>
+                                <span class="desc">
+                                          <span class="name">Mark Henry</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="">
+                                <span class="thumb"><img src="images/photos/user5.png" srcset="/img/loading.gif" alt="" /></span>
+                                <span class="desc">
+                                          <span class="name">Jim Doe</span>
+                                          <span class="msg">Lorem ipsum dolor sit amet...</span>
+                                        </span>
+                            </a>
+                        </li>
+                        <li class="new"><a href="">Read All Mails</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="btn btn-default dropdown-toggle info-number" data-toggle="dropdown">
+                    <i class="fa fa-bell-o"></i>
+                    <span class="badge">4</span>
+                </a>
+                <div class="dropdown-menu dropdown-menu-head pull-right">
+                    <h5 class="title">Notifications</h5>
+                    <ul class="dropdown-list normal-list">
+                        <li class="new">
+                            <a href="">
+                                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                <span class="name">Server #1 overloaded.  </span>
+                                <em class="small">34 mins</em>
+                            </a>
+                        </li>
+                        <li class="new">
+                            <a href="">
+                                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                <span class="name">Server #3 overloaded.  </span>
+                                <em class="small">1 hrs</em>
+                            </a>
+                        </li>
+                        <li class="new">
+                            <a href="">
+                                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                <span class="name">Server #5 overloaded.  </span>
+                                <em class="small">4 hrs</em>
+                            </a>
+                        </li>
+                        <li class="new">
+                            <a href="">
+                                <span class="label label-danger"><i class="fa fa-bolt"></i></span>
+                                <span class="name">Server #31 overloaded.  </span>
+                                <em class="small">4 hrs</em>
+                            </a>
+                        </li>
+                        <li class="new"><a href="">See All Notifications</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li>
+                <a href="#" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    <img src="images/photos/user-avatar.png" srcset="/img/loading.gif" alt="" />
+                         [[${session.loginUser.name}]]
+                    <span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-usermenu pull-right">
+                    <li><a href="#"><i class="fa fa-user"></i>  Profile</a></li>
+                    <li><a href="#"><i class="fa fa-cog"></i>  Settings</a></li>
+                    <li><a href="#"><i class="fa fa-sign-out"></i> Log Out</a></li>
+                </ul>
+            </li>
+
+        </ul>
+    </div>
+    <!--notification menu end -->
+
+</div>
+<!-- header section end-->
+
+
+
+<div id="commonscript">
+    <script th:src="@{/js/jquery-1.10.2.min.js}"></script>
+    <script th:src="@{/js/jquery-ui-1.9.2.custom.min.js}"></script>
+    <script th:src="@{/js/jquery-migrate-1.2.1.min.js}"></script>
+    <script th:src="@{/js/bootstrap.min.js}"></script>
+    <script th:src="@{/js/modernizr.min.js}"></script>
+    <script th:src="@{/js/jquery.nicescroll.js}"></script>
+    <!--common scripts for all pages-->
+    <script th:src="@{/js/scripts.js}"></script>
+</div>
+</body>
+</html>
+</div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

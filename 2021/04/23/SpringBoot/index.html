@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>SpringBoot - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/SpringBoot.jpg') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SpringBoot">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-04-23 21:57" pubdate>
+        2021年4月23日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      85
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SpringBoot</h1>
+            
+            <div class="markdown-body">
+              <h1 id="第一个SpringBoot程序"><a href="#第一个SpringBoot程序" class="headerlink" title="第一个SpringBoot程序"></a>第一个SpringBoot程序</h1><p>SpringBoot英文官方文档：<a target="_blank" rel="noopener" href="https://docs.spring.io/spring-boot/docs/current/reference/html/spring-boot-features.html#boot-features">Spring Boot Features</a></p>
+<p>SpringBoot中文文档：<a target="_blank" rel="noopener" href="http://felord.cn/_doc/_springboot/2.1.5.RELEASE/_book/pages/boot-documentation.html#boot-documentation">SpringBoot中文文档</a></p>
+<p><img src="https://img.imgdb.cn/item/60854d58d1a9ae528fe44209.jpg" srcset="/img/loading.gif" alt="创建新项目选择Spring Initializr"></p>
+<p><img src="https://img.imgdb.cn/item/60854dbdd1a9ae528fe72752.jpg" srcset="/img/loading.gif" alt="如图设置Group，Artifact和Java Version"></p>
+<p><img src="https://img.imgdb.cn/item/60854e00d1a9ae528fe91f1c.jpg" srcset="/img/loading.gif" alt="这里选择的是各个依赖和插件，可以过后补选"></p>
+<p>一直点到Finish后就会生成一个配置好类似如下的SpringBoot项目。</p>
+<figure class="highlight gherkin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><code class="hljs gherkin">|<span class="hljs-string">-- undefined</span><br><span class="hljs-string">    </span>|<span class="hljs-string">-- pom.xml</span><br><span class="hljs-string">    </span>|<span class="hljs-string">-- SpringBoot.iml</span><br><span class="hljs-string">    </span>|<span class="hljs-string">-- .idea</span><br><span class="hljs-string">    </span>|<span class="hljs-string">-- .mvn</span><br><span class="hljs-string">    </span>|<span class="hljs-string">-- src</span><br><span class="hljs-string">        </span>|<span class="hljs-string">-- main</span><br><span class="hljs-string">        </span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- java</span><br><span class="hljs-string">        </span>|<span class="hljs-string">   </span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- com</span><br><span class="hljs-string">        </span>|<span class="hljs-string">   </span>|<span class="hljs-string">       </span>|<span class="hljs-string">-- theo</span><br><span class="hljs-string">        </span>|<span class="hljs-string">   </span>|<span class="hljs-string">           </span>|<span class="hljs-string">-- TheoApplication.java</span><br><span class="hljs-string">        </span>|<span class="hljs-string">   </span>|<span class="hljs-string">-- resources</span><br><span class="hljs-string">        </span>|<span class="hljs-string">       </span>|<span class="hljs-string">-- application.properties</span><br><span class="hljs-string">        </span>|<span class="hljs-string">       </span>|<span class="hljs-string">-- static</span><br><span class="hljs-string">        </span>|<span class="hljs-string">       </span>|<span class="hljs-string">-- templates</span><br><span class="hljs-string">        </span>|<span class="hljs-string">-- test</span><br><span class="hljs-string">            </span>|<span class="hljs-string">-- java</span><br><span class="hljs-string">                </span>|<span class="hljs-string">-- com</span><br><span class="hljs-string">                    </span>|<span class="hljs-string">-- theo</span><br><span class="hljs-string">                        </span>|<span class="hljs-string">-- TheoApplicationTests.java</span><br></code></pre></td></tr></table></figure>
+<h2 id="TheoApplication-java"><a href="#TheoApplication-java" class="headerlink" title="TheoApplication.java"></a>TheoApplication.java</h2><p>这个就是该SpringBoot的项目启动文件，运行后就相当于启动了一个SpringBoot项目，不像SSM框架需要配置并启动Tomcat。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.theo;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TheoApplication</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(TheoApplication.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code> SpringApplication.run()</code>就是启动SpringBoot组件，因为SpringBoot中集合了Tomcat，所以启动后也会启动Tomcat。</p>
+<h2 id="application-properties"><a href="#application-properties" class="headerlink" title="application.properties"></a>application.properties</h2><p>这里就是SpringBoot的配置文件，不过用的都是<code>application.yml</code>。至于yml的优势以后讲解。</p>
+<h2 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h2><p>同样也是在这里配置依赖和插件，不过有点不同的是配置依赖将不需要配置版本号，因为不同版本的SpringBoot会配置好大量依赖的版本。如果要导入某一插件，只需要导入对应的启动器即可</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependencies</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.projectlombok<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>lombok<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>            <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br>        <span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependencies</span>&gt;</span>        <br></code></pre></td></tr></table></figure>
+<p>至于每个依赖对应的启动器是什么，在<code>spring-boot-autoconfigure-》Meta-INF-》spring.factories</code>中能够查到，当然百度是个好东西。</p>
+<h2 id="创建Controller层"><a href="#创建Controller层" class="headerlink" title="创建Controller层"></a>创建Controller层</h2><p><strong>一定要注意Controller层乃至Dao、Service、pojo都需要和SpringBoot启动文件<code>TheoApplication.java</code>在同一级目录下！！！！！</strong></p>
+<p>创建<code>Controller.HelloController.java</code>：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloController</span> </span>&#123;<br>    <span class="hljs-meta">@RequestMapping(&quot;/hello&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">hello</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;hello&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>运行启动文件，搜索<code>localhost:8080/hello</code>即可访问到控制器并获得返回值。</p>
+<h1 id="Application-yml"><a href="#Application-yml" class="headerlink" title="Application.yml"></a>Application.yml</h1><p><code>.yml</code>语法格式和<code>.properties</code>有很大不同。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">key:</span> <span class="hljs-string">value</span><br><span class="hljs-comment">#对象</span><br><span class="hljs-attr">student:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">theo</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">20</span><br><span class="hljs-comment">#另一种写法</span><br><span class="hljs-attr">student:</span> &#123;<span class="hljs-attr">name:</span> <span class="hljs-string">theo</span>,<span class="hljs-attr">age:</span> <span class="hljs-number">20</span>&#125;<br><br><span class="hljs-comment">#数组</span><br><span class="hljs-attr">pets:</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">cat</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">dog</span><br>  <span class="hljs-bullet">-</span> <span class="hljs-string">pig</span><br><span class="hljs-comment">#另一种写法</span><br><span class="hljs-attr">pets:</span> [<span class="hljs-string">cat</span>,<span class="hljs-string">dog</span>,<span class="hljs-string">pig</span>]<br></code></pre></td></tr></table></figure>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">key</span>=<span class="hljs-string">value</span><br><span class="hljs-comment">#对象</span><br><span class="hljs-meta">student.name</span>=<span class="hljs-string">theo</span><br><span class="hljs-meta">student.age</span>=<span class="hljs-string">20</span><br><br><span class="hljs-comment">#数组</span><br><span class="hljs-meta">pets[0]</span>=<span class="hljs-string">cat</span><br><span class="hljs-meta">pets[1]</span>=<span class="hljs-string">dog</span><br><span class="hljs-meta">pets[2]</span>=<span class="hljs-string">pig</span><br></code></pre></td></tr></table></figure>
+<p>能发现yml在写数组、map、对象方面能省上很多力气。</p>
+<h2 id="通过yml实现JavaBean注入"><a href="#通过yml实现JavaBean注入" class="headerlink" title="通过yml实现JavaBean注入"></a>通过yml实现JavaBean注入</h2><p>创建<code>pojo.User.java</code>,并配置好构造器等.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;<br>    String name;<br>    <span class="hljs-keyword">int</span> age;<br>    List&lt;Integer&gt; list;<br>    Map&lt;String,String&gt; map;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>如果按照Spring的配置Bean方法,应该注解如下:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;<br>	<span class="hljs-meta">@Value(&quot;theo&quot;)</span><br>    String name;<br>    <span class="hljs-meta">@Value(&quot;20&quot;)</span><br>    <span class="hljs-keyword">int</span> age;<br>    <span class="hljs-meta">@Value(&quot;[1,2,3]&quot;)</span><br>    List&lt;Integer&gt; list;<br>    <span class="hljs-meta">@Value(&quot;&#123;name: theo,age: 3&#125;&quot;)</span><br>    Map&lt;String,String&gt; map;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>@Component的意思是将该JavaBean注册到Spring容器中，之后在Controller层通过@Autowired就可以直接从IOC中获取Bean了。</p>
+<p>当然，我们不会这么用。倘若需要更改Bean的属性值就需要更改源代码，这样我们就需要了解yml配置JavaBean。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">User:</span><br>	<span class="hljs-attr">name:</span> <span class="hljs-string">theo</span><br>	<span class="hljs-attr">age:</span> <span class="hljs-number">20</span><br>	<span class="hljs-attr">list:</span> [<span class="hljs-number">1</span>,<span class="hljs-number">2</span>,<span class="hljs-number">3</span>]<br>	<span class="hljs-attr">map:</span><br>		<span class="hljs-attr">name:</span> <span class="hljs-string">theo</span><br>		<span class="hljs-attr">age:</span> <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
+<p>写好yml后，更改JavaBean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@ConfigurationProperties(prefix = &quot;User&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">User</span> </span>&#123;<br>    String name;<br>    <span class="hljs-keyword">int</span> age;<br>    List&lt;Integer&gt; list;<br>    Map&lt;String,String&gt; map;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这样就会从yml中找到User的配置并注入，再注册到IOC中。</p>
+<blockquote>
+<p>注意初次使用@ConfiguraProperties会在上方报红：<strong>Spring Boot Configuring the Annotation Processor not Configured</strong></p>
+<p>这个并不影响程序正常运行，为了解决这个问题，可以在pom.xml中配置</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-configuration-processor<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">optional</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">optional</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>在yml配置中，普通字符串可以不用加单双引号。但如果字符串中含有转义字符如<code>\n</code>，加上双引号就会令转义字符生效即输出换行，但如果加上单引号就会将转义字符当作普通字串输出。</p>
+</blockquote>
+<h2 id="SpringBoot测试类"><a href="#SpringBoot测试类" class="headerlink" title="SpringBoot测试类"></a>SpringBoot测试类</h2><p><code>java.com.theo.TheoApplicationTests</code>是一个测试类，但要非常注意一点在SpringBoot测试类中@Test不是导的普通Junit包。而是需要导入依赖：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-test<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.4.5<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>test<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>如果使用普通Junit将无法正常运行，在这次测试中就无法获取到User实例</p>
+<p>我们编写测试类：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.theo;<br><br><span class="hljs-keyword">import</span> com.theo.pojo.User;<br><span class="hljs-keyword">import</span> org.junit.jupiter.api.Test;<br><span class="hljs-keyword">import</span> org.springframework.beans.factory.annotation.Autowired;<br><span class="hljs-keyword">import</span> org.springframework.boot.test.context.SpringBootTest;<br><br><span class="hljs-meta">@SpringBootTest</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TheoApplicationTests</span> </span>&#123;<br>    <span class="hljs-meta">@Autowired</span><br>    User user;<br>    <span class="hljs-meta">@Test</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">contextLoads</span><span class="hljs-params">()</span> </span>&#123;<br>        System.out.println(user);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="配置文件占位符"><a href="#配置文件占位符" class="headerlink" title="配置文件占位符"></a>配置文件占位符</h2><p>yml配置文件的值还能是动态值，即通过表达式生成值。</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">user:</span><br>  <span class="hljs-attr">name:</span> <span class="hljs-string">theo$&#123;random.uuid&#125;</span>	<span class="hljs-comment">#生成随机uuid</span><br>  <span class="hljs-attr">age:</span> <span class="hljs-number">20</span><span class="hljs-string">$&#123;random.int&#125;</span>	<span class="hljs-comment">#生成随机int</span><br>  <span class="hljs-attr">list:</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-number">1</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-number">2</span><br>    <span class="hljs-bullet">-</span> <span class="hljs-number">3</span><br>  <span class="hljs-attr">map:</span> <br>    <span class="hljs-attr">name:</span> <span class="hljs-string">tzq$&#123;user.name:DEFAULT&#125;</span>	<span class="hljs-comment">#类似三目运算符，如果存在user.name属性就取user.name的值，否则取后面的值。可以视作默认值</span><br>    <span class="hljs-attr">age:</span> <span class="hljs-number">20</span><br></code></pre></td></tr></table></figure>
+<h2 id="通过properties实现注入"><a href="#通过properties实现注入" class="headerlink" title="通过properties实现注入"></a>通过properties实现注入</h2><p>我们上面采用的yaml方法都是最简单的方式，开发中最常用的；也是springboot所推荐的！但当然properties也能实现注入。</p>
+<blockquote>
+<p>注意一点：properties配置文件在写中文的时候，会有乱码 ， 我们需要去IDEA中设置编码格式为UTF-8；</p>
+<p>settings–&gt;FileEncodings 中配置；</p>
+<p><img src="https://img.imgdb.cn/item/60857df8d1a9ae528fcd43eb.jpg" srcset="/img/loading.gif"></p>
+</blockquote>
+<h1 id="多环境配置"><a href="#多环境配置" class="headerlink" title="多环境配置"></a>多环境配置</h1><p>在实际开发中可能会有多个SpringBoot环境相互切换，比如测试环境和开发环境中用到的数据库会不同，那么如何在不同环境中自由切换呢？</p>
+<h2 id="配置文件的位置"><a href="#配置文件的位置" class="headerlink" title="配置文件的位置"></a>配置文件的位置</h2><blockquote>
+<p>file: ./config/application.yml                                                                        classpath: ./config/application.yml</p>
+<p>file: ./application.yml                                                                                    classpath: ./application.yml</p>
+</blockquote>
+<p><code>file</code>指的是项目根目录SpringBoot，可以在根目录下创建config再写配置文件也可以直接写配置文件。</p>
+<p><code>classpath</code>一般指的是<code>resource</code>目录，可以在其下创建config再写配置文件也可以直接写配置文件。</p>
+<p>如果以上多个位置上都配置了文件，他们之间有如下优先级：<br><code>file:./config/ &gt; file:./ &gt; classpath:./config &gt; classpath:./</code></p>
+<h2 id="多环境切换"><a href="#多环境切换" class="headerlink" title="多环境切换"></a>多环境切换</h2><p>如果在同一位置上有多套环境，可以手动切换环境。</p>
+<h3 id="多环境-多文件"><a href="#多环境-多文件" class="headerlink" title="多环境-多文件"></a>多环境-多文件</h3><p>创建配置文件<code>application.yml、application-test.tml、application-dev.yml</code>分别配置端口<code>server.port: 8081、server.port: 8082、server.port: 8083</code></p>
+<p>因为<strong>SpringBoot默认启动application.yml</strong>，因而在该配置文件切换环境。添加配置即可将环境切换成<code>application-test.yml</code>：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>	<span class="hljs-attr">profiles:</span><br>		<span class="hljs-attr">active:</span> <span class="hljs-string">test</span><br></code></pre></td></tr></table></figure>
+<h3 id="多环境-单文件"><a href="#多环境-单文件" class="headerlink" title="多环境-单文件"></a>多环境-单文件</h3><p>这种方式是.yml文件独有的，将多套环境同时写在一个配置文件中，环境之间用<code>---</code>分割</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">server:</span><br>	<span class="hljs-attr">port:</span> <span class="hljs-number">8081</span><br>	<br><span class="hljs-attr">spring:</span><br>	<span class="hljs-attr">profiles:</span><br>		<span class="hljs-attr">active:</span> <span class="hljs-string">test</span><br><span class="hljs-meta">---</span><br><span class="hljs-attr">server:</span><br>	<span class="hljs-attr">port:</span> <span class="hljs-number">8082</span><br><span class="hljs-attr">spring:</span><br>	<span class="hljs-attr">profiles:</span> <span class="hljs-string">test</span><br><span class="hljs-meta">---</span><br><span class="hljs-attr">server:</span><br>	<span class="hljs-attr">port:</span> <span class="hljs-number">8083</span><br><span class="hljs-attr">spring:</span><br>	<span class="hljs-attr">profiles:</span> <span class="hljs-string">dev</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>这种方式已经被淘汰了，已经不推荐使用了</p>
+</blockquote>
+<h1 id="静态资源导入"><a href="#静态资源导入" class="headerlink" title="静态资源导入"></a>静态资源导入</h1><h2 id="默认静态资源路径"><a href="#默认静态资源路径" class="headerlink" title="默认静态资源路径"></a>默认静态资源路径</h2><p>IDEA双击SHIFT，搜寻类<code>WebMvcAutoConfiguration.class</code>。找到方法<code>addResourceHandlers(ResourceHandlerRegistry registry)</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addResourceHandlers</span><span class="hljs-params">(ResourceHandlerRegistry registry)</span> </span>&#123;<br>    <span class="hljs-keyword">super</span>.addResourceHandlers(registry);<br>    <span class="hljs-keyword">if</span> (!<span class="hljs-keyword">this</span>.resourceProperties.isAddMappings()) &#123;<br>        logger.debug(<span class="hljs-string">&quot;Default resource handling disabled&quot;</span>);<br>    &#125; <span class="hljs-keyword">else</span> &#123;<br>        ServletContext servletContext = <span class="hljs-keyword">this</span>.getServletContext();<br>        <span class="hljs-keyword">this</span>.addResourceHandler(registry, <span class="hljs-string">&quot;/webjars/**&quot;</span>, <span class="hljs-string">&quot;classpath:/META-INF/resources/webjars/&quot;</span>);<br>        <span class="hljs-keyword">this</span>.addResourceHandler(registry, <span class="hljs-keyword">this</span>.mvcProperties.getStaticPathPattern(), (registration) -&gt; &#123;<br>            registration.addResourceLocations(<span class="hljs-keyword">this</span>.resourceProperties.getStaticLocations());<br>            <span class="hljs-keyword">if</span> (servletContext != <span class="hljs-keyword">null</span>) &#123;<br>                registration.addResourceLocations(<span class="hljs-keyword">new</span> Resource[]&#123;<span class="hljs-keyword">new</span> ServletContextResource(servletContext, <span class="hljs-string">&quot;/&quot;</span>)&#125;);<br>            &#125;<br><br>        &#125;);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>这个方法就会指导SpringBoot如何去寻找静态资源，下面逐步解析下这个方法：</p>
+<blockquote>
+<ul>
+<li>在第一个if判断，说明如果在配置文件配置了静态资源路径就会按照配置的路径寻找资源。比如：</li>
+</ul>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">static-path-pattern:</span> <span class="hljs-string">classpath:/theo_static/**</span><br></code></pre></td></tr></table></figure>
+
+<p>这样就会去<code>resources.theo_static</code>找静态资源(.html等等)，当然这样完全不推荐！！！因为SpringBoot会默认指定静态资源的路径</p>
+<ul>
+<li><code>this.addResourceHandler(registry, &quot;/webjars/**&quot;, &quot;classpath:/META-INF/resources/webjars/&quot;);</code><br>这段代码说明你可以通过Maven导入webjar静态资源，系统会去<code>***.jar/META-INF/resources/webjars/</code>下寻找静态资源。这种方法也不常用，一般用于导入JQuery.js等资源。</li>
+<li>再往下两行，<code>registration.addResourceLocations(this.resourceProperties.getStaticLocations());</code>则会指引SpringBoot去默认路径寻找静态资源。点开getStaticLocations()，逐渐追溯到变量<code>String[] staticLocations</code>。它由<code>CLASSPATH_RESOURCE_LOCATIONS</code>所定义，其内容为<br><code>&quot;classpath:/META-INF/resources/&quot;, &quot;classpath:/resources/&quot;, &quot;classpath:/static/&quot;, &quot;classpath:/public/&quot;</code></li>
+<li>这样我们就找到了系统默认的静态资源路径，即resouces下的resources、static、public文件夹以及添加Web框架后的META-INF/resources文件夹。</li>
+</ul>
+</blockquote>
+<p>综上，我们以后添加静态资源的时候，就随着系统指定的路径添加即可。这样的话我们直接访问localhost:8080/xxx.html就能访问到资源了。</p>
+<p>当然，如果三个文件夹中有同名的静态资源，其之间有<strong>访问优先级</strong>：<code>resources &gt; static &gt; public</code></p>
+<h2 id="classpath：指的是什么？"><a href="#classpath：指的是什么？" class="headerlink" title="classpath：指的是什么？"></a>classpath：指的是什么？</h2><p>这里有篇博客比较详细说明了classpath的指代：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33393542/article/details/80322141?utm_medium=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.baidujs&dist_request_id=&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-2~default~BlogCommendFromMachineLearnPai2~default-1.baidujs">(1条消息) java项目中的classpath到底指向的哪里_不仅仅是说说而已的博客-CSDN博客_classpath</a></p>
+<p>classpath具体指的是什么，需要经过编译后到资源管理器中找到项目根目录中的<code>.classpath</code>文件，一般如下：</p>
+<p><img src="https://img.imgdb.cn/item/6086c0ded1a9ae528fe392f2.jpg" srcset="/img/loading.gif" alt=".classpath"></p>
+<p>这就很明白了，classpath指的就是（kind=”src”）所指定的文件，<strong>这里classpath: /resources/就是src/resources或者resource/resources</strong></p>
+<h2 id="制定首页"><a href="#制定首页" class="headerlink" title="制定首页"></a>制定首页</h2><p>访问<code>localhost:8080/</code>得到的内容就是首页内容，之前的默认静态资源路径没有localhost:8080/，这是因为SpringBoot寻找首页是通过另一个方法<code>getWelcomePage()</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">private</span> Resource <span class="hljs-title">getWelcomePage</span><span class="hljs-params">()</span> </span>&#123;<br>    String[] var1 = <span class="hljs-keyword">this</span>.resourceProperties.getStaticLocations();<br>    <span class="hljs-keyword">int</span> var2 = var1.length;<br><br>    <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> var3 = <span class="hljs-number">0</span>; var3 &lt; var2; ++var3) &#123;<br>        String location = var1[var3];<br>        Resource indexHtml = <span class="hljs-keyword">this</span>.getIndexHtml(location);<br>        <span class="hljs-keyword">if</span> (indexHtml != <span class="hljs-keyword">null</span>) &#123;<br>            <span class="hljs-keyword">return</span> indexHtml;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<p>这个方法也会先获取默认静态资源路径，然后将他和index.html拼接形成首页的完整访问路径。因此我们只需要在三个静态资源文件夹下创建index.html即可作为首页内容。</p>
+<h2 id="静态资源前缀"><a href="#静态资源前缀" class="headerlink" title="静态资源前缀"></a>静态资源前缀</h2><p>在默认情况下，访问静态资源可以直接输入localhost:8080/xxx，但如果涉及到拦截器需要过滤出一条指定路径下的静态资源，就可以加上静态资源前缀：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">static-path-pattern:</span> <span class="hljs-string">/res/**</span><br></code></pre></td></tr></table></figure>
+<p>此时需要输入localhost:8080/res/xxx才能访问静态资源。</p>
+<h1 id="Thymeleaf模板引擎"><a href="#Thymeleaf模板引擎" class="headerlink" title="Thymeleaf模板引擎"></a>Thymeleaf模板引擎</h1><p>注意到resources/templates，这个文件下的资源是无法被客户端直接访问的，有点类似于WEB-INF下的资源。如果要访问，就需要通过控制器跳转。在SpringMVC中，控制器可以直接return一个字符串，这是因为有视图解析器帮忙拼接路径。SpringBoot中也有一个类似的角色：<strong>Thymeleaf模板引擎</strong>。</p>
+<h2 id="导入thymeleaf"><a href="#导入thymeleaf" class="headerlink" title="导入thymeleaf"></a>导入thymeleaf</h2><p>按照教程安装插件EditStarters：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_38138069/article/details/102528587">IntelliJ IDEA中如何再次调出springboot的依赖窗口，随时可以根据喜好导入和移除插件</a></p>
+<p>调出以来窗口后，选择Thymeleaf Engines后插入。</p>
+<h2 id="源码解析"><a href="#源码解析" class="headerlink" title="源码解析"></a>源码解析</h2><p>双击SHIFT，搜索<code>ThymeleafProperties</code>，发现：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_PREFIX = <span class="hljs-string">&quot;classpath:/templates/&quot;</span>;<br><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">final</span> String DEFAULT_SUFFIX = <span class="hljs-string">&quot;.html&quot;</span>;<br></code></pre></td></tr></table></figure>
+<p>这就是视图解析器里的前后缀，但注意只为拼接成<code>.html</code>,因此最好放在templates的文件都以html结尾。</p>
+<h2 id="Thymeleaf语法"><a href="#Thymeleaf语法" class="headerlink" title="Thymeleaf语法"></a>Thymeleaf语法</h2><h1 id="底层注解"><a href="#底层注解" class="headerlink" title="底层注解"></a>底层注解</h1><h2 id="Configuration"><a href="#Configuration" class="headerlink" title="@Configuration"></a>@Configuration</h2><p><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=8">请配合视频食用</a></p>
+<p>在Spring5中，@Configuratio的作用是利用JavaConfig将<strong>注册配置类</strong>装配到IOC中，同时该类下的方法通过@Bean就能将方法“装配”到IOC中。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SpringMVCConfig</span></span>&#123;<br>    <span class="hljs-meta">@Bean</span>	<span class="hljs-comment">//方法名作为id,返回类型作为class来装配到IOC,return的new()则相当于Bean注入.</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> User <span class="hljs-title">TZQ</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> User(<span class="hljs-string">&quot;谭志强&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在测试类中获取这个Bean</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Test</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">JavaConfigTest</span><span class="hljs-params">()</span> </span>&#123;<br>    ApplicationContext context = <span class="hljs-keyword">new</span> AnnotationConfigApplicationContext(SpringMVCConfig.class);<br>    User tzq = (User) context.getBean(<span class="hljs-string">&quot;TZQ&quot;</span>);<br>    System.out.println(tzq);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在SpringBoot2中,@Configuration新增了一个特性:<code>@Configuration(proxyBeanMethods = true)</code>—-组件依赖问题</p>
+<p>如果在注册配置类中有多个组件注册方法，且都装配到了IOC中。这时有一个注册方法需要用到另一个注册方法（即需要用到后一个注册方法所对应的Bean），那么调用的Bean是否是IOC容器中的Bean呢？</p>
+<p><strong>proxyBeanMethods = true</strong>，则答案为是。因为这种情况下Bean的作用域就是单例模式，即IOC容器中一个id只对应唯一的Bean，无论调用多少次注册方法，装配的Bean都一样。那么这样有什么意义呢？前一个Bean会形成对后一个Bean的<strong>组件依赖</strong>。</p>
+<p><strong>proxyBeanMethods = false</strong>，在这种情况下，每次调用都会产生不同的Bean并覆盖之前存在的Bean。前一个Bean调用另一个注册方法后得到的Bean将不同于后一个注册方法生成的Bean，只有后一个Bean才是真正IOC中的Bean。那么将<strong>不存在组件依赖</strong></p>
+<blockquote>
+<p>因为true的情况下，每一次调用注册方法都会询问IOC中是否已存在对应的Bean，这会影响项目启动速度。相比之下false的情况会跳过询问，项目启动速度大幅提升。</p>
+</blockquote>
+<h2 id="Import"><a href="#Import" class="headerlink" title="@Import"></a>@Import</h2><p>在注册配置类上通过<code>@Import(&#123;User.class,DBHelper.class&#125;)</code>可以自动装配这些类型的组件，<strong>组件id就是全类名</strong>。</p>
+<blockquote>
+<p>注意，使用的类都必须要有<strong>无参构造器</strong>！！！</p>
+</blockquote>
+<h2 id="ConditionalOnBean"><a href="#ConditionalOnBean" class="headerlink" title="@ConditionalOnBean"></a>@ConditionalOnBean</h2><p><strong>@ConditionalonBean(name = “User”)**可以使用在注册方法上，调用该方法时就会去判断IOC容器中是否存在id为User的组件，如果存在则执行该方法然后装配对应组件。相反的</strong>@ConditionalOnMissingBean(name = “User”)**则会判断是否不存在id为User的组件。</p>
+<blockquote>
+<p>值得注意的是，如果<strong>注解用在了注册配置类上</strong>，一旦判断不通过，该注册配置类下的所有注册方法都将失效。</p>
+</blockquote>
+<h2 id="ImportResource"><a href="#ImportResource" class="headerlink" title="@ImportResource"></a>@ImportResource</h2><p><strong>@ImportResource(“classpath:beans.xml”)</strong> 使用在注册配置类上，它可以将<strong>classpath:beans.xml</strong>中的<code>&lt;bean&gt;...&lt;/bean&gt;</code>都转移到注册配置类中，这样就能省取一一搬运到类中再用@Bean装配</p>
+<h1 id="Rest请求源码分析"><a href="#Rest请求源码分析" class="headerlink" title="Rest请求源码分析"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=26">Rest请求源码分析</a></h1><p>在SpringMVC中我们提到过RestFul风格可以做到通过同一个URL，以不同请求方式就可访问到不通的控制器。</p>
+<p>以表单发起请求为例：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/user&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;post请求&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/user&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;get&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;get请求&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>注意表单只能以POST和GET方式发起请求，那就意味着最多设置两个控制器分别响应。可是控制器还能配置如PostMappping和DeleteMapping等，那么如何改变表单的请求发起方式呢？</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;/user&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;post&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;_method&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;delete&quot;</span>&gt;</span> //通过隐藏域传递参数_method，值为DELETE<br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;delete请求&quot;</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>那么这个参数是要传给谁呢？答案是<strong>HiddenHttpMethodFilter</strong>，由他来分析请求的具体方法。搜索HiddenHttpMethodFilter.class找到方法<strong>doFilterInternal</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doFilterInternal</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain)</span> <span class="hljs-keyword">throws</span> ServletException, IOException </span>&#123;<br>    HttpServletRequest requestToUse = request;<br>    <span class="hljs-keyword">if</span>(<span class="hljs-string">&quot;POST&quot;</span>.equals(request.getMethod()) &amp;&amp; request.getAttribute(<span class="hljs-string">&quot;javax.servlet.error.exception&quot;</span>) == <span class="hljs-keyword">null</span>)&#123;<br>        String paramValue = request.getParameter(<span class="hljs-keyword">this</span>.methodParam);<br>        <span class="hljs-keyword">if</span> (StringUtils.hasLength(paramValue)) &#123;<br>            String method = paramValue.toUpperCase(Locale.ENGLISH);<br>            <span class="hljs-keyword">if</span> (ALLOWED_METHODS.contains(method)) &#123;<br>                requestToUse = <span class="hljs-keyword">new</span> HiddenHttpMethodFilter.HttpMethodRequestWrapper(request, method);<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    filterChain.doFilter((ServletRequest)requestToUse, response);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>在if判断中，会先判定是否是以POST方式发起的请求再判定请求是否有效。因此<strong>表单的method必须是POST而不是GET！！</strong>，满足后将隐藏域<code>_method</code>的值赋给paramValue，一律转为大写后得到method（值为DELETE）。这时查看DELETE是否被兼容了（ALLOWED_METHODS中有PUT、DELETE、PATCH），兼容就重新包装请求，请求方式就变为了DELETE。这个请求就会被DeleteMapping响应了。</p>
+<p>了解原理之后，我们还需要开启Rest服务才能达到目的。查看<code>WebMvcAutoConfigration.java</code>,找到以下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-meta">@ConditionalOnMissingBean(&#123;HiddenHttpMethodFilter.class&#125;)</span><br><span class="hljs-meta">@ConditionalOnProperty(</span><br><span class="hljs-meta">    prefix = &quot;spring.mvc.hiddenmethod.filter&quot;,</span><br><span class="hljs-meta">    name = &#123;&quot;enabled&quot;&#125;,</span><br><span class="hljs-meta">    matchIfMissing = false</span><br><span class="hljs-meta">)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> OrderedHiddenHttpMethodFilter <span class="hljs-title">hiddenHttpMethodFilter</span><span class="hljs-params">()</span> </span>&#123;<br>    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> OrderedHiddenHttpMethodFilter();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>先追溯<code>HiddenHttpMethodFilter.class</code>发现没有配置@Bean，说明没有装配到IOC中，那么满足条件，执行其下语句。</p>
+<p>注意<code>@ConditionalOnProperty</code>，这个是查看配置文件中是否存在指定属性，存在才会满足该注解，否则就取默认值<code>matchIfMissing = false</code>。显然配置文件中并没有配置spring.mvc.hiddenmethod.filter.enabled，那么Rest服务就不会开启。前往application.yml添加：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>  <span class="hljs-attr">mvc:</span><br>    <span class="hljs-attr">hiddenmethod:</span><br>      <span class="hljs-attr">filter:</span><br>        <span class="hljs-attr">enabled:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<p>至此我们就可以做到访问同一个URL，却能分别对应到不同控制器了。</p>
+<blockquote>
+<p>以上内容只是针对表单请求，如果其他软件（Postman）可以直接发送DELETE、PUT请求，就只需要开启Rest服务即可。</p>
+</blockquote>
+<h1 id="搭建一个自己的后台管理系统"><a href="#搭建一个自己的后台管理系统" class="headerlink" title="搭建一个自己的后台管理系统"></a>搭建一个自己的后台管理系统</h1><p>我们可以在<a target="_blank" rel="noopener" href="https://www.php.cn/xiazai/code/bootstrap">Bootstrap</a>或Laiyu中下载后台模板或者组件，将静态资源文件夹如css、js、images、front复制到static文件夹之下。将html的一些基础页面放到template目录下。这样就能基本的套用这套模板了。详细可看视频：<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=44">模板套用至SpringBoot</a>，视频中所用模板下载：[AdminEx .rar](/download/AdminEx .rar)</p>
+<p>打开网站可能会不如视频中的流畅，这是因为一些文件中通过链接引用了网络资源，这样每次加载就需要先去请求网络资源，要么先将该资源下载至本地，要么就将该链接引用删除。这里我们删去css/style.css中的第一行import</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-keyword">@import</span> url(<span class="hljs-attribute">http</span>://fonts.googleapis.com/css?family=Open+<span class="hljs-attribute">Sans</span>:<span class="hljs-number">400%</span><span class="hljs-number">2</span>C300%<span class="hljs-number">2</span>C300italic%<span class="hljs-number">2</span>C400italic%<span class="hljs-number">2</span>C600%<span class="hljs-number">2</span>C600italic%<span class="hljs-number">2</span>C700%<span class="hljs-number">2</span>C700italic%<span class="hljs-number">2</span>C800%<span class="hljs-number">2</span>C800italic);<br></code></pre></td></tr></table></figure>
+<h2 id="公共页抽取"><a href="#公共页抽取" class="headerlink" title="公共页抽取"></a><a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV19K4y1L7MT?p=45">公共页抽取</a></h2><p>可以看到一个后台管理界面中，有一些固定部分如左侧导航栏，顶部信息栏，而其余部分是随着不同请求返回不同结果</p>
+<p><img src="https://pic.imgdb.cn/item/6094f9e3d1a9ae528fe365b5.jpg" srcset="/img/loading.gif"></p>
+<p>对于这些公共内容，我们可以抽取到一个commom.html中，然后给每一组件冠以唯一id，这样在具体界面直接引用该组件就行。</p>
+<p>我们利用元素审查，分别选中左侧导航栏与顶部信息栏，找到对应的代码段</p>
+<p><img src="https://pic.imgdb.cn/item/6094fbd8d1a9ae528ff554a2.jpg" srcset="/img/loading.gif" alt="ctrl+shift+C快速打开审查元素"></p>
+<p>通过这种方式我们就可以将这些公共代码段复制到common.html中，但注意除了这些显示的组件每个界面的样式也是一致的，如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-comment">&lt;!--common--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;css/style.css&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">&quot;css/style-responsive.css&quot;</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">&quot;stylesheet&quot;</span>&gt;</span><br><span class="hljs-comment">&lt;!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries --&gt;</span><br><span class="hljs-comment">&lt;!--[if lt IE 9]&gt;</span><br><span class="hljs-comment">&lt;script src=&quot;js/html5shiv.js&quot;&gt;&lt;/script&gt;</span><br><span class="hljs-comment">&lt;script src=&quot;js/respond.min.js&quot;&gt;&lt;/script&gt;</span><br><span class="hljs-comment">&lt;![endif]--&gt;</span><br><br><span class="hljs-comment">&lt;!-- Placed js at the end of the document so the pages load faster --&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/jquery-1.10.2.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/jquery-ui-1.9.2.custom.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/jquery-migrate-1.2.1.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/bootstrap.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/modernizr.min.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/jquery.nicescroll.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><br><span class="hljs-comment">&lt;!--common scripts for all pages--&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">&quot;js/scripts.js&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>为了以后调试方便，我们把所有href和src都替换成Thymeleaf样式，如<code>&lt;link th:href=&quot;@&#123;/css/style.css&#125;&quot; rel=&quot;stylesheet&quot;&gt;</code></p>
+<p>但注意要提前添加xml约束<code>xmlns:th=&quot;http://www.thymeleaf.org&quot;</code>。最终完成情况：<a href="/download/common.html">common.html</a></p>
+<p>可能注意到既然是以组件的形式插入到其他页面中去，我们就要把一些标签以<code>&lt;div&gt;...&lt;/div&gt;</code>的闭合标签框起来，比如：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;commonscript&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">th:src</span>=<span class="hljs-string">&quot;@&#123;/js/jquery-1.10.2.min.js&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">th:src</span>=<span class="hljs-string">&quot;@&#123;/js/jquery-ui-1.9.2.custom.min.js&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">th:src</span>=<span class="hljs-string">&quot;@&#123;/js/jquery-migrate-1.2.1.min.js&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">th:src</span>=<span class="hljs-string">&quot;@&#123;/js/bootstrap.min.js&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">th:src</span>=<span class="hljs-string">&quot;@&#123;/js/modernizr.min.js&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">th:src</span>=<span class="hljs-string">&quot;@&#123;/js/jquery.nicescroll.js&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br>    <span class="hljs-comment">&lt;!--common scripts for all pages--&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">th:src</span>=<span class="hljs-string">&quot;@&#123;/js/scripts.js&#125;&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>这样我们就相当于把这些js文件打包成了一个组件，在index.html中需要添加组件时只需要在合适位置使用以下之一即可。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs html">#1   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">th:replace</span> = <span class="hljs-string">&quot;common :: #commonscript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span> <br>#2   <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">th:include</span>=<span class="hljs-string">&quot;common :: #commonscript&quot;</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>第一种方式会将<code>&lt;div th:replace = &quot;common :: #commonscript&quot;&gt;&lt;/div&gt;</code> 全部删去，然后把整个组件加上（包括组件的div闭合标签）；然而第二种方式将会保留<code>&lt;div th:include=&quot;common :: #commonscript&quot;&gt;&lt;/div&gt;</code>的div标签，标签的包含内容用组件内容填充（不包括div闭合标签）。</p>
+<p>这部分知识还有部分没有涉及，如id=“commonscript”可以替换成th:fragment=”commonscript”，那么引用组件方式也会有些许不同。</p>
+<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>拦截器与过滤器类似，我们在SSM整合的时候曾配置过过滤器用来解决乱码问题，但他是直接在配置文件中配置的。</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">filter</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>encodingFilter<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="hljs-tag">&lt;/<span class="hljs-name">filter-class</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">init-param</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">param-name</span>&gt;</span>encoding<span class="hljs-tag">&lt;/<span class="hljs-name">param-name</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">param-value</span>&gt;</span>utf-8<span class="hljs-tag">&lt;/<span class="hljs-name">param-value</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">init-param</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">filter</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">filter-mapping</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">filter-name</span>&gt;</span>encodingFilter<span class="hljs-tag">&lt;/<span class="hljs-name">filter-name</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">url-pattern</span>&gt;</span>/*<span class="hljs-tag">&lt;/<span class="hljs-name">url-pattern</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">filter-mapping</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>在Spring中我们提到，除了配置文件直接配置，我们还能通过JavaConfig配置组件到IOC容器中，这种方式将会在SpringBoot中广泛使用，因为一个JavaConfig类继承了WebMvcConfigurer接口，就能一致通过addXXX()方法来配置你想要的组件了。</p>
+<p>以这种方式，我们创建：<code>Config/AdminWebConfig.java</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AdminWebConfig</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">WebMvcConfigurer</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addInterceptors</span><span class="hljs-params">(InterceptorRegistry registry)</span> </span>&#123;<br>        registry.addInterceptor(<span class="hljs-keyword">new</span> LoginInterceptor())		<span class="hljs-comment">//添加的拦截器</span><br>                .addPathPatterns(<span class="hljs-string">&quot;/**&quot;</span>)		<span class="hljs-comment">//拦截器拦截路径，即所有资源路径都要经过拦截器</span><br>                .excludePathPatterns(<span class="hljs-string">&quot;/&quot;</span>, <span class="hljs-string">&quot;/login&quot;</span>, <span class="hljs-string">&quot;/css/**&quot;</span>, <span class="hljs-string">&quot;/fonts/**&quot;</span>, <span class="hljs-string">&quot;/images/**&quot;</span>, <span class="hljs-string">&quot;/js/**&quot;</span>);<br>        			<span class="hljs-comment">//拦截器的放行路径，这里需要放行登录请求和所有静态资源，避免登入页缺失渲染</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>覆写WebMvcConfigurer中的默认方法可以不用在方法名上添加@Bean，如果你需要添加独有的组件就必须添加注解@Bean，因为只有被IOC接管的组件才会在项目中生效。</p>
+<p>以上只是写了拦截器的拦截路径和放行路径，具体拦截的处理还没有定义。我们写一个<code>Interceptor/LoginInterceptor.java</code>保证未登入的用户会被强制登入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Slf4j</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginInterceptor</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">HandlerInterceptor</span> </span>&#123;<br>    <span class="hljs-comment">/*方法执行前*/</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">preHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>        log.info(<span class="hljs-string">&quot;preHandler拦截了&#123;&#125;&quot;</span>,request.getRequestURI());	<span class="hljs-comment">//控制台打印信息</span><br>        HttpSession session = request.getSession();<br>        Object loginUser = session.getAttribute(<span class="hljs-string">&quot;loginUser&quot;</span>);<br>        <span class="hljs-keyword">if</span> (<span class="hljs-keyword">null</span> == loginUser) &#123;			<span class="hljs-comment">//查询到用户之前没有登陆过</span><br>            session.setAttribute(<span class="hljs-string">&quot;loginError&quot;</span>,<span class="hljs-string">&quot;请先登入&quot;</span>);		<span class="hljs-comment">//将提示信息发送到Session,在前端就可以展示了</span><br>            response.sendRedirect(<span class="hljs-string">&quot;/&quot;</span>);		<span class="hljs-comment">//重定向到登入页</span><br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">false</span>;<br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-comment">/*方法执行后*/</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">postHandle</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;&#125;<br><br>    <span class="hljs-comment">/*页面渲染后*/</span><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterCompletion</span><span class="hljs-params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="数据访问"><a href="#数据访问" class="headerlink" title="数据访问"></a>数据访问</h1><p>导入JDBC场景</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-jdbc<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>数据库驱动是需要额外导入的,因为SpringBoot不知道你会连接哪个数据库，同时也要注意数据库版本要和数据驱动的版本对应，这里以MySQL为例</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>runtime<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>ctrl+左击访问版本仲裁，知道了SpringBoot托管的mysql驱动版本为8.0.23，查询本机Mysql版本为5.7.24。官方文档说明：Connector/J 8.0 provides compatibility with all the functionality of MySQL 5.5, 5.6, 5.7, and 8.0，也就是说8.0的驱动可以兼容所有版本的MySQL数据库。</p>
+<p>接下来需要在pom.xml中配置数据库信息</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">spring:</span><br>	<span class="hljs-attr">datasource:</span><br>        <span class="hljs-attr">url:</span> <span class="hljs-string">jdbc:mysql://localhost:3306/matlab</span><br>        <span class="hljs-attr">username:</span> <span class="hljs-string">root</span><br>        <span class="hljs-attr">password:</span> <span class="hljs-string">tzq1635886602</span><br>        <span class="hljs-attr">driver-class-name:</span> <span class="hljs-string">com.mysql.cj.jdbc.Driver</span>		<span class="hljs-string">//8.0+的数据库驱动需要加上cj</span><br></code></pre></td></tr></table></figure>
+<h2 id="配置版Mybatis"><a href="#配置版Mybatis" class="headerlink" title="配置版Mybatis"></a>配置版Mybatis</h2><p>创建<code>com.theo.Mapper.AccountMapper.java</code>:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Mapper</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">AccountMapper</span> </span>&#123;<br>    <span class="hljs-function">Account <span class="hljs-title">queryAccount</span><span class="hljs-params">(String username)</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>@Mapper注解表示将该接口类+配置类注入到IOC容器中，也就是说服务层如果要取用Mapper将不需要利用事先的MybatisUtils.getsession()以及sqlsession.getMapper(Account.class)来获取接口类的实例了，因为SpringBoot自动做了这一步，然后我们只需要通过</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br>AccountMapper accountMapper;<br></code></pre></td></tr></table></figure>
+<p>即可直接从容器中获取，accountMapper就可直接调用所有接口方法。</p>
+<blockquote>
+<p>这种方式可能IDEA会报错：Could not autowire. No beans of ‘AccountMapper’ type found.</p>
+<p>这是编译器的问题，不用管。</p>
+</blockquote>
+<p>接下来创建<code>resources.Mybatis.Mapper.AccountMapper.xml</code>:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; ?&gt;</span><br><span class="hljs-meta">&lt;!DOCTYPE <span class="hljs-meta-keyword">mapper</span></span><br><span class="hljs-meta">        <span class="hljs-meta-keyword">PUBLIC</span> <span class="hljs-meta-string">&quot;-//mybatis.org//DTD Config 3.0//EN&quot;</span></span><br><span class="hljs-meta">        <span class="hljs-meta-string">&quot;http://mybatis.org/dtd/mybatis-3-mapper.dtd&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">mapper</span> <span class="hljs-attr">namespace</span>=<span class="hljs-string">&quot;com.theo.Mapper.AccountMapper&quot;</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">select</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;queryAccount&quot;</span> <span class="hljs-attr">resultType</span>=<span class="hljs-string">&quot;Account&quot;</span>&gt;</span><br>        SELECT * FROM matlab.patient where username = #&#123;username&#125;;<br>    <span class="hljs-tag">&lt;/<span class="hljs-name">select</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">mapper</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>对应的映射AccountMapper中的接口方法。此后我们在application.yml中配置Mybatis的配置信息，以此代替mybatis-config.xml：</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs yml"><span class="hljs-attr">mybatis:</span><br>  <span class="hljs-attr">mapper-locations:</span> <span class="hljs-string">classpath:Mybatis/Mapper/*.xml</span><br>  <span class="hljs-attr">typeAliasesPackage:</span> <span class="hljs-string">com.theo.pojo</span><br>  <span class="hljs-attr">configuration:</span><br>    <span class="hljs-attr">map-underscore-to-camel-case:</span> <span class="hljs-literal">true</span><br></code></pre></td></tr></table></figure>
+<blockquote>
+<p>当然你也可以存在mybatis-config.xml，其中填上别名，mapper映射地址等等，但同时要加上配置<code>config-location: classpath:Mybatis/mybatis-config.xml</code>，这样的话就一定要删除configuration这一配置！！！！两者不能共存！！！！！！！！</p>
+</blockquote>
+<h1 id="Shiro"><a href="#Shiro" class="headerlink" title="Shiro"></a>Shiro</h1>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
+                    
+                  </div>
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/05/13/Java%E4%B8%ADimport%E4%B8%8Epackage%E7%9A%84%E5%8E%9F%E7%90%86%E8%AE%B2%E8%A7%A3/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Java中import与package的原理讲解</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/03/31/SpringMVC/">
+                        <span class="hidden-mobile">SpringMVC</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,630 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>GoLang&amp;Java - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="GoLang&Java">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-09-09 14:05" pubdate>
+        2023年9月9日 下午
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.4k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      28
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">GoLang&amp;Java</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Golang与Java"><a href="#Golang与Java" class="headerlink" title="Golang与Java"></a>Golang与Java</h1><h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><table>
+<thead>
+<tr>
+<th>对比项</th>
+<th>Java</th>
+<th>Golang</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>实现跨平台</td>
+<td>通过JVM支持</td>
+<td>能直接在目标平台编译执行</td>
+<td></td>
+</tr>
+<tr>
+<td>内存管理</td>
+<td>1. 运行期间依托JVM进行内存管理<br />2.配置繁杂<br />3.启动所需内存大,速度慢</td>
+<td>1.配置简单<br />2.启动所需内存少,速度快</td>
+<td>Java的GC更为成熟</td>
+</tr>
+<tr>
+<td>并发</td>
+<td>支持多线程级别,本质是更高效地利用系统线程. Java19开始支持虚拟线程<br />1.线程池<br />2.volatile、atomic<br />3.锁：sychronized、CAS<br />4.ThreadLocal</td>
+<td>支持用户级线程：协程<br />1. channel实现协程通信</td>
+<td></td>
+</tr>
+<tr>
+<td>面向对象</td>
+<td>1.原生支持继承、多态、封装<br />2.类是对象的表现形式</td>
+<td>1.非面向对象，通过结构体的嵌套和“鸭子类型”来实现继承的思想<br />2.结构体是“对象”的表现形式<br />3.Optional模式可以实现Java重载的效果</td>
+<td></td>
+</tr>
+<tr>
+<td>异常处理</td>
+<td>1.有全局异常处理机制，捕获Exception与Error<br />2.try_catch可用于内部消化异常或重包装异常<br />3.throw主动抛出异常,此时必须由catch捕获处理或throws抛到函数外面,但throw RuntimeException无需这么处理</td>
+<td>1.recover可以全局部捕获panic<br />2.Errors.New()新建异常,不能内部消耗就只能将error作为函数返回值<br />3.iferr是常见的消化异常</td>
+<td>因为Go没有全局异常处理机制,如果想扔到外部消化而调用链较长,代码就会出现非常多的iferr</td>
+</tr>
+<tr>
+<td>数据结构</td>
+<td>1.八大基本数据类型<br />2.每个数据类型都有对应的封装类,用于提供更多的数据操作</td>
+<td>1.原生支持map,slice,list</td>
+<td>Java的数据类型更为丰富,有如各类HashMap、LinkedList、Stack</td>
+</tr>
+<tr>
+<td>反射</td>
+<td>1.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/405325823">可以在运行时动态加载实例的具体类</a><br />2.Class对象再内存空间是唯一的，通过ClassName便可以反射出一些Class基本信息<br />3.面对声明类型为父类的实例，通过反射可以了解到实际类型<br />4.Class.getField().set()操作属性</td>
+<td>1.<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/411313885">TypeOf()获取实际类型(Type)的基本信息,包括成员名,类型名</a><br />2.ValueOf()获取实际值(Value)</td>
+<td></td>
+</tr>
+<tr>
+<td>泛型</td>
+<td>1.泛型类ClassName&lt;[T,E,K,V]&gt;,实例化时必须指明具体类型,但不能是基本数据类型<br />2.泛型方法<T> T function(T t),使用时传入的类型也就是返回的类型</td>
+<td>1.泛型方法 fuction(t T) T, 使用时需要指明T类型<code>function[T=int](t)</code><br />2.泛型结构type StructName[T int|float32|float64] struct,使用时选择类型StructName[int]{…}</td>
+<td></td>
+</tr>
+<tr>
+<td>特有语法</td>
+<td>1.注解支持<br />2.继承,多态,重载覆写<br />3.static静态属性,静态块<br />4.异常处理</td>
+<td>1.函数多值返回,也可以自由选择接受那些返回值<br />2.指针<br />3.函数也是一种类型,可以作为参数或返回值<br />4.defer延迟执行<br />5.协程与channel</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id="如何实现继承"><a href="#如何实现继承" class="headerlink" title="如何实现继承"></a>如何实现继承</h2><h3 id="Java"><a href="#Java" class="headerlink" title="Java"></a>Java</h3><p>java实现通过extends或implements实现继承,子类可以像父类一样使用其所有变量和方法，当继承一个接口时，编译器会强制检查继承者是否实现了所有抽象方法。</p>
+<h3 id="Golang"><a href="#Golang" class="headerlink" title="Golang"></a>Golang</h3><p>Golang以“鸭子类型”的方式实现“继承”，即我拥有你的所有变量和方法，我即是你。因而，Golang在结构体A中直接嵌入另一结构体类型B，在编译器看来A既可以是A也可以是B，实际类型依然是A。</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Person <span class="hljs-keyword">struct</span>&#123;<br>	name <span class="hljs-keyword">string</span><br>&#125;<br><span class="hljs-keyword">type</span> Student <span class="hljs-keyword">struct</span>&#123;<br>    Person<br>    StudentID <span class="hljs-keyword">int</span><br>&#125;<br><br><span class="hljs-keyword">var</span> s Person = Student&#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>当类型B是一个接口类型时，编译器理所当然的认为A也是B类型，A使用接口方法时编译器也不会检查A是否实现了接口方法，直到程序运行到该处才会报错</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Writer <span class="hljs-keyword">interface</span>&#123;<br>    write() <span class="hljs-keyword">string</span><br>&#125;<br><span class="hljs-keyword">type</span> Student <span class="hljs-keyword">struct</span>&#123;<br>    Writer<br>    StudentID <span class="hljs-keyword">int</span><br>&#125;<br><span class="hljs-keyword">var</span> w Writer = &amp;Student&#123;&#125;<br>w.write() <span class="hljs-comment">//runtime error: invalid memory address or nil pointer dereference</span><br><br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(s *Student)</span> <span class="hljs-title">write</span><span class="hljs-params">()</span></span>&#123;&#125; <span class="hljs-comment">//只有Student实现该接口方法,运行时才不会报错</span><br></code></pre></td></tr></table></figure>
+<p>当然,A可以不嵌入B接口,如果实现了B的所有接口方法,编译器也会认为A是B类型</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">type</span> Writer <span class="hljs-keyword">interface</span>&#123;<br>    write() <span class="hljs-keyword">string</span><br>&#125;<br><span class="hljs-keyword">type</span> Student <span class="hljs-keyword">struct</span>&#123;<br>    StudentID <span class="hljs-keyword">int</span><br>&#125;<br><span class="hljs-function"><span class="hljs-keyword">func</span> <span class="hljs-params">(s *Student)</span> <span class="hljs-title">write</span><span class="hljs-params">()</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<p>但这也带来一个问题，编译器不会判断A是否实现了所有接口方法，写代码的时候就可能遗漏。为了让编译器强制检查A是否实现所有接口方法，可以通过类型强转</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs go"><span class="hljs-keyword">var</span> _ Writer = (*Student)(<span class="hljs-literal">nil</span>)<br></code></pre></td></tr></table></figure>
+<h2 id="控制范围"><a href="#控制范围" class="headerlink" title="控制范围"></a>控制范围</h2><h3 id="Java-1"><a href="#Java-1" class="headerlink" title="Java"></a>Java</h3><p>Java控制范围以Class和Package为单元, private,default,protected,public严格控制了访问范围</p>
+<table>
+<thead>
+<tr>
+<th align="left"></th>
+<th align="left">类内部</th>
+<th align="left">本包</th>
+<th align="left">子类</th>
+<th>外部包</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">public</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td>√</td>
+</tr>
+<tr>
+<td align="left">protected</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td>×</td>
+</tr>
+<tr>
+<td align="left">default</td>
+<td align="left">√</td>
+<td align="left">√</td>
+<td align="left">×</td>
+<td>×</td>
+</tr>
+<tr>
+<td align="left">private</td>
+<td align="left">√</td>
+<td align="left">×</td>
+<td align="left">×</td>
+<td>×</td>
+</tr>
+</tbody></table>
+<h3 id="Golang-1"><a href="#Golang-1" class="headerlink" title="Golang"></a>Golang</h3><p>Go的控制范围以Package为单元, 首字母大写则能在包外访问, 否则不能</p>
+<h2 id="并发控制"><a href="#并发控制" class="headerlink" title="并发控制"></a>并发控制</h2><h3 id="Java-2"><a href="#Java-2" class="headerlink" title="Java"></a>Java</h3><p>Java在并发控制上能操控的更多,更细致。如线程池的核心参数，拒绝策略；volatile做信号量；wait/notify/join控制线程流程；ThreadLocal独享变量，各种锁。</p>
+<p>Java新建线程可以继承Thread、实现Runnable，实现Callable<T>，lambda实例化Thread类</p>
+<h3 id="Golang-2"><a href="#Golang-2" class="headerlink" title="Golang"></a>Golang</h3><p>Golang新建协程只需要调用go关键词，但并发控制比较受局限。如channel通信，mutex互斥锁，rwmutex读写锁，semaphore信号量机制，atomic的各种原子操作，WaitGroup控制协程流程，Context实现上下文共享</p>
+<h2 id="异常处理"><a href="#异常处理" class="headerlink" title="异常处理"></a>异常处理</h2><h3 id="Java-3"><a href="#Java-3" class="headerlink" title="Java"></a>Java</h3><p>java除了try_catch直接捕获异常,消化异常外,Spring还提供了全局异常处理机制</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestControllerAdvice</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">GlobalExceptionHandler</span> </span>&#123;<br>    <span class="hljs-meta">@ExceptionHandler(UserInfoException.class)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ResponseVO <span class="hljs-title">handleUserInfoException</span><span class="hljs-params">(UserInfoException e)</span> </span>&#123;<br>        <span class="hljs-keyword">switch</span> (e.getClass().getSimpleName()) &#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;PhoneFormatException&quot;</span>:<br>                log.error(<span class="hljs-string">&quot;[Phone Format Error]&quot;</span>, e);<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseVO(Status.PHONE_FORMAT_ERR);<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;UserNotExistException&quot;</span>:<br>                log.error(<span class="hljs-string">&quot;[Uesr Not Exist Error]: &quot;</span>, e);<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseVO(Status.USER_NOT_EXIST_ERR);<br>            <span class="hljs-keyword">case</span> <span class="hljs-string">&quot;PasswordWrongException&quot;</span>:<br>                log.error(<span class="hljs-string">&quot;[Password Wrong Error]: &quot;</span>, e);<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseVO(Status.PASSWD_WRONG_ERR);<br>            <span class="hljs-keyword">default</span>:<br>                log.error(<span class="hljs-string">&quot;[UserInfoException] Can not handle this kind of exception&quot;</span>, e);<br>                <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseVO(Status.SERVER_ERR);<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>该异常处理机制可以捕获Controller里任何地点没被消化的异常</p>
+<p>用户继承Exception即可自定义异常,这些异常也可以被全局异常处理机制捕获</p>
+<h3 id="Golang-3"><a href="#Golang-3" class="headerlink" title="Golang"></a>Golang</h3><p>Golang的recover可以捕获全局Panic, 但无法捕获用户自定义的Error,因此用户只能通过iferr判断每个函数可能返回的error</p>
+<h2 id="Try-Resource"><a href="#Try-Resource" class="headerlink" title="Try_Resource"></a>Try_Resource</h2><h3 id="Java-4"><a href="#Java-4" class="headerlink" title="Java"></a>Java</h3><p>Java在打开资源时通常要在finally中释放资源, Java1.7后新增try-with-resource语法糖允许不用手动释放资源.</p>
+<h3 id="Golang-4"><a href="#Golang-4" class="headerlink" title="Golang"></a>Golang</h3><p>Golang习惯在打开资源后紧跟着defer的资源释放语句, 确保资源一定会被释放</p>
+<h2 id="依赖管理"><a href="#依赖管理" class="headerlink" title="依赖管理"></a>依赖管理</h2><h3 id="Java-5"><a href="#Java-5" class="headerlink" title="Java"></a>Java</h3><p>Java使用Maven管理依赖包(jar), maven首先前往本地仓库拉去依赖,失败后才会去远程仓库(maven repository)拉取.</p>
+<p>此外maven-plugin可以管理项目的生命周期</p>
+<img src="https://levitan-1309521248.cos.ap-guangzhou.myqcloud.com/qapm/img/202309091406867.png" srcset="/img/loading.gif" alt="image-20230909140355281" style="zoom:67%;" />
+
+<p>maven clean package则可以顺序执行clean周期到clean阶段,执行default周期到package阶段</p>
+<h3 id="Golang-5"><a href="#Golang-5" class="headerlink" title="Golang"></a>Golang</h3><h4 id="GOPATH"><a href="#GOPATH" class="headerlink" title="GOPATH"></a>GOPATH</h4><p>golang在1.11后正式推出<a target="_blank" rel="noopener" href="https://www.cnblogs.com/wongbingming/p/12941021.html">GoMoudles模式</a>,在此之前,Golang的依赖包需要放在GOPATH下,任何import都会从GOPATH下寻找。但逐渐出现许多问题：</p>
+<ol>
+<li>依赖包的不同版本无法共存在GOPATH下，不同项目依赖不同版本时要么独立设置GOPATH，要么更名另一版本的依赖包</li>
+<li>没有管理项目依赖项的工具，如果某些依赖被剔除，需要人为检查</li>
+</ol>
+<h4 id="Go-Vendor"><a href="#Go-Vendor" class="headerlink" title="Go Vendor"></a>Go Vendor</h4><p>golang在1.5开始支持go vendor，开启时每个项目都会构建vendor目录，所有以来也都会下载到自己的vendor目录下。寻找依赖包时，vendor优先级高于GOPATH。</p>
+<h4 id="Go-Moudles"><a href="#Go-Moudles" class="headerlink" title="Go Moudles"></a>Go Moudles</h4><p>GO111MODULE=on开启GoMoudle模式。GoMoudles模式对应的工具为go mod。新建GoMoudle项目时只需要执行go mod init ”github.com/levi/testmod“即可在本目录下生成go.mod文件, go.mod所在的根目录即为一个GoMoudle项目。</p>
+<p>其他使用者通过go mod get ”github.com/levi/testmod“即可下载。</p>
+<p>go moudles没有中心库和本地库的区别，下载依赖包就是直接拉取源码。而且如果处于内网开发，就无法下载依赖。此时go mod vendor就能下载到vendor目录并隔离外网开发。</p>
+<h4 id="replace"><a href="#replace" class="headerlink" title="replace"></a>replace</h4><p>如果本地开发需要依赖一些本地模块或未发布模块，通过replace即可替换掉远程模块。但每个人replace为本地模块时填写的本地路径都不一样</p>
+<p>golang在1.18后又新增了<a target="_blank" rel="noopener" href="https://juejin.cn/post/7083317886785159204?from=search-suggest">go work</a>。go.work支持将多个Go Moudle的聚拢到当前go.work的项目中, 然后再通过replace替换为本地项目,以此达到原先在go.mod的replace效果。go.work不用上传,留在本地即可。</p>
+<h2 id="CICD"><a href="#CICD" class="headerlink" title="CICD"></a>CICD</h2><table>
+<thead>
+<tr>
+<th align="left">对比项</th>
+<th align="left">Java</th>
+<th align="left">Go</th>
+<th align="left">影响程度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">支持跨平台编译</td>
+<td align="left">支持</td>
+<td align="left">支持</td>
+<td align="left">可以减轻重复工作量；<br/>但Go跨平台编译需要做额外工作：编写Makefile文件，通过Makefile文件标注各种平台编译需要的环境变量</td>
+</tr>
+<tr>
+<td align="left">支持跨平台运行</td>
+<td align="left">支持</td>
+<td align="left">支持，但需要在编译阶段下功夫</td>
+<td align="left">影响大，避免按平台区别编码，增加工作量;<br/>java一次编码，到处运行，go如果需要c库，则会有影响，大部分情况没有影响</td>
+</tr>
+<tr>
+<td align="left">编译产物</td>
+<td align="left">当前项目jar+所有依赖的项目jar文件</td>
+<td align="left">一个单独的exe文件，没有依赖项</td>
+<td align="left">影响大，影响CD部署环境的维护工作量，这一点，Go的优势更大</td>
+</tr>
+<tr>
+<td align="left">编译产物大小</td>
+<td align="left">取决于项目的依赖包多少以及各依赖项的大小</td>
+<td align="left">相对小</td>
+<td align="left">影响磁盘空间；<br/>影响镜像拉取速度，进而影响服务启动速度</td>
+</tr>
+<tr>
+<td align="left">运行环境</td>
+<td align="left">取需要安装JVM</td>
+<td align="left">无需安装任何依赖，直接运行exe文件</td>
+<td align="left">直接影响运维的工作量，GO对运维主机的维护更简单</td>
+</tr>
+</tbody></table>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/09/13/MySQL/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">MySQL</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/09/03/%E6%9C%89%E4%BA%86MAC%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BF%98%E9%9C%80%E8%A6%81IP/">
+                        <span class="hidden-mobile">有了MAC为什么还需要IP</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
