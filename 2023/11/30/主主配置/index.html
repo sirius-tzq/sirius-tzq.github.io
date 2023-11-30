@@ -1,0 +1,646 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.jpg">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="Keep Learning">
+  <meta name="author" content="Levi Tan">
+  <meta name="keywords" content="">
+  <title>�������� - -琅然</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="-琅然" type="application/atom+xml">
+</head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Theo</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                首页
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                归档
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                分类
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                标签
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                关于
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/">
+                <i class="iconfont icon-link-fill"></i>
+                友链
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="��������">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2023-11-30 21:13" pubdate>
+        2023年11月30日 晚上
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      6.3k 字
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      73
+       分钟
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">��������</h1>
+            
+            <div class="markdown-body">
+              <h1 id="Binlog配置"><a href="#Binlog配置" class="headerlink" title="Binlog配置"></a>Binlog配置</h1><h2 id="启动配置"><a href="#启动配置" class="headerlink" title="启动配置"></a>启动配置</h2><h3 id="binlog-row-event-max-size"><a href="#binlog-row-event-max-size" class="headerlink" title="binlog_row_event_max_size"></a>binlog_row_event_max_size</h3><p>当启动ROW模式记录binlog时，该配置用于限制单事件的大小，byte为单位。尽可能地，储存在binlog的数据行会被划分为不同组中，且组大小不超过设定值。</p>
+<h3 id="log-bin-basename"><a href="#log-bin-basename" class="headerlink" title="log_bin_basename"></a>log_bin_basename</h3><p>log_bin_basename用于指定binlog文件的文件前缀，其包含了储存路径和文件名的一个固定前缀，这个固定前缀默认为<code>hostname_bin</code>。</p>
+<p>一个完整的binlog文件名由log_bin_basename和递增的数字序列后缀组成，比如<code>C:ProgramData\MySQL\MySQL Server 8.0\Data\LEVI_bin.000001</code></p>
+<h3 id="log-bin-index"><a href="#log-bin-index" class="headerlink" title="log_bin_index"></a>log_bin_index</h3><p>binlog的索引文件，内容包含了所有binlog的名称，用于快速定位到指定binlog中。默认地，binlog索引文件的名称为log_bin_basename和.index后缀组成, 比如<code>C:\ProgramData\MySQL\MySQL Server 8.0\Data\LEVI_bin.index</code></p>
+<hr>
+<p>以下配置将影响哪些语句写入二进制日志，从而由复制源服务器发送到其副本。对于副本，还有一些选项可以控制从源接收到的哪些语句应该执行或忽略。</p>
+<h3 id="binlog-do-db"><a href="#binlog-do-db" class="headerlink" title="binlog_do_db"></a>binlog_do_db</h3><p>该选项的实际效果取决于是以ROW模式还是Statement模式记录binlog. </p>
+<blockquote>
+<p>binlog_do_db可以指定多个数据库名, 只是需要重复多次使用该选项，每次指定一个数据库名, 而不是一次提供一个由逗号分隔的数据库名列表。</p>
+</blockquote>
+<h4 id="基于Statement模式"><a href="#基于Statement模式" class="headerlink" title="基于Statement模式"></a>基于Statement模式</h4><p>概括地说, 该选项会选择一个数据库名,只有在默认数据库为指定数据库的情况（使用USE db_name）下，后续的修改动作才会被记录到binlog中.</p>
+<p>如果配置了binlog_do_db=sales但默认数据库为prices, 即使执行了<code>UPDATE sales.january SET amount=amount+1000;</code>这条语句也不会被记录到binlog中.</p>
+<p>如果配置了binlog_do_db=sales且默认数据库为sales, 即使执行的是<code>UPDATE prices.discounts SET percentage = percentage + 10;</code>,这条语句也会被记录到binlog中.</p>
+<h4 id="基于Row模式"><a href="#基于Row模式" class="headerlink" title="基于Row模式"></a>基于Row模式</h4><p>概括地说，该选项会选择一个数据库名，只有属于指定数据库的表内容的修改才会被记录到binlog中，默认数据库不再视为一个影响因素。</p>
+<p>如果配置了binlog_do_db=sales但默认数据库为prices, 执行语句为<code>UPDATE sales.january SET amount=amount+1000;</code>这条语句会被记录到binlog中.</p>
+<p>如果配置了binlog_do_db=sales且默认数据库为sales, 但执行的是<code>UPDATE prices.discounts SET percentage = percentage + 10;</code>,这条语句则不会被记录到binlog中.</p>
+<h3 id="binlog-ignore-db"><a href="#binlog-ignore-db" class="headerlink" title="binlog_ignore_db"></a>binlog_ignore_db</h3><p>同样的，该选项的实际效果取决于是以ROW模式还是Stratement模式记录binlog</p>
+<h4 id="基于Statement模式-1"><a href="#基于Statement模式-1" class="headerlink" title="基于Statement模式"></a>基于Statement模式</h4><p>如果默认数据库是该选项指定的数据库，所有的修改动作都不会被记录到binlog中</p>
+<blockquote>
+<p>MySQL 5.7.2以前, 如果没有指定默认数据库, 该配置会导致任何带有完整表名的语句都不会被记录</p>
+</blockquote>
+<h4 id="基于Row模式-1"><a href="#基于Row模式-1" class="headerlink" title="基于Row模式"></a>基于Row模式</h4><p>如果修改的表位于该选项指定的数据库中，该表上的所有修改动作都不会被记录到binlog中。</p>
+<hr>
+<h3 id="binlog-checksum"><a href="#binlog-checksum" class="headerlink" title="binlog_checksum"></a>binlog_checksum</h3><p>MySQL支持binlog校验和的读写，默认为CRC32算法。无法在一个事务中更改该配置。</p>
+<p>如果要控制副本从relay log中的校验和的读取，可以使用slave_sql_verify_checksum</p>
+<h2 id="系统配置"><a href="#系统配置" class="headerlink" title="系统配置"></a>系统配置</h2><p>系统配置可以在服务器启动前设置，也可以在运行时更改。</p>
+<h3 id="binlog-cache-size"><a href="#binlog-cache-size" class="headerlink" title="binlog_cache_size"></a>binlog_cache_size</h3><p>在一次事务中，能够支持所有更改记录的内存大小。默认为4096，单位为Bytes。如果某次事务的修改数据大小超过了预设值，超量数据会被记录到临时文件中。在事务提交后，内存缓冲区和临时文件中的数据才会被刷到bin log中。</p>
+<p>binlog_cache_size只为事务缓存设置大小, 语句的缓存大小由binlog_stmt_cache_size控制.</p>
+<h3 id="binlog-checksum-1"><a href="#binlog-checksum-1" class="headerlink" title="binlog_checksum"></a>binlog_checksum</h3><p>binlog_checksum目前支持两个值: NONE,CRC32。默认值为CRC32. 如果设置为NONE，服务器则通过写入和检查每个事件的事件长度（而不是校验和）来验证它是否只向二进制日志写入了完整的事件。</p>
+<blockquote>
+<p>在MySQL 8.0.20及以前版本，组复制不支持checksum，如果需要兼容旧版本的副本，数据源（或者说主机）需要明确设置该配置为NONE。</p>
+</blockquote>
+<p>如果在运行时修改该配置，会导致已有的bin log翻转重设，因为校验和必须写入整个二进制日志文件，而不能只写入其中的一部分</p>
+<h3 id="binlog-error-action"><a href="#binlog-error-action" class="headerlink" title="binlog_error_action"></a>binlog_error_action</h3><p>当服务器无法正常写入、刷新或是同步bin log时, binlog_error_action用于配置后续的处理动作，这些意外可能导致数据源的bin log不一致，副本断开同步。binlog_error_action支持两个值: ABORT_SERVER和IGNORE_ERROR, 默认为ABORT_SERVER。</p>
+<p>ABORT_SERVER会使得服务器随时在遇到bin log异常时停止记录并退出, 再重新启动时, 恢复过程等同于服务器意外停止时的处理过程.</p>
+<p>IGNORE_ERROR会让服务器忽略发生的意外并继续正在执行的事务, 随后记录发生的异常并停止记录, 但数据更新依然继续。如果要恢复bin log则需要重启服务器。</p>
+<h3 id="binlog-expire-logs-seconds"><a href="#binlog-expire-logs-seconds" class="headerlink" title="binlog_expire_logs_seconds"></a>binlog_expire_logs_seconds</h3><p>设置bin log过期时间, 单位为秒，默认时长为30天。过期时间结束后，bin log文件会被自动删除。在MySQL 8.0.29及以后，过期自动删除bin log的行为可以被<code>binlog_expire_logs_auto_purge</code>控制, 这一变量的优先级高于binlog_expire_logs_seconds的任何设置。当在旧版本中，只能通过设置<code>binlog_expire_logs_seconds = 0</code>来阻止过期自动删除bin log的行为。</p>
+<h3 id="binlog-format"><a href="#binlog-format" class="headerlink" title="binlog_format"></a>binlog_format</h3><p>设置bin log的记录形式, binlog_format目前支持: MIXED,STATEMENT和ROW, 默认为ROW。</p>
+<blockquote>
+<p>binlog_format将在MySQL 8.0.34后弃用, 意味着未来版本将只保留ROW形式。因此，任何新的 MySQL 复制设置都只能使用基于行的日志记录</p>
+<p>在MySQL 5.7.7之前, binlog_format默认值为STATEMENT, MySQL 5.7.7及以后, binlog_format默认值为ROW</p>
+</blockquote>
+<p>根据不同形式，服务器会以不同方式将事件记录到bin log中。</p>
+<p>STATEMENT：数据源会以SQL语句为粒度记录bin log。副本在同步数据时会依次执行记录好的SQL语句。</p>
+<p>ROW：数据源会以数据行为粒度记录到bin log，记录内容可以指示每张表的每一行是如何变换的。副本在同步数据时直接复制数据行的变换结果。</p>
+<p>MIXED：MIXED状态下，通常使用STATEMENT形式记录，在特殊情况下，依据SQL语句和储存引擎，会切换到ROW模式记录</p>
+<p>通常情况下，MIXED模式做到提供数据完整性和性能的最佳组合。STATEMENT模式和ROW模式的侧重不同，可用于服务特定场景。了解这<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/replication-sbr-rbr.html">两种模式的优劣</a>，可以帮助选择出更为适合的模式。</p>
+<p><strong>ADVANTAGES-STATEMENT：</strong></p>
+<ol>
+<li>技术成熟稳定；</li>
+<li>因为是以SQL语句为粒度，实际记录到bin log的数据量更少，数据恢复和复制的耗时也会更短；</li>
+</ol>
+<p><strong>DISADVANTAGES-STATEMENT：</strong></p>
+<ol>
+<li>并不是所有修改操作都能被STATEMENT模式恢复或复制的, 一些结果不确定的行为,如UUID()/RAND()会使得副本在同步数据时得到不一样的结果；</li>
+<li>批量插入如INSERT…SELECT会请求比起ROW模式更多的行锁</li>
+<li>批量更新如果使用了全表查询, 也会比起ROW模式请求更多的行锁</li>
+<li>使用了AUTO_INCREMENT的INSERT操作会阻塞其他的INSERT操作</li>
+<li>对于复杂语句, 如果实际修改的行数并不多, 实际效率可能还不如ROW模式, 因为STATEMENT模式下副本必须重复评估和执行一次</li>
+</ol>
+<p><strong>ADVANTAGES-ROW:</strong></p>
+<ol>
+<li>能够恢复所有更改, 最能保证数据地完整性</li>
+<li>数据源需要更少的行锁, 进而能提高并发</li>
+<li>副本在执行修改语句时也只需要更少的行数, 因为是以数据行为粒度的, 只需要锁住目标行即可.</li>
+</ol>
+<p><strong>DISADVANTAGES-ROW:</strong></p>
+<ol>
+<li>bin log的实际记录量普遍地明显高于STATEMENT模式, 数据恢复和复制的耗时也会更长</li>
+<li>如果修改了大BLOB或大TEXT数据, 记录到bin log则会占用大量的空间</li>
+<li>副本在恢复和复制数据的时候, 无法知道数据源的行为轨迹. 只能通过<code>mysqlbinlog --base64-output=DECODE-ROWS</code>工具来了解前后的数据变化</li>
+</ol>
+<h3 id="binlog-group-commit-sync-delay"><a href="#binlog-group-commit-sync-delay" class="headerlink" title="binlog_group_commit_sync_delay"></a>binlog_group_commit_sync_delay</h3><p>控制bin log提交与同步到磁盘的延迟等待时间, 单位为微秒。默认情况下，binlog_group_commit_sync_delay 设置为 0，即没有延迟。将 binlog_group_commit_sync_delay 设置为微秒级延迟，可以使更多事务同一批同步到磁盘，从而减少提交一组事务的总体时间</p>
+<h3 id="binlog-row-event-max-size-1"><a href="#binlog-row-event-max-size-1" class="headerlink" title="binlog_row_event_max_size"></a>binlog_row_event_max_size</h3><p>当选用ROW模式时, 该配置可以限制单次bin log记录事件的大小。尽可能地，服务器会将bin log中储存的数据行划分为事件，且事件大小不超过设定值。除非事件本身不可分割，比如一次事务。</p>
+<h3 id="binlog-row-image"><a href="#binlog-row-image" class="headerlink" title="binlog_row_image"></a>binlog_row_image</h3><p>当选用ROW模式时, 该配置可以决定向bin log写入哪些数据行. binlog_row_image当前可选值: FULL、MINIMAL和NOBLOB，默认为FULL</p>
+<p>在ROW模式中，每行数据变动事件都包含两个快照。“before”快照，在搜索要更新的行时，要与该快照的列进行匹配；“after”快照则包含了具体更改。</p>
+<blockquote>
+<ol>
+<li><p>DELETE操作只会记录“before”快照；INSERT操作只会记录“after”快照；UPDATE操作会记录两个快照</p>
+</li>
+<li><p>“before“快照只会留有能唯一定位数据行的最小列集，如果数据表有主键，就只需要保留主键列即可。</p>
+</li>
+</ol>
+</blockquote>
+<p>FULL：记录所有列的”before“快照和”after“快照</p>
+<p>MINIMAL：只记录”before“快照中能唯一定位数据行的最小列集，也只记录”after“快照中被SQL语句指定的字段或自增字段</p>
+<p>NOBLOB：记录所有列的”before“快照和”after“快照，但那些不能用于定位数据行或没被修改的BLOB列或TEXT列不会被记录</p>
+<h3 id="binlog-row-metadata"><a href="#binlog-row-metadata" class="headerlink" title="binlog_row_metadata"></a>binlog_row_metadata</h3><p>当选用ROW模式时, 该配置可以决定写入bin log的表元数据数量. binlog_row_metadata当前可选值: MINIMAL、FULL，默认为MINIMAL。</p>
+<p>MINIMAL：只记录SIGNED标志、列字符集和几何类型的元数据；</p>
+<p>FULL：记录完整的元数据，额外包括：列名、ENUM或SET类型值、主键信息等。</p>
+<p>该配置选用为FULL主要用于以下场景：</p>
+<ol>
+<li>副本需要利用完整的元数据做字段转换，以适用于表结构与数据源表结构不一致的情况</li>
+<li>外置程序需要通过完整的元数据来还原事件，再将数据储存到其他数据库中</li>
+</ol>
+<h3 id="binlog-row-value-options"><a href="#binlog-row-value-options" class="headerlink" title="binlog_row_value_options"></a>binlog_row_value_options</h3><p>当选用ROW模式或是MIXED模式时，该配置会以一种节省空间的bin log格式记录。binlog_row_value_options当前可选值: PARTIAL_JSON和””, 默认为空字符串.</p>
+<p>PARTIAL_JSON针对于UPDATE操作, 且该操作利用了JSON_SET()、JSON_REPLACE()、JSON_REMOVE()函数来修改JSON列。这时，服务器只会在”after“快照中记录修改的部分，而非完整的JOSN文本。</p>
+<p><code>binlog_row_value_options = PARTIAL_JSON</code>搭配着<code>binlog_row_image = MINIMAL或binlog_row_image = NOBLOB</code>能最大地节省bin log空间开销，因为JSON文本主要储存在NOBLOB列或TEXT列。但搭配着<code>binlog_row_image = FULL</code>的效果就没那么好, 因为”before”快照依然会保留完整的JSON文本。</p>
+<h3 id="expire-logs-days"><a href="#expire-logs-days" class="headerlink" title="expire_logs_days"></a>expire_logs_days</h3><p>在MySQL 5.7及以前, 该配置用于指示服务器自动删除bin log文件的间隔天数, 默认值为0, 最大值为99, 单位为天。当<code>expire_logs_days = 0</code>时, 服务器不会自动删除bin log。通过<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/purge-binary-logs.html"><code>PURGE BINARY LOGS</code></a>可以手动清除bin log文件。</p>
+<p>在MySQL 8.0，<code>binlog_expire_logs_seconds</code>替代了该配置。</p>
+<h3 id="log-slave-updates"><a href="#log-slave-updates" class="headerlink" title="log_slave_updates"></a>log_slave_updates</h3><p>用于决定副本在接受数据源的修改记录时, 是否要同步将修改记录到自己的bin log中。log_slave_update是个boolean值, 默认为OFF.</p>
+<p>当数据库既是副本又要作为数据源的时候, 可以开启该配置。比如在链式的主从复制架构中:<code>A-&gt;B-&gt;C</code>, B作为A的副本的同时B又是C的数据源, 这时B就要开启<code>log_bin</code>又要开启<code>log_slave_updates</code></p>
+<h3 id="max-binlog-cache-size"><a href="#max-binlog-cache-size" class="headerlink" title="max_binlog_cache_size"></a>max_binlog_cache_size</h3><p>用于限制一次事务能使用的最大内存容量, 该配置的最小值为4096, 单位为Bytes. 官方建议最大值设为4GB左右, 因为这也是MySQL目前能处理的bin log最大容量。</p>
+<p>和binlog_cache_size一样, max_binglog_cache_size可以在运行时更改, 但只会在新会话中生效。</p>
+<h3 id="max-binlog-size"><a href="#max-binlog-size" class="headerlink" title="max_binlog_size"></a>max_binlog_size</h3><p>bin log文件的理论最大容量, 该配置最小值为4096, 单位为Bytes. 默认值且最大值为1GB.</p>
+<p>如果某次事务的写入导致bin log容量超阈值, 服务器并不会强行拆分事务到两个不同的bin log中, 而是直接写入当前bin log. 所以1GB只是理论值, 如果经常执行大型事务, 还是会有不少超阈值的bin log文件.</p>
+<h3 id="sql-log-bin"><a href="#sql-log-bin" class="headerlink" title="sql_log_bin"></a>sql_log_bin</h3><p>该配置可以控制当前会话的修改是否记录到bin log中。 sql_log_bin的类型为boolean, 默认值为ON.</p>
+<p>如果向数据源的修改并不想同步到副本, 可以临时性的设置<code>sql_log_bin = OFF</code>来禁止bin log记录。</p>
+<blockquote>
+<p>动态设置会话级的系统配置，应使用<code>SET SESSION</code>语句。比起在运行时修改全局级的系统变量，SET SESSION一般无需SUPER权限。但对于特殊的会话级系统配置如binlog_format和sql_log_bin, 它们也会影响到其他会话, 因此也需要SUPER权限.</p>
+</blockquote>
+<p>sql_log_bin不能在事务中或是子查询中设置。</p>
+<h3 id="sync-binlog"><a href="#sync-binlog" class="headerlink" title="sync_binlog"></a>sync_binlog</h3><p>控制MySQL服务器向磁盘同步bin log记录的频率. sync_binlog的最小值为0, 默认值为1, 单位为bin log收集到提交组的次数.</p>
+<p>sync_binlog = 0: 禁止服务器主动刷盘, 这种情况下只能依赖于操作系统本身时不时地刷盘. 这种配置能得到最佳性能, 但也带来极高的bin log丢失的隐患, 比如因系统断电或崩溃, 服务器提交了尚未记录到bin log的事务.</p>
+<p>sync_binlog = 1: 在每次事务提交前就先将记录刷到bin log中. 这种配置能最大程度地保证记录的完整性, 但带来的大量磁盘写会影响整体性能.</p>
+<p>sync_binlog = N: 在N次提交组被服务器收集后, 才会将记录刷到bin log中. N的取值需要在性能和记录完整性上做权衡.</p>
+<blockquote>
+<p>对于InnoDB引擎的事务, 官方建议以下配置, 能尽可能保证耐久性和一致性:</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_sync_binlog"><code>sync_binlog=1</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/innodb-parameters.html#sysvar_innodb_flush_log_at_trx_commit"><code>innodb_flush_log_at_trx_commit=1</code></a></li>
+</ul>
+</blockquote>
+<h1 id="从库配置"><a href="#从库配置" class="headerlink" title="从库配置"></a>从库配置</h1><h3 id="server-id"><a href="#server-id" class="headerlink" title="server-id"></a>server-id</h3><p>无论主从库, server-id都必须保证唯一性。该配置可从MySQL配置文件或<code>show variables</code>等方式查看。</p>
+<h2 id="启动配置-1"><a href="#启动配置-1" class="headerlink" title="启动配置"></a>启动配置</h2><p>大多启动命令可以在执行<code>CHANGE MASTER TO</code>语句的时候一同设置，但其他如<code>--replicate-*</code>等配置必须在副本启动后才能设置。</p>
+<h3 id="max-relay-log-size"><a href="#max-relay-log-size" class="headerlink" title="max-relay-log-size"></a>max-relay-log-size</h3><p>relay log的理论最大容量, 超阈值后relaybinlog_size log则自动翻页。max-relay-log-size默认为0，单位为Bytes。如果<code>max-relay-log-size = 0</code>，则参考<code>max_binlog_size</code></p>
+<h3 id="replicate-do-db"><a href="#replicate-do-db" class="headerlink" title="replicate-do-db"></a>replicate-do-db</h3><p>该配置用于建立一个复制过滤器, 在副本复制数据源bin log的时候, 只复制指定数据库名的更改。过滤器的细致的效果取决于副本采用STATEMENT模式还是ROW模式</p>
+<h4 id="基于Statement模式-2"><a href="#基于Statement模式-2" class="headerlink" title="基于Statement模式"></a>基于Statement模式</h4><p>配置会告知负责复制的SQL线程，将复制限制在那些默认数据库名为配置值的SQL语句上。</p>
+<p>如果副本以<code>replicate_do_db = sales</code>启动，但在数据源上执行以下命令，那么这条UPDATE语句不会被副本复制：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE prices;<br>UPDATE sales.january <span class="hljs-keyword">SET</span> amount<span class="hljs-operator">=</span>amount<span class="hljs-operator">+</span><span class="hljs-number">1000</span>;<br></code></pre></td></tr></table></figure>
+<h4 id="基于Row模式-2"><a href="#基于Row模式-2" class="headerlink" title="基于Row模式"></a>基于Row模式</h4><p>配置会告知负责复制的SQL线程，将复制限制在那些发生指定数据库上的SQL语句。默认数据库则不作为影响因素</p>
+<p>如果副本以<code>replicate_do_db = sales</code>启动，即使在数据源上执行以下命令，这条UPDATE语句也会被副本复制：</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE prices;<br>UPDATE sales.february <span class="hljs-keyword">SET</span> amount<span class="hljs-operator">=</span>amount<span class="hljs-operator">+</span><span class="hljs-number">100</span>;<br></code></pre></td></tr></table></figure>
+<p>除了以上两点差异，当单语句出现多数据库更新时，这两种模式的效果也大不相同：</p>
+<p>假设副本以<code>replicate_do_db = db1</code>启动, 在数据源上执行以下命令:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs sql">USE db1;<br>UPDATE db1.table1, db2.table2 <span class="hljs-keyword">SET</span> db1.table1.col1 <span class="hljs-operator">=</span> <span class="hljs-number">10</span>, db2.table2.col2 <span class="hljs-operator">=</span> <span class="hljs-number">20</span>;<br></code></pre></td></tr></table></figure>
+<p>如果副本采用STATEMENT模式，db1和db2的更改都会被副本复制。如果副本采用ROW模式，只有db1的更改会被副本复制</p>
+<blockquote>
+<p>以上述情况为例，如果ROW模式下想要db1，db2都被副本复制，除了副本执行两次replicate_do_db外, 还可以通过<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/replication-options-replica.html#option_mysqld_replicate-wild-do-table"><code>--replicate-wild-do-table=db.%</code></a>来实现模糊匹配，这可以用于一些会自动扩容的数据表。</p>
+</blockquote>
+<h3 id="replicate-ignore-db"><a href="#replicate-ignore-db" class="headerlink" title="replicate_ignore_db"></a>replicate_ignore_db</h3><p>该配置用于建立一个复制过滤器, 在副本复制数据源bin log的时候, 忽略掉指定数据库名的更改。过滤器的细致的效果取决于副本采用STATEMENT模式还是ROW模式</p>
+<h4 id="基于Statement模式-3"><a href="#基于Statement模式-3" class="headerlink" title="基于Statement模式"></a>基于Statement模式</h4><p>配置会告知负责复制的SQL线程，忽略掉任何发生在默认数据库名为指定数据库上的更改。</p>
+<h4 id="基于Row模式-3"><a href="#基于Row模式-3" class="headerlink" title="基于Row模式"></a>基于Row模式</h4><p>配置会告知负责复制的SQL线程，忽略掉那些发生在指定数据库上的SQL语句。默认数据库不再作为影响因素。</p>
+<h3 id="replicate-do-table"><a href="#replicate-do-table" class="headerlink" title="replicate_do_table"></a>replicate_do_table</h3><p>该配置会告知负责复制的SQL线程, 将复制限定在指定数据表上。如果要指定多张表，只能多次执行该配置，每次指定一张表。</p>
+<blockquote>
+<p>对于在多数据库上或默认数据库上的更新，该配置的效果都一样，不受STATEMENT模式或ROW模式的影响。</p>
+</blockquote>
+<h3 id="replicate-ignore-table"><a href="#replicate-ignore-table" class="headerlink" title="replicate_ignore_table"></a>replicate_ignore_table</h3><p>该配置会告知负责复制的SQL线程，不去复制在指定数据表上的更改，即使在同一SQL语句中有其他数据表也被更改了。如果要指定多张表，只能多次执行该配置，每次指定一张表。</p>
+<h3 id="replicate-rewrite-db"><a href="#replicate-rewrite-db" class="headerlink" title="replicate_rewrite_db"></a>replicate_rewrite_db</h3><p><code>--replicate-rewrite-db = &quot;from_name-&gt;to_name&quot;</code>。该配置会告知负责复制的SQL线程, 从数据源指定数据库<code>from_name</code>里复制的更改, 要更名到副本的指定数据库<code>to_name</code>中。</p>
+<h3 id="skip-slave-start"><a href="#skip-slave-start" class="headerlink" title="skip-slave-start"></a>skip-slave-start</h3><p>告知副本服务器是否要在服务启动时同时启动复制线程, skip_slave_start默认为OFF, 这时需要<code>START SLAVE</code>来手动启动复制线程</p>
+<h3 id="slave-skip-errors"><a href="#slave-skip-errors" class="headerlink" title="slave-skip-errors"></a>slave-skip-errors</h3><p>通常地, 副本服务器在遇到复制错误时会停止复制。而该配置可以允许副本服务器跳过指定错误码的错误，但这可能会带来主从数据的不一致，所以在使用该配置时必须十分清楚错误发生原因。</p>
+<p>slave-skip-errors目前可选值有：OFF、[list of error codes]、all、ddl_exist_errors，默认值为OFF。</p>
+<p>对于可选用的错误码，应先参考副本错误日志中的错误信息和<code>SHOW SLAVE STATUS</code>输出，再考虑是否要将错误码加入到配置项中。官网文档 <a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/5.7/en/error-handling.html"><em>Error Messages and Common Problems</em></a>中列出了详细的服务器错误码。上述的 <code>ddl_exist_errors</code> 就等同于列表： <code>1007,1008,1050,1051,1054,1060,1061,1068,1094,1146</code>。</p>
+<h2 id="系统配置-1"><a href="#系统配置-1" class="headerlink" title="系统配置"></a>系统配置</h2><h3 id="init-slave"><a href="#init-slave" class="headerlink" title="init_slave"></a>init_slave</h3><p>该配置指定的语句会在每次复制线程启动时, 由副本服务器执行一次。上诉的<code>START SLAVE</code>就会触发init_slave。</p>
+<blockquote>
+<p>复制线程会在执行 init_slave 之前向客户端发送确认。因此，不能保证 START SLAVE 返回时，init_slave会被执行完。</p>
+</blockquote>
+<h3 id="rpl-stop-slave-timeout"><a href="#rpl-stop-slave-timeout" class="headerlink" title="rpl_stop_slave_timeout"></a>rpl_stop_slave_timeout</h3><p>该配置可以控制<code>STOP SLAVE</code>命令在超时前需要等待的时间, rpl_stop_slave_timeout最小值为2, 单位为秒. 最大值和默认值为1年。</p>
+<h1 id="如何配置主主"><a href="#如何配置主主" class="headerlink" title="如何配置主主"></a>如何配置主主</h1><p>以一体机的MySQL 5.5.54-log为例，配置一组主主同步。假设主机A（192.168.1.106）和主机B（192.168.1.107）要互为主备。</p>
+<h2 id="添加主从同步账户"><a href="#添加主从同步账户" class="headerlink" title="添加主从同步账户"></a>添加主从同步账户</h2><p>在A主机上执行以下命令，用于创建和B通信的账户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">grant replication slave on *.* to &#39;replication&#39;@&#39;192.168.1.107&#39; identified by &#39;000000&#39;;<br>flush privileges;<br></code></pre></td></tr></table></figure>
+<p>在B主机上执行 以下命令，用于创建和A通信的账户</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">grant replication slave on *.* to &#39;replication&#39;@&#39;192.168.1.106&#39; identified by &#39;000000&#39;;<br>flush privileges;<br></code></pre></td></tr></table></figure>
+<h2 id="修改主机A、B配置"><a href="#修改主机A、B配置" class="headerlink" title="修改主机A、B配置"></a>修改主机A、B配置</h2><p>手动修改主机A配置文件，名为my.ini或my.cnf。要求只同步test数据库下的数据</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">[mysqld]</span>  <span class="hljs-string"></span><br><span class="hljs-meta">server-id</span> = <span class="hljs-string">1  </span><br><span class="hljs-meta">binlog-format</span>=<span class="hljs-string">ROW</span><br><span class="hljs-meta">log-bin</span>=<span class="hljs-string">&quot;A-bin&quot;</span><br><span class="hljs-meta">binlog-do-db</span> = <span class="hljs-string">test </span><br><span class="hljs-meta">binlog-ignore-db</span>=<span class="hljs-string">mysql,information_schema</span><br><span class="hljs-comment">#主主需加入的部分</span><br><span class="hljs-attr">log-slave-updates</span><br><span class="hljs-attr">sync_binlog</span>=<span class="hljs-string">1</span><br><span class="hljs-attr">auto_increment_offset</span>=<span class="hljs-string">1</span><br><span class="hljs-attr">auto_increment_increment</span>=<span class="hljs-string">2</span><br><span class="hljs-meta">replicate-do-db</span> = <span class="hljs-string">test</span><br><span class="hljs-meta">replicate-ignore-db</span> = <span class="hljs-string">mysql,information_schema</span><br></code></pre></td></tr></table></figure>
+<p>手动修改主机B配置文件。要求只同步test数据库下的数据</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">[mysqld]</span>  <span class="hljs-string"></span><br><span class="hljs-meta">server-id</span> = <span class="hljs-string">2</span><br><span class="hljs-meta">binlog-format</span>=<span class="hljs-string">ROW</span><br><span class="hljs-meta">log-bin</span> = <span class="hljs-string">&quot;B-bin&quot;</span><br><span class="hljs-meta">replicate-do-db</span> = <span class="hljs-string">test</span><br><span class="hljs-meta">replicate-ignore-db</span> = <span class="hljs-string">mysql,information_schema</span><br><span class="hljs-comment">#主主需要加入部分</span><br><span class="hljs-meta">binlog-do-db</span> = <span class="hljs-string">test </span><br><span class="hljs-meta">binlog-ignore-db</span>=<span class="hljs-string">mysql</span><br><span class="hljs-attr">log-slave-updates</span><br><span class="hljs-attr">sync_binlog</span>=<span class="hljs-string">1</span><br><span class="hljs-attr">auto_increment_offset</span>=<span class="hljs-string">2</span><br><span class="hljs-attr">auto_increment_increment</span>=<span class="hljs-string">2</span><br></code></pre></td></tr></table></figure>
+<p>随后重启A、B主机，Linux下可以执行<code>mysql restart</code>，Windows下则可以在服务管理器中找到A、B服务然后手动重启。</p>
+<h3 id="忽略特定数据表的同步"><a href="#忽略特定数据表的同步" class="headerlink" title="忽略特定数据表的同步"></a>忽略特定数据表的同步</h3><p>如果主机有一些特定数据单独储存在某些数据表中, 但不希望被同步到副本中。可以考虑在上述基础上加上replicate-ignore-table或replicate-do-table</p>
+<p>以A主机为例, 其不希望将test.configure下的数据同步到B中, 因为表中储存的是A主机特有的配置. 那么B主机的配置文件应如下所示，以阻止B对test.configure的复制行为:</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">[mysqld]</span>  <span class="hljs-string"></span><br><span class="hljs-meta">server-id</span> = <span class="hljs-string">2</span><br><span class="hljs-meta">binlog-format</span>=<span class="hljs-string">ROW</span><br><span class="hljs-meta">log-bin</span> = <span class="hljs-string">&quot;B-bin&quot;</span><br><span class="hljs-meta">replicate-do-db</span> = <span class="hljs-string">test</span><br><span class="hljs-meta">replicate-ignore-db</span> = <span class="hljs-string">mysql,information_schema</span><br><span class="hljs-meta">binlog-do-db</span> = <span class="hljs-string">test </span><br><span class="hljs-meta">binlog-ignore-db</span>=<span class="hljs-string">mysql</span><br><span class="hljs-attr">log-slave-updates</span><br><span class="hljs-attr">sync_binlog</span>=<span class="hljs-string">1</span><br><span class="hljs-attr">auto_increment_offset</span>=<span class="hljs-string">2</span><br><span class="hljs-attr">auto_increment_increment</span>=<span class="hljs-string">2</span><br><span class="hljs-comment">#不从A主机那里复制test.configure中的数据</span><br><span class="hljs-meta">replicate-ignore-table</span> = <span class="hljs-string">test.configure</span><br></code></pre></td></tr></table></figure>
+<p>另一边, A主机也添上<code>replicate-ignore-table = test.configure</code>，就能阻止B主机的配置数据复制到A主机中。</p>
+<blockquote>
+<p>注意的是, <code>replicate-ignore-table = test.configure</code>只是阻止副本的复制行为。对于数据源来说它依然会把<code>test.configure</code>的数据记录到bin log中，只是副本的SQL线程在复制数据源bin log的时候主动忽略了该表。因此，如果换了新的副本，而他又没有配置<code>replicate-ignore-table = test.configure</code>，那么新副本还是会复制的。</p>
+</blockquote>
+<h2 id="构建主主关系"><a href="#构建主主关系" class="headerlink" title="构建主主关系"></a>构建主主关系</h2><p>先分别在A、B中查看主服务器状态，重点关注当前bin log的记录位置，以A服务器为例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt; flush tables with read lock;<br>mysql&gt; show master status\G<br>*************************** 1. row ***************************<br>            File: A-bin.000003<br>        Position: 107<br>    Binlog_Do_DB:<br>Binlog_Ignore_DB:<br>1 row in set (0.00 sec)<br></code></pre></td></tr></table></figure>
+<p>结果说明目前A服务器的最新记录在A-bin.000003，偏移量为107的位置。这里锁表的目的是为了不让写入数据，能让从服务器精确定位同步的开始位置。初次同步完成后，需要解锁。</p>
+<p>回到B服务器，需要选定A服务器为数据源：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt;change master to master_host&#x3D;&#39;192.168.1.106&#39;, master_user&#x3D;&#39;replication&#39;, master_password&#x3D;&#39;000000&#39;, master_log_file&#x3D;&#39;A-bin.000003&#39;, master_log_pos&#x3D;107;<br></code></pre></td></tr></table></figure>
+<p>同样的，A服务器也要选定B服务器作为数据源（具体master_log_file和master_log_pos值要查看B服务器的状态决定）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt;change master to master_host&#x3D;&#39;192.168.1.107&#39;, master_user&#x3D;&#39;replication&#39;, master_password&#x3D;&#39;000000&#39;, master_log_file&#x3D;&#39;B-bin.000003&#39;, master_log_pos&#x3D;107;<br></code></pre></td></tr></table></figure>
+<p>至此，A、B双方都互认为主备，后续只要开启主备同步即可。注意的是，MySQL 5.x往后不再支持在配置文件中指定主服务器，因此这一步只能在命令行中执行。</p>
+<h2 id="开启主备同步"><a href="#开启主备同步" class="headerlink" title="开启主备同步"></a>开启主备同步</h2><p>在A、B服务器上分别执行<code>START SLAVE</code>，随后执行<code>show slave status\G</code>，如果显示如下则正常：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql&gt;show slave status\G;<br> <br>Slave_IO_Running: Yes<br>Slave_SQL_Running: Yes<br></code></pre></td></tr></table></figure>
+<p>同步完成后分别执行<code>unlock tables</code>完成解锁。</p>
+<h2 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h2><p>配置文件添加的<code>binlog-do-db</code>和<code>binlog-ignore-db</code>是属于主机配置，能在<code>show master status</code>的结果中看到；</p>
+<p>配置文件添加的<code>replicate-do-db</code>和<code>replicate-ignore-db</code>，乃至<code>replicate-wild-do-db</code>和<code>replicate-wild-ignore-db</code>都属于备机配置，能在<code>show slave status</code>的结果中看到。</p>
+<h1 id="主主测试"><a href="#主主测试" class="headerlink" title="主主测试"></a>主主测试</h1><p>顺利的话，A和B已经形成了主主同步。现进入A主机，新建表<code>test.tp</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs mysql">USE test;<br>CREATE TABLE tp(<br>	id int primary key auto_increment,<br>    name varchar(20)<br>);<br></code></pre></td></tr></table></figure>
+<p>可以发现B主机也会出现新表<code>test.tp</code>。向A主机的<code>test.tp</code>插入几条数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT INTO tp(name) VALUES(&#39;tp&#39;);<br>INSERT INTO tp(name) VALUES(&#39;tp1&#39;);<br>INSERT INTO tp(name) VALUES(&#39;tp2&#39;);<br></code></pre></td></tr></table></figure>
+<p>A主机的<code>test.tp</code>内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql &gt;select * from tp;<br>+----+------+<br>| id | name |<br>+----+------+<br>|  1 | tp   |<br>|  3 | tp1  |<br>|  5 | tp2  |<br>+----+------+<br></code></pre></td></tr></table></figure>
+<p>切换到B主机的<code>test.tp</code>，查询的内容一致。这说明A的修改同步到了B中，A-&gt;B形成了主备关系。</p>
+<p>向B主机的<code>test.tp</code>插入几条数据:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs mysql">INSERT INTO tp(name) VALUES(&#39;tp4&#39;);<br>INSERT INTO tp(name) VALUES(&#39;tp5&#39;);<br></code></pre></td></tr></table></figure>
+<p>B主机的<code>test.tp</code>内容如下:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs mysql">mysql &gt;select * from tp;<br>+----+------+<br>| id | name |<br>+----+------+<br>|  1 | tp   |<br>|  3 | tp1  |<br>|  5 | tp2  |<br>|  6 | tp4  |<br>|  8 | tp5  |<br>+----+------+<br></code></pre></td></tr></table></figure>
+<p>切换到A主机的<code>test.tp</code>，查询的内容一致。说明B的修改也同步到了A中，B-&gt;A形成了主备关系。至此A、B形成了主主关系。</p>
+<p>如果我们在主主配置的时候在A、B配置文件中都添加了<code>replicate-ignore-table = test.configure</code>，说明<code>test.configure</code>不会相互同步。</p>
+<p>在A主机上新增一张表<code>test.configure</code>，切换到B主机能发现没有发现<code>test.configure</code>，这说明配置已生效。</p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                
+              </div>
+              
+                <p class="note note-warning">本博客所有文章除特别声明外，均采用 <a target="_blank" href="https://creativecommons.org/licenses/by-sa/4.0/deed.zh" rel="nofollow noopener noopener">CC BY-SA 4.0 协议</a> ，转载请注明出处！</p>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2023/11/30/%E4%BB%8ESleep%E5%88%B0Quartz/">
+                        <span class="hidden-mobile">��Sleep��Quartz</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+              <!-- Comments -->
+              <article class="comments" id="comments">
+                
+                
+
+              </article>
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;目录</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
