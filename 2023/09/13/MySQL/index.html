@@ -324,7 +324,7 @@
 </li>
 <li><p>事务的隔离性是通过 (读写锁+MVCC)来实现，读写锁解决写写冲突，MVCC解决读写冲突</p>
 </li>
-<li><p>事务的一致性是通过 原子性、持久性和隔离性 来实现</p>
+<li><p>事务的一致性是通过 原子性、持久性和隔离性 来实现，总的来说，一致性是事务完成后的结果要与预期一致</p>
 </li>
 </ol>
 <h2 id="持久性"><a href="#持久性" class="headerlink" title="持久性"></a><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/408175328">持久性</a></h2><p>MySQL的数据修改会先记录在redo log上，redo log再根据刷盘策略持久化到磁盘上。此外，InnoDB存储引擎有一个后台线程，每隔<code>1</code>秒，就会把redo log buffer中的内容写到文件系统缓存（page cache），然后调用fsync刷盘。</p>
